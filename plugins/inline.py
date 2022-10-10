@@ -21,7 +21,7 @@ async def inline_users(query: InlineQuery):
 
 @Client.on_inline_query()
 async def answer(bot, query):
-    """Show search results for given inline query"""
+    """𝖲𝗁𝗈𝗐 𝖲𝖾𝖺𝗋𝖼𝗁 𝖱𝖾𝗌𝗎𝗅𝗍𝗌 𝖥𝗈𝗋 𝖦𝗂𝗏𝖾𝗇 𝖨𝗇𝗅𝗂𝗇𝖾 𝖰𝗎𝖾𝗋𝗒"""
     
     if not await inline_users(query):
         await query.answer(results=[],
@@ -33,7 +33,7 @@ async def answer(bot, query):
     if AUTH_CHANNEL and not await is_subscribed(bot, query):
         await query.answer(results=[],
                            cache_time=0,
-                           switch_pm_text='You have to subscribe my channel to use the bot',
+                           switch_pm_text='𝖸𝗈𝗎 𝖧𝖺𝗏𝖾 𝖳𝗈 𝖲𝗎𝖻𝗌𝖼𝗋𝗂𝖻𝖾 𝖬𝗒 𝖢𝗁𝖺𝗇𝗇𝖾𝗅 𝖳𝗈 𝖴𝗌𝖾 𝖬𝖾 :)',
                            switch_pm_parameter="subscribe")
         return
 
@@ -74,7 +74,7 @@ async def answer(bot, query):
                 reply_markup=reply_markup))
 
     if results:
-        switch_pm_text = f"{emoji.FILE_FOLDER} Results - {total}"
+        switch_pm_text = f"{emoji.FILE_FOLDER} 𝖧𝖾𝗋𝖾 𝖨𝗌 𝖳𝗁𝖾 𝖱𝖾𝗌𝗎𝗅𝗍𝗌 "
         if string:
             switch_pm_text += f" for {string}"
         try:
@@ -89,7 +89,7 @@ async def answer(bot, query):
         except Exception as e:
             logging.exception(str(e))
     else:
-        switch_pm_text = f'{emoji.CROSS_MARK} No results'
+        switch_pm_text = f'{emoji.CROSS_MARK} 𝖭𝗈 𝖱𝖾𝗌𝗎𝗅𝗍𝗌 𝖥𝗈𝗎𝗇𝖽'
         if string:
             switch_pm_text += f' for "{string}"'
 
@@ -103,7 +103,8 @@ async def answer(bot, query):
 def get_reply_markup(query):
     buttons = [
         [
-            InlineKeyboardButton('Search again', switch_inline_query_current_chat=query)
+            InlineKeyboardButton('🔎 𝖲𝖾𝖺𝗋𝖼𝗁 𝖠𝗀𝖺𝗂𝗇', switch_inline_query_current_chat=query),
+            InlineKeyboardButton('📢 𝖴𝗉𝖽𝖺𝗍𝖾𝗌', url='https://t.me/rai_info17')
         ]
         ]
     return InlineKeyboardMarkup(buttons)

@@ -15,8 +15,8 @@
       "index",
       "inline"
     ],
-    "website": "https://github.com/EvamariaTG/EvaMaria",
-    "repository": "https://github.com/EvamariaTG/EvaMaria",
+    "website": "https://github.com/ritheshrkrm/EvaFileFilterBot",
+    "repository": "https://github.com/ritheshrkrm/EvaFileFilterBot",
     "env": {
         "BOT_TOKEN": {
             "description": "Your bot token.",
