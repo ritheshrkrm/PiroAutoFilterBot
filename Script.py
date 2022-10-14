@@ -30,7 +30,7 @@ class script(object):
  /info - User info 
  /id - User id
  /stats - Db status  
- /broadcast - Broadcast (𝖮𝗐𝗇𝖾𝗋 𝖮𝗇𝗅𝗒)
+ /broadcast - Broadcast (**𝖮𝗐𝗇𝖾𝗋 𝖮𝗇𝗅𝗒**)
 
 ○ 𝖭𝗈𝗍𝗂𝖼𝖾 📙:-
 
