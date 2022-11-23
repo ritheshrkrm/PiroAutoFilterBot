@@ -866,7 +866,7 @@ async def manual_filters(client, message, text=False):
                                 reply_to_message_id=reply_id
                             )
                             await asyncio.sleep(300)
-                            await knd3.delete()
+                            await knd2.delete()
                             await message.delete()
 
                     elif btn == "[]":
@@ -877,19 +877,19 @@ async def manual_filters(client, message, text=False):
                             reply_to_message_id=reply_id
                         )
                         await asyncio.sleep(300)
-                        await knd3.delete()
+                        await knd1.delete()
                         await message.delete()
 
                     else:
                         button = eval(btn)
-                        knd = await message.reply_cached_media(
+                        knd5 = await message.reply_cached_media(
                             fileid,
                             caption=reply_text or "",
                             reply_markup=InlineKeyboardMarkup(button),
                             reply_to_message_id=reply_id
                         )
                         await asyncio.sleep(300)
-                        await knd3.delete()
+                        await knd5.delete()
                         await message.delete()
 
                 except Exception as e:
@@ -935,7 +935,7 @@ async def global_filters(client, message, text=False):
                                 reply_to_message_id=reply_id
                             )
                             await asyncio.sleep(300)
-                            await knd3.delete()
+                            await knd2.delete()
                             await message.delete()
 
                     elif btn == "[]":
@@ -946,19 +946,19 @@ async def global_filters(client, message, text=False):
                             reply_to_message_id=reply_id
                         )
                         await asyncio.sleep(300)
-                        await knd3.delete()
+                        await knd1.delete()
                         await message.delete()
 
                     else:
                         button = eval(btn)
-                        knd = await message.reply_cached_media(
+                        knd4 = await message.reply_cached_media(
                             fileid,
                             caption=reply_text or "",
                             reply_markup=InlineKeyboardMarkup(button),
                             reply_to_message_id=reply_id
                         )
                         await asyncio.sleep(300)
-                        await knd3.delete()
+                        await knd4.delete()
                         await message.delete()
 
                 except Exception as e:
