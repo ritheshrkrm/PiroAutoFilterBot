@@ -21,8 +21,6 @@ from typing import Union, Optional, AsyncGenerator
 from pyrogram import types
 TIMEZONE = (os.environ.get("TIMEZONE", "Asia/Kolkata"))
 
-PORT = "8080"
-
 class Bot(Client):
 
     def __init__(self):
