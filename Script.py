@@ -56,7 +56,7 @@ Special Thanks to EvaMaria and Professor-Bot for the codes
 - Source - https://github.com/ritheshrkrm/PiroAutoFilterBot """
     MANUELFILTER_TXT = """Help: <b>Filters</b>
 
-- Filter is the feature were users can set automated replies for a particular keyword and EvaMaria will respond whenever a keyword is found the message
+- Filter is the feature were users can set automated replies for a particular keyword and PiroAutoFilterBot will respond whenever a keyword is found the message
 
 <b>NOTE:</b>
 1. eva maria should have admin privillage.
@@ -84,7 +84,7 @@ Special Thanks to EvaMaria and Professor-Bot for the codes
 3. Buttons should be properly parsed as markdown format
 
 <b>URL buttons:</b>
-<code>[Button Text](buttonurl:https://t.me/EvaMariaBot)</code>
+<code>[Button Text](buttonurl:https://t.me/PiroAutoFilterBot)</code>
 
 <b>Alert buttons:</b>
 <code>[Button Text](buttonalert:This is an alert message)</code>"""
@@ -146,7 +146,7 @@ This module only works for my admins
 𝖴𝗌𝖾𝖽 𝖲𝗍𝗈𝗋𝖺𝗀𝖾: <code>{}</code>
  """
     LOG_TEXT_G = """#NewGroup
-Group = {}(<code>{}</code>
+Group = {}(<code>{}</code>)
 Total Members = <code>{}</code>
 Added By - {}
 """
