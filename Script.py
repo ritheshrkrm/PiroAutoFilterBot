@@ -141,7 +141,7 @@ This module only works for my admins
 𝖴𝗌𝖾𝖽 𝖲𝗍𝗈𝗋𝖺𝗀𝖾: <code>{}</code>
  """
     LOG_TEXT_G = """#NewGroup
-Group = {}(<code>{}</code>
+Group = {}(<code>{}</code>)
 Total Members = <code>{}</code>
 Added By - {}
 """
