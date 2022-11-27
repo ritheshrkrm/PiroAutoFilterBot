@@ -49,11 +49,11 @@ class script(object):
 ○ 𝖡𝗎𝗂𝗅𝖽 𝖲𝗍𝖺𝗍𝗎𝗌 : v1.0.1 [BeTa]
 ○ 𝖲𝗎𝗉𝗉𝗈𝗋𝗍 𝖦𝗋𝗈𝗎𝗉 : <a href='https://t.me/raixchat'>𝖳𝖺𝗉 𝖧𝖾𝗋𝖾</a>"""
     SOURCE_TXT = """<b>NOTE:</b>
-- Eva Maria is a open source project. 
+Special Thanks to EvaMaria and Professor-Bot for the codes 
 <b>DEV:</b>
 
 - <a href=https://t.me/rithesh_rkrm_17>『ᴘɪʀᴏ』</a>
-- Source - https://github.com/ritheshrkrm/EvaMaria """
+- Source - https://github.com/ritheshrkrm/PiroAutoFilterBot """
     MANUELFILTER_TXT = """Help: <b>Filters</b>
 
 - Filter is the feature were users can set automated replies for a particular keyword and EvaMaria will respond whenever a keyword is found the message

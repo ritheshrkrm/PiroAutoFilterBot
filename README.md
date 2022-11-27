@@ -27,7 +27,7 @@
 ### Optional Variables
 * `PICS`: Telegraph links of images to show in start message.( Multiple images can be used separated by space )
 * `FILE_STORE_CHANNEL`: Channel from were file store links of posts should be made.Separate multiple IDs by space
-* Check [info.py](https://github.com/ritheshrkrm/EvaFileFilterBot/blob/master/info.py) for more
+* Check [info.py](https://github.com/ritheshrkrm/PiroAutoFilterBot/blob/master/info.py) for more
 
 
 ## Deploy
@@ -35,21 +35,13 @@ You can deploy this bot anywhere.
 
 <i>**[Watch Deploying Tutorial...](https://youtu.be/1G1XwEOnxxo)**</i>
 
-<details><summary>Deploy To Heroku</summary>
-<p>
-<br>
-<a href="https://telegram.dog/XTZ_HerokuBot?start=RXZhbWFyaWFURy9FdmFNYXJpYSBtYXN0ZXI">
-  <img src="https://www.herokucdn.com/deploy/button.svg" alt="Deploy">
-</a>
-</p>
-</details>
 
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/ritheshrkrm/EvaMaria)
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/ritheshrkrm/PiroAutoFilterBot)
 
 <details><summary>Deploy To VPS</summary>
 <p>
 <pre>
-git clone https://github.com/ritheshrkrm/EvaFileFilterBot
+git clone https://github.com/ritheshrkrm/PiroAutoFilterBot
 # Install Packages
 pip3 install -U -r requirements.txt
 Edit info.py with variables as given below then run bot
@@ -104,5 +96,5 @@ python3 bot.py
 
 ## Disclaimer
 [![GNU Affero General Public License 2.0](https://www.gnu.org/graphics/agplv3-155x51.png)](https://www.gnu.org/licenses/agpl-3.0.en.html#header)    
-Licensed under [GNU AGPL 2.0.](https://github.com/ritheshrkrm/EvaFileFilterBot/blob/master/LICENSE)
+Licensed under [GNU AGPL 2.0.](https://github.com/ritheshrkrm/PiroAutoFilterBot/blob/master/LICENSE)
 Selling The Codes To Other People For Money Is *Strictly Prohibited*.
