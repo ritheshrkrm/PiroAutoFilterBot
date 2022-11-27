@@ -134,7 +134,12 @@ This module only works for my admins
 • /ban  - <code>to ban a user.</code>
 • /unban  - <code>to unban a user.</code>
 • /channel - <code>to get list of total connected channels</code>
-• /broadcast - <code>to broadcast a message to all users</code>"""
+• /broadcast - <code>to broadcast a message to all users</code>
+• /inkick - <code>command with required arguments and i will kick members from group.</code>
+• /instatus - <code>to check current status of chat member from group.</code>
+• /inkick within_month long_time_ago - <code>to kick users who are offline for more than 6-7 days.</code>
+• /inkick long_time_ago - <code>to kick members who are offline for more than a month and Deleted Accounts.</code>
+• /dkick - <code>to kick deleted accounts."""
     STATUS_TXT = """𝖳𝗈𝗍𝖺𝗅 𝖥𝗂𝗅𝖾𝗌: <code>{}</code>
 𝖳𝗈𝗍𝖺𝗅 𝖬𝖾𝗆𝖻𝖾𝗋𝗌: <code>{}</code>
 𝖳𝗈𝗍𝖺𝗅 𝖢𝗁𝖺𝗍𝗌: <code>{}</code>
