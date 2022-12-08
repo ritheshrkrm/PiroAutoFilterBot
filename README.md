@@ -1,19 +1,41 @@
 
 ## Features
 
-- [x] Auto Filter
-- [x] Manual Filter
+- [x] IMDB Template Set
+- [x] Indexes Files above 2GB
+- [x] Settings Menu
+- [x] Force Subscription
+- [x] Automatic File Filtering
+- [x] Double Filter Button
+- [x] Single Filter Button
+- [x] Bot PM File Send Mode
+- [x] Auto File Send
+- [x] Forward Restriction
+- [x] File Protect
+- [x] Manual File Filtering
+- [x] Global File Filtering
 - [x] IMDB
 - [x] Admin Commands
-- [x] Broadcast
+- [x] User Broadcast
+- [x] Group Broadcast
 - [x] Index
 - [x] IMDB search
 - [x] Inline Search
 - [x] Random pics
 - [x] ids and User info 
-- [x] Stats, Users, Chats, Ban, Unban, Leave, Disable, Channel
+- [x] Stats
+- [x] Users
+- [x] Chats
+- [x] User Ban
+- [x] User Unban
+- [x] Chat Leave
+- [x] Chat Disable
+- [x] Channel
 - [x] Spelling Check Feature
 - [x] File Store
+- [x] Auto Delete
+- [x] And More...
+
 
 ### Required Variables
 * `BOT_TOKEN`: Create a bot using [@BotFather](https://telegram.dog/BotFather), and get the Telegram API token.
@@ -87,8 +109,13 @@ python3 bot.py
  - Thanks To Mahesh For His Awesome Media-Search-bot
  - Thanks To Trojanz for Their AwesomeUnlimited Filter Bot And AutoFilterBoT
  - Thanks To EvaMaria Devs For Their AutoFIlterBot
- = Thank To Professor-Bot & KD Bots
+ - Thank To Professor-Bot & KD Bots
  - Thanks To Me For Wasting Time On This Repo Instead Of Studying :)
+
+ ## Note 🏷️
+ - <b>Importing this repo instead of forking is strictly prohibited 🚫 Kindly fork and edit as your wish (Must Give Credits for devs) 🙃</b>
+ - <b>If you find any bugs or errors, report it to the developer.</b>
+* [![Contact Developer](https://img.shields.io/static/v1?label=Contact+Developer&message=On+Telegram&color=critical)](https://telegram.me/rai_info17)
 
 
 ## Disclaimer

@@ -35,7 +35,7 @@ logger.setLevel(logging.ERROR)
 BUTTONS = {}
 SPELL_CHECK = {}
 
-@Client.on_message((filters.group & filters.text & filters.incoming & filters.text & filters.incoming)
+@Client.on_message(filters.group & filters.text & filters.incoming & filters.text & filters.incoming)
 async def give_filter(client, message):
     k = await global_filters(client, message)
     if k == False:
@@ -170,7 +170,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         await query.message.delete()
         await query.answer("Process Cancelled !")
         return
-        
+
     elif query.data == "delallconfirm":
         userid = query.from_user.id
         chat_type = query.message.chat.type
