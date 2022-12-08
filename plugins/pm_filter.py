@@ -37,10 +37,9 @@ SPELL_CHECK = {}
 
 @Client.on_message((filters.group | filters.private) & filters.text & filters.incoming & filters.text & filters.group )
 async def give_filter(client, message):
-    kd = await global_filters(client, message)
-    if kd == False:          
-    k = await manual_filters(client, message)
-    if k == False:
+    await global_filters(client, message)
+    mf = await manual_filters(client, message)
+    if mf == False:
         await auto_filter(client, message)
 
 
