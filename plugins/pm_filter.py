@@ -35,9 +35,11 @@ logger.setLevel(logging.ERROR)
 BUTTONS = {}
 SPELL_CHECK = {}
 
-@Client.on_message((filters.group | filters.private) & filters.text & filters.incoming & filters.text)
+@Client.on_message((filters.group | filters.private) & filters.text & filters.incoming & filters.text & filters.group )
 async def give_filter(client, message):
-    k = await global_filters(client, message)
+    kd = await global_filters(client, message)
+    if kd == False:          
+    k = await manual_filters(client, message)
     if k == False:
         await auto_filter(client, message)
 
