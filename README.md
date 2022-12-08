@@ -60,6 +60,9 @@ You can deploy this bot anywhere.
 
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/ritheshrkrm/PiroAutoFilterBot)
 
+
+[![Deploy to Koyeb](https://www.koyeb.com/static/images/deploy/button.svg)](https://app.koyeb.com/deploy?type=git&repository=github.com/ritheshrkrm/PiroAutoFilterBot&branch=main&name=PiroAutoFilterBot)
+
 <details><summary>Deploy To VPS</summary>
 <p>
 <pre>
