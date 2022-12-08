@@ -127,7 +127,7 @@ async def deletegfilter(client, message):
     query = text.lower()
 
     await delete_gfilter(message, query, 'gfilters')
-    
+
 @Client.on_message(filters.command('delallg') & filters.user(ADMINS))
 async def delallgfilters(client, message):
     await message.reply_text(
