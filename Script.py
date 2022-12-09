@@ -70,10 +70,10 @@ Special Thanks to EvaMaria and Professor-Bot for the codes
 • /delall - <code>delete the whole filters in a chat (chat owner only)</code>
 
 <b>Adv Global Filter </b>
-• /gfilter - <code>ᴛᴏ ᴀᴅᴅ ɢʟᴏʙᴀʟ ғɪʟᴛᴇʀs</code>
-• /gfilters - <code>ᴛᴏ ᴠɪᴇᴡ ʟɪsᴛ ᴏғ ᴀʟʟ ɢʟᴏʙᴀʟ ғɪʟᴛᴇʀs<code>
-• /delg - <code>ᴛᴏ ᴅᴇʟᴇᴛᴇ ᴀ sᴘᴇᴄɪғɪᴄ ɢʟᴏʙᴀʟ ғɪʟᴛᴇʀ</code>
-• /delallg - <code>ᴛᴏ ᴅᴇʟᴇᴛᴇ ᴀʟʟ ɢʟᴏʙᴀʟ ꜰɪʟᴛᴇʀꜱ</code>"""
+• /gfilter - <code>to add a global filter</code>
+• /gfilters - <code>to get list of global filters<code>
+• /delg - <code>delete a global filter</code>
+• /delallg - <code>Delete all global filter</code>"""
     BUTTON_TXT = """Help: <b>Buttons</b>
 
 - PiroAutoFilterBot Supports both url and alert inline buttons.
