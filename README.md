@@ -1,4 +1,18 @@
+<p align="center">
+  <img src="assets/logo.jpg" alt="Eva Maria Logo">
+</p>
+<h1 align="center">
+  <b>Eva Maria Bot</b>
+</h1>
 
+
+[![Stars](https://img.shields.io/github/stars/ritheshrkrm/PiroAutoFilterBot?style=flat-square&color=yellow)](https://github.com/ritheshrkrm/PiroAutoFilterBot/stargazers)
+[![Forks](https://img.shields.io/github/forks/ritheshrkrm/PiroAutoFilterBot?style=flat-square&color=orange)](https://github.com/ritheshrkrm/PiroAutoFilterBot/fork)
+[![Size](https://img.shields.io/github/repo-size/ritheshrkrm/PiroAutoFilterBot?style=flat-square&color=green)](https://github.com/ritheshrkrm/PiroAutoFilterBot/)   
+[![Open Source Love svg2](https://badges.frapsoft.com/os/v2/open-source.svg?v=103)](https://github.com/ritheshrkrm/PiroAutoFilterBot)   
+[![Contributors](https://img.shields.io/github/contributors/ritheshrkrm/PiroAutoFilterBot?style=flat-square&color=green)](https://github.com/ritheshrkrm/PiroAutoFilterBot/graphs/contributors)
+[![License](https://img.shields.io/badge/License-AGPL-blue)](https://github.com/ritheshrkrm/PiroAutoFilterBot/blob/main/LICENSE)
+[![Sparkline](https://stars.medv.io/ritheshrkrm/PiroAutoFilterBot.svg)](https://stars.medv.io/ritheshrkrm/PiroAutoFilterBot)
 ## Features
 
 - [x] IMDB Template Set
