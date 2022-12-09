@@ -2,7 +2,7 @@
   <img src="assets/logo.jpg">
 </p>
 <h1 align="center">
-  <b>Eva Maria Bot</b>
+  <b>PiroAutoFilterBot</b>
 </h1>
 
 
