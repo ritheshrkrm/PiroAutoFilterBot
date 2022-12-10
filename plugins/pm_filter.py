@@ -2,12 +2,9 @@
 import asyncio
 import re
 import ast
-import time
 import math
 from pyrogram.errors.exceptions.bad_request_400 import MediaEmpty, PhotoInvalidDimensions, WebpageMediaEmpty
 from Script import script
-from database.users_chats_db import db
-from database.ia_filterdb import Media
 import pyrogram
 from database.connections_mdb import active_connection, all_connections, delete_connection, if_active, make_active, \
     make_inactive
@@ -576,20 +573,15 @@ async def cb_handler(client: Client, query: CallbackQuery):
             InlineKeyboardButton('♻️ 𝖱𝖾𝖿𝗋𝖾𝗌𝗁', callback_data='rfrsh')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
-        pirobot = await message.reply('Fetching stats...')
-        uptime = time.strftime("%Hh %Mm %Ss", time.gmtime(time.time() - BOT_START_TIME))
-        ram = psutil.virtual_memory().percent
-        cpu = psutil.cpu_percent()
-        total_users = await db.total_users_count()
-        totl_chats = await db.total_chat_count()
-        files = await Media.count_documents()
-        size = await db.get_db_size()
-        free = 536870912 - size
-        size = get_size(size)
+        total = await Media.count_documents()
+        users = await db.total_users_count()
+        chats = await db.total_chat_count()
+        monsize = await db.get_db_size()
+        free = 536870912 - monsize
+        monsize = get_size(monsize)
         free = get_size(free)
-        await pirobot.edit_text(
-            text=script.ADMIN_STATUS_TXT.format(uptime, ram, cpu, files, total_users, totl_chats, size, free),
-            disable_web_page_preview=True,
+        await query.message.edit_text(
+            text=script.STATUS_TXT.format(total, users, chats, monsize, free),
             reply_markup=reply_markup,
             parse_mode=enums.ParseMode.HTML
         )
@@ -600,20 +592,15 @@ async def cb_handler(client: Client, query: CallbackQuery):
             InlineKeyboardButton('♻️ 𝖱𝖾𝖿𝗋𝖾𝗌𝗁', callback_data='rfrsh')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
-        pirobot = await message.reply('Fetching stats...')
-        uptime = time.strftime("%Hh %Mm %Ss", time.gmtime(time.time() - BOT_START_TIME))
-        ram = psutil.virtual_memory().percent
-        cpu = psutil.cpu_percent()
-        total_users = await db.total_users_count()
-        totl_chats = await db.total_chat_count()
-        files = await Media.count_documents()
-        size = await db.get_db_size()
-        free = 536870912 - size
-        size = get_size(size)
+        total = await Media.count_documents()
+        users = await db.total_users_count()
+        chats = await db.total_chat_count()
+        monsize = await db.get_db_size()
+        free = 536870912 - monsize
+        monsize = get_size(monsize)
         free = get_size(free)
-        await pirobot.edit_text(
-            text=script.ADMIN_STATUS_TXT.format(uptime, ram, cpu, files, total_users, totl_chats, size, free),
-            disable_web_page_preview=True,
+        await query.message.edit_text(
+            text=script.STATUS_TXT.format(total, users, chats, monsize, free),
             reply_markup=reply_markup,
             parse_mode=enums.ParseMode.HTML
         )
