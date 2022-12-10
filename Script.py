@@ -140,22 +140,18 @@ This module only works for my admins
 • /inkick within_month long_time_ago - <code>to kick users who are offline for more than 6-7 days.</code>
 • /inkick long_time_ago - <code>to kick members who are offline for more than a month and Deleted Accounts.</code>
 • /dkick - <code>to kick deleted accounts."""
-    STATUS_TXT = """
-~ 𝗗𝗮𝘁𝗮𝗯𝗮𝘀𝗲 𝗦𝘁𝗮𝘁𝘀:
-
-• 𝖳𝗈𝗍𝖺𝗅 𝖥𝗂𝗅𝖾𝗌: <code>{}</code>
-• 𝖳𝗈𝗍𝖺𝗅 𝖬𝖾𝗆𝖻𝖾𝗋𝗌: <code>{}</code>
-• 𝖳𝗈𝗍𝖺𝗅 𝖢𝗁𝖺𝗍𝗌: <code>{}</code>
-• 𝖴𝗌𝖾𝖽 𝖲𝗍𝗈𝗋𝖺𝗀𝖾: <code>{}</code>
-
-~ 𝗦𝗲𝗿𝘃𝗲𝗿 𝗦𝘁𝗮𝘁𝘀:
+    STATUS_TXT = """<b>⍟────[ ʙᴏᴛ sᴛᴀᴛᴜ𝗌 ]────⍟</b>
 
 • 𝖡𝗈𝗍 𝖴𝗉𝗍𝗂𝗆𝖾: <code>{}</code>
-• 𝖢𝖯𝖴 𝖴𝗌𝖺𝗀𝖾: <code>{}</code>
-• 𝖱𝖺𝗆 𝖴𝗌𝖺𝗀𝖾: <code>{}</code>
-• 𝖣𝗂𝗌𝗄 𝖴𝗌𝖺𝗀𝖾: <code>{}</code>
+• 𝖢𝖯𝖴 𝖴𝗌𝖺𝗀𝖾: <code>{}%</code>
+• 𝖱𝖺𝗆 𝖴𝗌𝖺𝗀𝖾: <code>{}%</code>
 
-😎 𝖯𝗈𝗐𝖾𝗋𝖾𝖽 𝖻𝗒 @rai_info17
+• Total Files: <code>{}</code>
+• Total Users: <code>{}</code>
+• Total Chats: <code>{}</code>
+• Used Storage: <code>{}</code>
+
+<b>⍟────[ @rai_info17 ]─────⍟</b>
  """
     LOG_TEXT_G = """#NewGroup
 Group = {}(<code>{}</code>)
