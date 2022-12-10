@@ -95,7 +95,10 @@ async def next_page(bot, query):
         ]
     btn.insert(0, 
         [
-            InlineKeyboardButton("🎬 {search} 🎬", url=f"https://www.imdb.com/search?q={search}")
+                InlineKeyboardButton(
+                    text=f"{imdb.get('title')}",
+                    url=imdb['url'],
+                )
         ]
     )
     btn.insert(1,
@@ -713,7 +716,10 @@ async def auto_filter(client, msg, spoll=False):
         ]
     btn.insert(0, 
         [
-            InlineKeyboardButton("🎬 {search} 🎬", url=f"https://www.imdb.com/search?q={search}")
+                InlineKeyboardButton(
+                    text=f"{imdb.get('title')}",
+                    url=imdb['url'],
+                )
         ]
     )
     btn.insert(1,
