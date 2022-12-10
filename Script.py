@@ -150,6 +150,7 @@ This module only works for my admins
 
 ~ 𝗦𝗲𝗿𝘃𝗲𝗿 𝗦𝘁𝗮𝘁𝘀:
 
+• 𝖡𝗈𝗍 𝖴𝗉𝗍𝗂𝗆𝖾: <code>{}</code>
 • 𝖢𝖯𝖴 𝖴𝗌𝖺𝗀𝖾: <code>{}</code>
 • 𝖱𝖺𝗆 𝖴𝗌𝖺𝗀𝖾: <code>{}</code>
 • 𝖣𝗂𝗌𝗄 𝖴𝗌𝖺𝗀𝖾: <code>{}</code>
