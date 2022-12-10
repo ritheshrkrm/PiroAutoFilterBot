@@ -140,19 +140,28 @@ This module only works for my admins
 • /inkick within_month long_time_ago - <code>to kick users who are offline for more than 6-7 days.</code>
 • /inkick long_time_ago - <code>to kick members who are offline for more than a month and Deleted Accounts.</code>
 • /dkick - <code>to kick deleted accounts."""
+
     STATUS_TXT = """<b>⍟────[ ʙᴏᴛ sᴛᴀᴛᴜ𝗌 ]────⍟</b>
 
-• 𝖡𝗈𝗍 𝖴𝗉𝗍𝗂𝗆𝖾: <code>{}</code>
-• 𝖢𝖯𝖴 𝖴𝗌𝖺𝗀𝖾: <code>{}%</code>
-• 𝖱𝖺𝗆 𝖴𝗌𝖺𝗀𝖾: <code>{}%</code>
+<b>⏳ ʙᴏᴛ ᴜᴘᴛɪᴍᴇ:</b> <code>{}</code>
 
-• Total Files: <code>{}</code>
-• Total Users: <code>{}</code>
-• Total Chats: <code>{}</code>
-• Used Storage: <code>{}</code>
+<b>☣️ ᴄᴘᴜ:</b> <code>{}%</code>
 
-<b>⍟────[ @rai_info17 ]─────⍟</b>
- """
+<b>☢️ ʀᴀᴍ:</b> <code>{}%</code>
+
+<b>📊 ғɪʟᴇs sᴀᴠᴇᴅ:</b> <code>{}</code>
+
+<b>👤 ᴜsᴇʀs:</b> <code>{}</code>
+
+<b>👥 ɢʀᴏᴜᴘs:</b> <code>{}</code>
+
+<b>♻️ ᴛᴏᴛᴀʟ:</b> <code>512 MB</code>
+
+<b>🉐 ᴏᴄᴄᴜᴘɪᴇᴅ:</b> <code>{}</code>
+
+<b>🆓 ғʀᴇᴇ:</b> <code>{}</code>
+
+<b>⍟────[ @rai_info17 ]─────⍟</b>"""
     LOG_TEXT_G = """#NewGroup
 Group = {}(<code>{}</code>)
 Total Members = <code>{}</code>
