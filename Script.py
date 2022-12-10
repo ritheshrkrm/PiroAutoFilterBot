@@ -148,6 +148,12 @@ This module only works for my admins
 • 𝖳𝗈𝗍𝖺𝗅 𝖢𝗁𝖺𝗍𝗌: <code>{}</code>
 • 𝖴𝗌𝖾𝖽 𝖲𝗍𝗈𝗋𝖺𝗀𝖾: <code>{}</code>
 
+~ 𝗦𝗲𝗿𝘃𝗲𝗿 𝗦𝘁𝗮𝘁𝘀:
+
+• 𝖢𝖯𝖴 𝖴𝗌𝖺𝗀𝖾: <code>{}</code>
+• 𝖱𝖺𝗆 𝖴𝗌𝖺𝗀𝖾: <code>{}</code>
+• 𝖣𝗂𝗌𝗄 𝖴𝗌𝖺𝗀𝖾: <code>{}</code>
+
 😎 𝖯𝗈𝗐𝖾𝗋𝖾𝖽 𝖻𝗒 @rai_info17
  """
     LOG_TEXT_G = """#NewGroup
