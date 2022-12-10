@@ -102,7 +102,7 @@ async def next_page(bot, query):
         [
             InlineKeyboardButton(f'📂 𝖥𝗂𝗅𝖾𝗌: {len(files)}', 'dupe'),
             InlineKeyboardButton(f'📮 𝖨𝗇𝖿𝗈', 'info'),
-            InlineKeyboardButton(f'🔗 𝖨𝖬𝖣𝖻', 'info')
+            InlineKeyboardButton(text=f"{imdb.get('title')}",url=imdb['url'])
         ]
     )
 
@@ -718,7 +718,7 @@ async def auto_filter(client, msg, spoll=False):
         [
             InlineKeyboardButton(f'📂 𝖥𝗂𝗅𝖾𝗌: {len(files)}', 'dupe'),
             InlineKeyboardButton(f'📮 𝖨𝗇𝖿𝗈', 'info'),
-            InlineKeyboardButton(f'🔗 𝖨𝖬𝖣𝖻', 'info')
+            InlineKeyboardButton(text=f"{imdb.get('title')}",url=imdb['url'])
         ]
     )    
 
