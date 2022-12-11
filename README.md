@@ -19,13 +19,10 @@
 
 - [x] IMDB Template Set
 - [x] Indexes Files above 2GB
-- [x] Settings Menu
 - [x] Force Subscription
 - [x] Automatic File Filtering
 - [x] Double Filter Button
 - [x] Single Filter Button
-- [x] Bot PM File Send Mode
-- [x] Auto File Send
 - [x] Forward Restriction
 - [x] File Protect
 - [x] Manual File Filtering
@@ -70,7 +67,7 @@
 
 
 
-[![Deploy to Koyeb](https://www.koyeb.com/static/images/deploy/button.svg)](https://app.koyeb.com/deploy?type=git&repository=github.com/ritheshrkrm/PiroAutoFilterBot&branch=main&name=PiroAutoFilterBot)
+[![Deploy to Koyeb](https://www.koyeb.com/static/images/deploy/button.svg)](https://app.koyeb.com/deploy?type=git&repository=https://github.com/ritheshrkrm/PiroAutoFilterBot&env[BOT_TOKEN]&env[API_ID]&env[API_HASH]&env[CHANNELS]&env[ADMINS]&env[PICS]&env[LOG_CHANNEL]&env[AUTH_CHANNEL]&env[CUSTOM_FILE_CAPTION]&env[DATABASE_URI]&env[DATABASE_NAME]=pirobots&env[COLLECTION_NAME]=Telegram_files&env[IMDB]=True&env[IMDB_TEMPLATE]&env[SINGLE_BUTTON]=True&run_command=python%20bot.py&branch=main&name=autofilterbot)
 
 <details><summary>Deploy To VPS</summary>
 <p>
