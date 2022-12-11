@@ -5,6 +5,7 @@
   <b>PiroAutoFilterBot</b>
 </h1>
 
+![Typing SVG](https://readme-typing-svg.herokuapp.com/?lines=PIRO+MOVIE+SEARCH+BOT+!;CREATED+BY+PIRO!;A+ADVANCE+BOT+WITH+COOL+FEATURES!)
 
 [![Stars](https://img.shields.io/github/stars/ritheshrkrm/PiroAutoFilterBot?style=flat-square&color=yellow)](https://github.com/ritheshrkrm/PiroAutoFilterBot/stargazers)
 [![Forks](https://img.shields.io/github/forks/ritheshrkrm/PiroAutoFilterBot?style=flat-square&color=orange)](https://github.com/ritheshrkrm/PiroAutoFilterBot/fork)
@@ -13,6 +14,7 @@
 [![Contributors](https://img.shields.io/github/contributors/ritheshrkrm/PiroAutoFilterBot?style=flat-square&color=green)](https://github.com/ritheshrkrm/PiroAutoFilterBot/graphs/contributors)
 [![License](https://img.shields.io/badge/License-AGPL-blue)](https://github.com/ritheshrkrm/PiroAutoFilterBot/blob/main/LICENSE)
 [![Sparkline](https://stars.medv.io/ritheshrkrm/PiroAutoFilterBot.svg)](https://stars.medv.io/ritheshrkrm/PiroAutoFilterBot)
+
 ## Features
 
 - [x] IMDB Template Set
@@ -66,13 +68,6 @@
 * Check [info.py](https://github.com/ritheshrkrm/PiroAutoFilterBot/blob/master/info.py) for more
 
 
-## Deploy
-You can deploy this bot anywhere.
-
-<i>**[Watch Deploying Tutorial...](https://youtu.be/1G1XwEOnxxo)**</i>
-
-
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/ritheshrkrm/PiroAutoFilterBot)
 
 
 [![Deploy to Koyeb](https://www.koyeb.com/static/images/deploy/button.svg)](https://app.koyeb.com/deploy?type=git&repository=github.com/ritheshrkrm/PiroAutoFilterBot&branch=main&name=PiroAutoFilterBot)
@@ -92,31 +87,30 @@ python3 bot.py
 
 ## Commands
 ```
-• /logs - to get the rescent errors
-• /stats - to get status of files in db.
-* /filter - add manual filters
-* /filters - view filters
-* /connect - connect to PM.
-* /disconnect - disconnect from PM
-* /del - delete a filter
-* /delall - delete all filters
-* /deleteall - delete all index(autofilter)
-* /delete - delete a specific file from index.
-* /info - get user info
-* /id - get tg ids.
-* /imdb - fetch info from imdb.
-• /users - to get list of my users and ids.
-• /chats - to get list of the my chats and ids 
-• /index  - to add files from a channel
-• /leave  - to leave from a chat.
-• /disable  -  do disable a chat.
-* /enable - re-enable chat.
-• /ban  - to ban a user.
-• /unban  - to unban a user.
-• /channel - to get list of total connected channels
-• /broadcast - to broadcast a message to all PiroAutoFilterBot users
-• /batch - to create link for multiple posts
-• /link - to create link for one post
+alive - check bot alive  
+ping - pong  
+gfilter - to add a global filter 
+delg - to delete a global filter 
+broadcast - to broadcast a message to all users 
+group_broadcast - to broadcast a message to all groups 
+settings - get settings   
+logs - to get the rescent errors  
+stats - to get status of files in db 
+filter - add manual filters 
+filters - view filters  
+connect - connect to PM 
+disconnect - disconnect from PM  
+del - delete a filter  
+delall - delete all filters    
+id - get tg ids 
+imdb - fetch info from imdb  
+users - to get list of my users and ids 
+chats - to get list of the my chats and ids   
+leave  - to leave from a chat 
+disable  -  do disable a chat 
+enable - re-enable chat 
+ban  - to ban a user  
+unban  - to unban a use
 ```
 
 
@@ -132,7 +126,12 @@ python3 bot.py
  ## Note 🏷️
  - <b>Importing this repo instead of forking is strictly prohibited 🚫 Kindly fork and edit as your wish (Must Give Credits for devs) 🙃</b>
  - <b>If you find any bugs or errors, report it to the developer.</b>
-* [![Contact Developer](https://img.shields.io/static/v1?label=Contact+Developer&message=On+Telegram&color=critical)](https://telegram.me/rai_info17)
+* [![Contact Developer](https://img.shields.io/static/v1?label=Contact+Developer&message=On+Telegram&color=critical)](https://telegram.me/raixchat)
+
+## TELAGRAM SUPPORT 
+
+* [![PIRO BOTZ](https://img.shields.io/static/v1?label=PIRO&message=BOTZ&color=critical)](https://t.me/rai_info17)
+
 
 
 ## Disclaimer
