@@ -851,7 +851,12 @@ async def advantage_spell_chok(msg):
                     reply_markup=InlineKeyboardMarkup(btn))
                     await asyncio.sleep(10)
                     await d.delete()
-                    return
+
+                except Exception as e:
+                    logger.exception(e)
+                break
+    else:
+        return False
 
 
 async def manual_filters(client, message, text=False):
