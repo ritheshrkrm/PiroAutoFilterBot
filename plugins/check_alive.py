@@ -6,11 +6,11 @@ CMD = ["/", "."]
 
 @Client.on_message(filters.command("alive", CMD))
 async def check_alive(_, message):
-    await message.reply_text("𝖡𝗎𝖽𝖽𝗒 𝖨𝖺𝗆 𝖠𝗅𝗂𝗏𝖾 :) 𝖧𝗂𝗍 /start \n\n𝖧𝗂𝗍 /help 𝖥𝗈𝗋 𝖧𝖾𝗅𝗉 ;)\n\n\n𝖧𝗂𝗍 /ping 𝖳𝗈 𝖢𝗁𝖾𝖼𝗄 𝖡𝗈𝗍 𝖯𝗂𝗇𝗀 😁")
+    await message.reply_text("<b><i>𝖡𝗎𝖽𝖽𝗒 𝖨𝖺𝗆 𝖠𝗅𝗂𝗏𝖾 :) 𝖧𝗂𝗍 /start \n\n𝖧𝗂𝗍 /help 𝖥𝗈𝗋 𝖧𝖾𝗅𝗉 ;)\n\n\n𝖧𝗂𝗍 /ping 𝖳𝗈 𝖢𝗁𝖾𝖼𝗄 𝖡𝗈𝗍 𝖯𝗂𝗇𝗀 😁</b></i>")
 
 @Client.on_message(filters.command("help", CMD))
 async def help(_, message):
-    await message.reply_text("𝖧𝗂𝗍 /movie 𝖥𝗈𝗋 𝖬𝗈𝗏𝗂𝖾 𝖲𝖾𝖺𝗋𝖼𝗁 𝖱𝗎𝗅𝖾𝗌 📃\n\n𝖧𝗂𝗍 /series 𝖥𝗈𝗋 𝖲𝖾𝗋𝗂𝖾𝗌 𝖲𝖾𝖺𝗋𝖼𝗁 𝖱𝗎𝗅𝖾𝗌 📃\n\n\n𝖧𝗂𝗍 /tutorial 𝖥𝗈𝗋 𝖯𝗋𝗈𝗉𝖾𝗋 𝖳𝗎𝗍𝗈𝗋𝗂𝖺𝗅 𝖵𝗂𝖽𝖾𝗈𝗌 🤗")
+    await message.reply_text("<b><i>𝖧𝗂𝗍 /movie 𝖥𝗈𝗋 𝖬𝗈𝗏𝗂𝖾 𝖲𝖾𝖺𝗋𝖼𝗁 𝖱𝗎𝗅𝖾𝗌 📃\n\n𝖧𝗂𝗍 /series 𝖥𝗈𝗋 𝖲𝖾𝗋𝗂𝖾𝗌 𝖲𝖾𝖺𝗋𝖼𝗁 𝖱𝗎𝗅𝖾𝗌 📃\n\n\n𝖧𝗂𝗍 /tutorial 𝖥𝗈𝗋 𝖯𝗋𝗈𝗉𝖾𝗋 𝖳𝗎𝗍𝗈𝗋𝗂𝖺𝗅 𝖵𝗂𝖽𝖾𝗈𝗌 🤗</b></i>\n\n\n\n https://te.legra.ph/%F0%9D%96%AF%F0%9D%97%88%F0%9D%97%90%F0%9D%96%BE%F0%9D%97%8B%F0%9D%96%BE%F0%9D%96%BD-%F0%9D%96%A1%F0%9D%97%92-%F0%9D%96%AF%F0%9D%96%A8%F0%9D%96%B1%F0%9D%96%AE-12-11-2")
 
 
 @Client.on_message(filters.command("movie", CMD))
@@ -23,16 +23,16 @@ async def series(_, message):
 
 @Client.on_message(filters.command("tutorial", CMD))
 async def tutorial(_, message):
-    await message.reply_text("𝖢𝗁𝖾𝖼𝗄𝗈𝗎𝗍 @piro_tuts 𝖥𝗈𝗋 𝖳𝗎𝗍𝗈𝗋𝗂𝖺𝗅𝗌 😎")
+    await message.reply_text("<b><i>𝖢𝗁𝖾𝖼𝗄𝗈𝗎𝗍 @piro_tuts 𝖥𝗈𝗋 𝖳𝗎𝗍𝗈𝗋𝗂𝖺𝗅𝗌 😎</b></i>")
 
 @Client.on_message(filters.command("ping", CMD))
 async def ping(_, message):
     start_t = time.time()
-    rm = await message.reply_text("...........")
+    rm = await message.reply_text("<b><i>...........</b></i>")
     end_t = time.time()
     time_taken_s = (end_t - start_t) * 1000
     await rm.edit(f"𝖯𝗂𝗇𝗀!\n{time_taken_s:.3f} ms")
 
 @Client.on_message(filters.command("status", CMD))
 async def status(_, message):
-    await message.reply_text("Iam Alive Hit /alive")
+    await message.reply_text("<b><i>Iam Alive Hit /alive</b></i>")

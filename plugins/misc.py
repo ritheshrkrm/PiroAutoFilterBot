@@ -143,7 +143,7 @@ async def imdb_search(client, message):
             ]
             for movie in movies
         ]
-        await k.edit('𝖧𝖾𝗋𝖾 𝗂𝗌 𝗐𝗁𝖺𝗍 𝗂 𝖿𝗈𝗎𝗇𝖽 𝗈𝗇 𝖨𝖬𝖣𝖻', reply_markup=InlineKeyboardMarkup(btn))
+        await k.edit('<b>𝖧𝖾𝗋𝖾 𝗂𝗌 𝗐𝗁𝖺𝗍 𝗂 𝖿𝗈𝗎𝗇𝖽 𝗈𝗇 𝖨𝖬𝖣𝖻</b>', reply_markup=InlineKeyboardMarkup(btn))
     else:
         await message.reply('Give me a movie / series Name')
 
@@ -193,7 +193,7 @@ async def imdb_callback(bot: Client, quer_y: CallbackQuery):
             **locals()
         )
     else:
-        caption = "No Results"
+        caption = "<b>No Results</b>"
     if imdb.get('poster'):
         try:
             await quer_y.message.reply_photo(photo=imdb['poster'], caption=caption, reply_markup=InlineKeyboardMarkup(btn))
