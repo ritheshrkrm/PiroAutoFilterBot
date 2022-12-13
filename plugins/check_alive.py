@@ -10,7 +10,7 @@ async def check_alive(_, message):
 
 @Client.on_message(filters.command("help", CMD))
 async def help(_, message):
-    await message.reply_text("<b><i>𝖧𝗂𝗍 /movie 𝖥𝗈𝗋 𝖬𝗈𝗏𝗂𝖾 𝖲𝖾𝖺𝗋𝖼𝗁 𝖱𝗎𝗅𝖾𝗌 📃\n\n𝖧𝗂𝗍 /series 𝖥𝗈𝗋 𝖲𝖾𝗋𝗂𝖾𝗌 𝖲𝖾𝖺𝗋𝖼𝗁 𝖱𝗎𝗅𝖾𝗌 📃\n\n\n𝖧𝗂𝗍 /tutorial 𝖥𝗈𝗋 𝖯𝗋𝗈𝗉𝖾𝗋 𝖳𝗎𝗍𝗈𝗋𝗂𝖺𝗅 𝖵𝗂𝖽𝖾𝗈𝗌 🤗</b></i>\n\n\n\n<b><i> <a href='https://te.legra.ph/%F0%9D%96%AF%F0%9D%97%88%F0%9D%97%90%F0%9D%96%BE%F0%9D%97%8B%F0%9D%96%BE%F0%9D%96%BD-%F0%9D%96%A1%F0%9D%97%92-%F0%9D%96%AF%F0%9D%96%A8%F0%9D%96%B1%F0%9D%96%AE-12-11-2'>Tutorial</a></b></i>")
+    await message.reply_text("<b><i>𝖧𝗂𝗍 /movie 𝖥𝗈𝗋 𝖬𝗈𝗏𝗂𝖾 𝖲𝖾𝖺𝗋𝖼𝗁 𝖱𝗎𝗅𝖾𝗌 📃\n\n𝖧𝗂𝗍 /series 𝖥𝗈𝗋 𝖲𝖾𝗋𝗂𝖾𝗌 𝖲𝖾𝖺𝗋𝖼𝗁 𝖱𝗎𝗅𝖾𝗌 📃\n\n\n𝖧𝗂𝗍 /tutorial 𝖥𝗈𝗋 𝖯𝗋𝗈𝗉𝖾𝗋 𝖳𝗎𝗍𝗈𝗋𝗂𝖺𝗅 𝖵𝗂𝖽𝖾𝗈𝗌 🤗</b></i>\n\n\n\n<b><i> <a href='https://te.legra.ph/𝖯𝗈𝗐𝖾𝗋𝖾𝖽-𝖡𝗒-𝖯𝖨𝖱𝖮-12-11-2'>Tutorial</a></b></i>")
 
 
 @Client.on_message(filters.command("movie", CMD))
