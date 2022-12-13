@@ -102,7 +102,7 @@ async def next_page(bot, query):
     btn.insert(1,
         [
             InlineKeyboardButton(f'📝 𝖳𝗂𝗉𝗌', 'info'),
-            InlineKeyboardButton("🔎 𝖦𝗈𝗈𝗀𝗅𝖾", url=f"{url}")
+            InlineKeyboardButton("🔎 𝖦𝗈𝗈𝗀𝗅𝖾", url=f"https://www.google.com/search?q={search}")
         ]
     )
 
@@ -712,7 +712,7 @@ async def auto_filter(client, msg, spoll=False):
     btn.insert(1,
         [
             InlineKeyboardButton(f'📝 𝖳𝗂𝗉𝗌', 'info'),
-            InlineKeyboardButton("🔎 𝖦𝗈𝗈𝗀𝗅𝖾", url=f"{url}")
+            InlineKeyboardButton("🔎 𝖦𝗈𝗈𝗀𝗅𝖾", url=f"https://www.google.com/search?q={search}")
         ]
     )    
 

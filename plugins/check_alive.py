@@ -31,7 +31,7 @@ async def ping(_, message):
     rm = await message.reply_text("<b><i>...........</b></i>")
     end_t = time.time()
     time_taken_s = (end_t - start_t) * 1000
-    await rm.edit(f"𝖯𝗂𝗇𝗀!\n{time_taken_s:.3f} ms")
+    await rm.edit(f"<b><i>𝖯𝗂𝗇𝗀!\n{time_taken_s:.3f} ms</b></i>")
 
 @Client.on_message(filters.command("status", CMD))
 async def status(_, message):
