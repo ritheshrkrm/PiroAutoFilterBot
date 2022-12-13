@@ -40,7 +40,7 @@ COLLECTION_NAME = environ.get('COLLECTION_NAME', '')
 # Others
 LOG_CHANNEL = int(environ.get('LOG_CHANNEL', '-1001729830342'))
 SUPPORT_CHAT = environ.get('SUPPORT_CHAT', 'rai_info17')
-P_TTI_SHOW_OFF = is_enabled((environ.get('P_TTI_SHOW_OFF', 'True')), False)
+P_TTI_SHOW_OFF = is_enabled((environ.get('P_TTI_SHOW_OFF', 'False')), False)
 IMDB = is_enabled((environ.get('IMDB', 'False')), True)
 SINGLE_BUTTON = is_enabled((environ.get('SINGLE_BUTTON', 'True')), False)
 CUSTOM_FILE_CAPTION = environ.get("CUSTOM_FILE_CAPTION", '📂 <em>File Name</em>: <code>PIRO|{file_name}</code> \n\n🖇 <em>File Size</em>: <code>{file_size}</code> \n\n❤️‍🔥 </i>Join</i> [𝗕𝗟𝗔𝗦𝗧𝗘𝗥 𝗨𝗣𝗗𝗔𝗧𝗘𝗦 ;)](https://t.me/blasters_monthly)  \n\n🖥 <i>Requests</i> - ||@raixpiro_bot|| ')
