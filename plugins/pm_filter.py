@@ -844,6 +844,7 @@ async def advantage_spell_chok(msg):
     load = btn.append([InlineKeyboardButton(text="Close", callback_data=f'spolling#{user}#close_spellcheck')])
     zz = await msg.reply('<b><i>𝖲𝖾𝖺𝗋𝖼𝗁𝗂𝗇𝗀 𝖿𝗈𝗋 𝗒𝗈𝗎 𝗋𝖾𝗌𝗎𝗅𝗍 𝗂𝗇 𝖨𝖬𝖣𝖻 \n𝖶𝖺𝗂𝗍....🧐<i/></b>')
     await asyncio.sleep(2)
+    await zz.delete()
     sp = await zz.reply("<b>𝖨 𝖼𝗈𝗎𝗅𝖽𝗇'𝗍 𝖿𝗂𝗇𝖽 𝖺𝗇𝗒𝗍𝗁𝗂𝗇𝗀 𝗋𝖾𝗅𝖺𝗍𝖾𝖽 𝗍𝗈 𝗍𝗁𝖺𝗍\n𝖣𝗂𝖽 𝗒𝗈𝗎 𝗆𝖾𝖺𝗇 𝖺𝗇𝗒 𝗈𝗇𝖾 𝗈𝖿 𝗍𝗁𝖾𝗌𝖾?</b>",
                     reply_markup=InlineKeyboardMarkup(btn))
     await asyncio.sleep(21)
