@@ -15,7 +15,7 @@
 [![License](https://img.shields.io/badge/License-AGPL-blue)](https://github.com/ritheshrkrm/PiroAutoFilterBot/blob/main/LICENSE)
 [![Sparkline](https://stars.medv.io/ritheshrkrm/PiroAutoFilterBot.svg)](https://stars.medv.io/ritheshrkrm/PiroAutoFilterBot)
 
-## Features
+### Features
 
 - [x] Indexes Files above 2GB
 - [x] Force Subscription
@@ -63,8 +63,7 @@
 * `FILE_STORE_CHANNEL`: Channel from were file store links of posts should be made.Separate multiple IDs by space
 * Check [info.py](https://github.com/ritheshrkrm/PiroAutoFilterBot/blob/master/info.py) for more
 
-
-
+### Deployment Methods
 <details><summary>Deploy To Heroku</summary>
 <p>
 <br>
@@ -108,7 +107,7 @@ python3 bot.py
 </details>
 
 
-## Commands
+### Commands
 ```
 alive - check bot alive  
 ping - pong  
@@ -138,7 +137,7 @@ unban  - to unban a use
 
 
 
-## Thanks to 
+### Thanks to 
  - Thanks To Dan For His Awesome Library
  - Thanks To Mahesh For His Awesome Media-Search-bot
  - Thanks To Trojanz for Their AwesomeUnlimited Filter Bot And AutoFilterBoT
@@ -146,18 +145,18 @@ unban  - to unban a use
  - Thank To Professor-Bot & KD Bots
  - Thanks To Me For Wasting Time On This Repo Instead Of Studying :)
 
- ## Note 🏷️
+ ### Note 🏷️
  - <b>Importing this repo instead of forking is strictly prohibited 🚫 Kindly fork and edit as your wish (Must Give Credits for devs) 🙃</b>
  - <b>If you find any bugs or errors, report it to the developer.</b>
 * [![Contact Developer](https://img.shields.io/static/v1?label=Contact+Developer&message=On+Telegram&color=critical)](https://telegram.me/raixchat)
 
-## TELAGRAM SUPPORT 
+### TELAGRAM SUPPORT 
 
 * [![PIRO BOTZ](https://img.shields.io/static/v1?label=PIRO&message=BOTZ&color=critical)](https://telegram.me/rai_info17)
 
 
 
-## Disclaimer
+### Disclaimer
 [![GNU Affero General Public License 2.0](https://www.gnu.org/graphics/agplv3-155x51.png)](https://www.gnu.org/licenses/agpl-3.0.en.html#header)    
 Licensed under [GNU AGPL 2.0.](https://github.com/ritheshrkrm/PiroAutoFilterBot/blob/master/LICENSE)
 Selling The Codes To Other People For Money Is *Strictly Prohibited*.
