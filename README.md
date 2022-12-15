@@ -65,8 +65,35 @@
 
 
 
+<details><summary>Deploy To Heroku</summary>
+<p>
+<br>
+<a href="https://heroku.com/deploy?template=https://github.com/ritheshrkrm/PiroAutoFilterBot">
+  <img src="https://www.herokucdn.com/deploy/button.svg" alt="Deploy To Heroku">
+</a>
+</p>
+</details>
 
-[![Deploy to Koyeb](https://www.koyeb.com/static/images/deploy/button.svg)](https://app.koyeb.com/deploy?type=git&repository=https://github.com/ritheshrkrm/PiroAutoFilterBot&env[BOT_TOKEN]&env[API_ID]&env[API_HASH]&env[CHANNELS]&env[ADMINS]&env[PICS]&env[LOG_CHANNEL]&env[AUTH_CHANNEL]&env[CUSTOM_FILE_CAPTION]&env[DATABASE_URI]&env[DATABASE_NAME]=pirobots&env[COLLECTION_NAME]=Telegram_files&env[IMDB]=True&env[IMDB_TEMPLATE]&env[SINGLE_BUTTON]=True&run_command=python3%20bot.py&branch=main&name=autofilterbot)
+<details><summary>Deploy To Koyeb</summary>
+<b>The fastest way to deploy the application is to click the Deploy to Koyeb button below.</b>
+
+[![Deploy to Koyeb](https://www.koyeb.com/static/images/deploy/button.svg)](https://app.koyeb.com/deploy?type=git&repository=https://github.com/ritheshrkrm/PiroAutoFilterBot&branch=main&name=pirobot)
+</details>
+
+<details><summary>Deploy on Railway</summary>
+<a href="https://railway.app/new/template/y0ryFO">
+<img src="https://railway.app/button.svg" alt="Deploy on Railway">
+</a>
+</details>
+
+<details><summary> Deploy To Okteto </summary>
+<br>
+<p>
+<a href="https://cloud.okteto.com/deploy?repository=https://github.com/ritheshrkrm/PiroAutoFilterBot&branch=main">
+  <img src="https://okteto.com/develop-okteto.svg" alt="Deploy to Okteto">
+</a>
+</p>
+</details>
 
 <details><summary>Deploy To VPS</summary>
 <p>
