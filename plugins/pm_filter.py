@@ -475,40 +475,6 @@ async def cb_handler(client: Client, query: CallbackQuery):
         deleted = str(deleted)
         await k.edit_text(text=f"<b>Successfully deleted {deleted} CamRip files.</b>")
 
-    elif query.data == "predvd":
-        k = await client.send_message(chat_id=query.message.chat.id, text="<b>Deleting PreDVDs... Please wait...</b>")
-        files, next_offset, total = await get_bad_files(
-                                                  'predvd',
-                                                  offset=0)
-        deleted = 0
-        for file in files:
-            file_ids = file.file_id
-            result = await Media.collection.delete_one({
-                '_id': file_ids,
-            })
-            if result.deleted_count:
-                logger.info('PreDVD File Found ! Successfully deleted from database.')
-            deleted+=1
-        deleted = str(deleted)
-        await k.edit_text(text=f"<b>Successfully deleted {deleted} PreDVD files.</b>")
-
-    elif query.data == "camrip":
-        k = await client.send_message(chat_id=query.message.chat.id, text="<b>Deleting CamRips... Please wait...</b>")
-        files, next_offset, total = await get_bad_files(
-                                                  'camrip',
-                                                  offset=0)
-        deleted = 0
-        for file in files:
-            file_ids = file.file_id
-            result = await Media.collection.delete_one({
-                '_id': file_ids,
-            })
-            if result.deleted_count:
-                logger.info('CamRip File Found ! Successfully deleted from database.')
-            deleted+=1
-        deleted = str(deleted)
-        await k.edit_text(text=f"<b>Successfully deleted {deleted} CamRip files.</b>")
-
     elif query.data == "start":
         buttons = [[
             InlineKeyboardButton('➕ 𝖠𝖽𝖽 𝖬𝖾 𝖳𝗈 𝖸𝗈𝗎𝗋 𝖦𝗋𝗈𝗎𝗉 ➕', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
