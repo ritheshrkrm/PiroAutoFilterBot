@@ -2,7 +2,7 @@
 import re
 import logging
 from pyrogram import Client, filters
-from info import FILDLT_CNL
+from info import DELETE_CHANNELS
 from database.ia_filterdb import Media, unpack_new_file_id
 
 logger = logging.getLogger(__name__)
@@ -10,7 +10,7 @@ logger = logging.getLogger(__name__)
 media_filter = filters.document | filters.video | filters.audio
 
 
-@Client.on_message(filters.chat(FILDLT_CNL) & media_filter)
+@Client.on_message(filters.chat(DELETE_CHANNELS) & media_filter)
 async def deltemedia(bot, message):
     """Delete file from database"""
     reply = message
