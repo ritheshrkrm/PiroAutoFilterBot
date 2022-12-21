@@ -45,7 +45,7 @@
 - [x] Spelling Check Feature
 - [x] File Store
 - [x] Auto Delete
-- [x] And More...
+- [x] And More....
 
 
 ### Required Variables
