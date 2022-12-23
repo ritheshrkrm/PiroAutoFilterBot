@@ -558,3 +558,26 @@ async def save_template(client, message):
     template = message.text.split(" ", 1)[1]
     await save_group_settings(grp_id, 'template', template)
     await sts.edit(f"Successfully changed template for {title} to\n\n{template}")
+
+@Client.on_message(filters.command("deletefiles") & filters.user(ADMINS))
+async def deletemultiplefiles(bot, message):
+    btn = [[
+            InlineKeyboardButton("PʀᴇDVD", callback_data="predvd"),
+            InlineKeyboardButton("PʀᴇDVD Rɪᴘ", callback_data="predvdrip")
+          ],[
+            InlineKeyboardButton("HDᴛs", callback_data="hdts"),
+            InlineKeyboardButton("HD-ᴛs", callback_data="hdtss")
+          ],[
+            InlineKeyboardButton("HDCᴀᴍ", callback_data="hdcam"),
+            InlineKeyboardButton("HD-Cᴀᴍ", callback_data="hdcams")
+          ],[
+            InlineKeyboardButton("CᴀᴍRɪᴘ", callback_data="camrip"),
+            InlineKeyboardButton("S-Pʀɪɴᴛ", callback_data="sprint")
+          ],[
+            InlineKeyboardButton("Cᴀɴᴄᴇʟ", callback_data="close_data")
+          ]]
+    await message.reply_text(
+        text="<b>Sᴇʟᴇᴄᴛ Tʜᴇ Tʏᴘᴇ Oғ Fɪʟᴇs Yᴏᴜ Wᴀɴᴛ Tᴏ Dᴇʟᴇᴛᴇ..?</b>",
+        reply_markup=InlineKeyboardMarkup(btn),
+        quote=True
+    ) 
