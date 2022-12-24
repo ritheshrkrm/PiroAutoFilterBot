@@ -3,7 +3,6 @@ import re
 import ast
 import math
 import random
-
 from pyrogram.errors.exceptions.bad_request_400 import MediaEmpty, PhotoInvalidDimensions, WebpageMediaEmpty
 from Script import script
 import pyrogram
@@ -167,7 +166,7 @@ async def advantage_spoll_choker(bot, query):
 async def cb_handler(client: Client, query: CallbackQuery):
     if query.data == "close_data":
         await query.message.delete()
-    elif query.data == "gfiltersdeleteallconfirm":
+        elif query.data == "gfiltersdeleteallconfirm":
         await del_allg(query.message, 'gfilters')
         await query.answer("Done !")
         return
@@ -177,7 +176,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         await query.answer("Process Cancelled !")
         return
 
-    elif query.data == "delallconfirm":
+            elif query.data == "delallconfirm":
         userid = query.from_user.id
         chat_type = query.message.chat.type
 
@@ -723,7 +722,7 @@ async def auto_filter(client, msg, spoll=False):
             InlineKeyboardButton(f'📝 𝖳𝗂𝗉𝗌', 'info'),
             InlineKeyboardButton("🔎 𝖦𝗈𝗈𝗀𝗅𝖾", url=f"https://www.google.com/search?q={search}")
         ]
-    )    
+    )   
 
     if offset != "":
         key = f"{message.chat.id}-{message.id}"
