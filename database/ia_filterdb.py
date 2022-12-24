@@ -71,7 +71,7 @@ sync def get_search_results(query, file_type=None, max_results=5, offset=0, filt
 
     query = query.strip()
     #if filter:
-        #better ?
+        #better ??
         #query = query.replace(' ', r'(\s|\.|\+|\-|_)')
         #raw_pattern = r'(\s|_|\-|\.|\+)' + query + r'(\s|_|\-|\.|\+)'
     if not query:
