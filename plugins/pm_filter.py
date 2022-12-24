@@ -36,17 +36,17 @@ logger.setLevel(logging.ERROR)
 BUTTONS = {}
 SPELL_CHECK = {}
 
+@Client.on_message(filters.private & filters.text & filters.incoming)
+async def pv_filter(client, message):
+    kd = await global_filters(client, message)
+    if kd == False:
+        await auto_filter(client, message)
+
 @Client.on_message(filters.group & filters.text & filters.incoming)
 async def give_filter(client, message):
     await global_filters(client, message)
     mf = await manual_filters(client, message)
     if mf == False:
-        await auto_filter(client, message)
-
-@Client.on_message(filters.private & filters.text & filters.incoming)
-async def pv_filter(bot, message):
-    kd = await global_filters(client, message)
-    if kd == False:
         await auto_filter(client, message)
 
 @Client.on_callback_query(filters.regex(r"^next"))
