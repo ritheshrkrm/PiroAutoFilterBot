@@ -7,7 +7,8 @@ from pymongo.errors import DuplicateKeyError
 from umongo import Instance, Document, fields
 from motor.motor_asyncio import AsyncIOMotorClient
 from marshmallow.exceptions import ValidationError
-from info import DATABASE_URI, DATABASE_NAME, COLLECTION_NAME, USE_CAPTION_FILTER
+from info import DATABASE_URI, DATABASE_NAME, COLLECTION_NAME, USE_CAPTION_FILTER, MAX_B_TN
+from utils import get_settings, save_group_settings
 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
@@ -66,14 +67,27 @@ async def save_file(media):
 
 
 
-async def get_search_results(query, file_type=None, max_results=5, offset=0, filter=False):
+async def get_search_results(chat_id, query, file_type=None, max_results=5u, offset=0, filter=False):
     """For given query return (results, next_offset)"""
-
+    if chat_id is not None:
+        settings = await get_settings(int(chat_id))
+        try:
+            if settings['max_btn']:
+                max_results = 10
+            else:
+                max_results = int(MAX_B_TN)
+        except KeyError:
+            await save_group_settings(int(chat_id), 'max_btn', False)
+            settings = await get_settings(int(chat_id))
+            if settings['max_btn']:
+                max_results = 10
+            else:
+                max_results = int(MAX_B_TN)
     query = query.strip()
     #if filter:
         #better ?
-        query = query.replace(' ', r'(\s|\.|\+|\-|_)')
-        raw_pattern = r'(\s|_|\-|\.|\+)' + query + r'(\s|_|\-|\.|\+)'
+        #query = query.replace(' ', r'(\s|\.|\+|\-|_)')
+        #raw_pattern = r'(\s|_|\-|\.|\+)' + query + r'(\s|_|\-|\.|\+)'
     if not query:
         raw_pattern = '.'
     elif ' ' not in query:
@@ -110,7 +124,6 @@ async def get_search_results(query, file_type=None, max_results=5, offset=0, fil
 
     return files, next_offset, total_results
 
-
 async def get_bad_files(query, file_type=None, max_results=100, offset=0, filter=False):
     """For given query return (results, next_offset)"""
     query = query.strip()
@@ -124,7 +137,7 @@ async def get_bad_files(query, file_type=None, max_results=100, offset=0, filter
         raw_pattern = r'(\b|[\.\+\-_])' + query + r'(\b|[\.\+\-_])'
     else:
         raw_pattern = query.replace(' ', r'.*[\s\.\+\-_]')
-
+    
     try:
         regex = re.compile(raw_pattern, flags=re.IGNORECASE)
     except:
