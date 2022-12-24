@@ -65,12 +65,13 @@ async def save_file(media):
             return True, 1
 
 
+
 async def get_search_results(query, file_type=None, max_results=5, offset=0, filter=False):
     """For given query return (results, next_offset)"""
 
     query = query.strip()
     #if filter:
-        #better ??
+        #better ?
         #query = query.replace(' ', r'(\s|\.|\+|\-|_)')
         #raw_pattern = r'(\s|_|\-|\.|\+)' + query + r'(\s|_|\-|\.|\+)'
     if not query:
@@ -108,6 +109,8 @@ async def get_search_results(query, file_type=None, max_results=5, offset=0, fil
     files = await cursor.to_list(length=max_results)
 
     return files, next_offset, total_results
+
+
 
 async def get_file_details(query):
     filter = {'file_id': query}
