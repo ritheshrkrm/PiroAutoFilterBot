@@ -165,8 +165,12 @@ async def advantage_spoll_choker(bot, query):
 @Client.on_callback_query()
 async def cb_handler(client: Client, query: CallbackQuery):
     if query.data == "close_data":
-        await query.message.delete()
-        elif query.data == "gfiltersdeleteallconfirm":
+        try:
+            await query.message.reply_to_message.delete()
+            await query.message.delete()
+        except:
+            await query.message.delete()
+    elif query.data == "gfiltersdeleteallconfirm":
         await del_allg(query.message, 'gfilters')
         await query.answer("Done !")
         return
@@ -175,8 +179,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         await query.message.delete()
         await query.answer("Process Cancelled !")
         return
-
-            elif query.data == "delallconfirm":
+    elif query.data == "delallconfirm":
         userid = query.from_user.id
         chat_type = query.message.chat.type
 
@@ -187,7 +190,6 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 try:
                     chat = await client.get_chat(grpid)
                     title = chat.title
-                except:
                     await query.message.edit_text("Make sure I'm present in your group!!", quote=True)
                     return await query.answer('Piracy Is Crime')
             else:
