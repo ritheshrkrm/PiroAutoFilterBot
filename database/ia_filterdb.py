@@ -72,8 +72,8 @@ async def get_search_results(query, file_type=None, max_results=5, offset=0, fil
     query = query.strip()
     #if filter:
         #better ?
-        #query = query.replace(' ', r'(\s|\.|\+|\-|_)')
-        #raw_pattern = r'(\s|_|\-|\.|\+)' + query + r'(\s|_|\-|\.|\+)'
+        query = query.replace(' ', r'(\s|\.|\+|\-|_)')
+        raw_pattern = r'(\s|_|\-|\.|\+)' + query + r'(\s|_|\-|\.|\+)'
     if not query:
         raw_pattern = '.'
     elif ' ' not in query:
