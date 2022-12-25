@@ -1,3 +1,4 @@
+# Kanged From @TroJanZheX
 import asyncio
 import re
 import ast
@@ -152,7 +153,7 @@ async def advantage_spoll_choker(bot, query):
     await query.answer('𝖢𝗁𝖾𝖼𝗄𝗂𝗇𝗀 𝖿𝗈𝗋 𝖬𝗈𝗏𝗂𝖾 𝗂𝗇 𝖽𝖺𝗍𝖺𝖻𝖺𝗌𝖾...')
     k = await manual_filters(bot, query.message, text=movie)
     if k == False:
-        files, offset, total_results = await get_search_results(query.message.chat.id, movie, offset=0, filter=True)
+        files, offset, total_results = await get_search_results(movie, offset=0, filter=True)
         if files:
             k = (movie, files, offset, total_results)
             await auto_filter(bot, query, k)
@@ -167,7 +168,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
     if query.data == "close_data":
         try:
             await query.message.reply_to_message.delete()
-            await query.message.delete()
+        await query.message.delete()
         except:
             await query.message.delete()
     elif query.data == "gfiltersdeleteallconfirm":
@@ -725,7 +726,7 @@ async def auto_filter(client, msg, spoll=False):
             InlineKeyboardButton(f'📝 𝖳𝗂𝗉𝗌', 'info'),
             InlineKeyboardButton("🔎 𝖦𝗈𝗈𝗀𝗅𝖾", url=f"https://www.google.com/search?q={search}")
         ]
-    )   
+    )    
 
     if offset != "":
         key = f"{message.chat.id}-{message.id}"

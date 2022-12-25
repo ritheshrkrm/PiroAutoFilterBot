@@ -58,7 +58,7 @@ async def broadcast_group(bot, message):
     async for group in groups:
         pti, sh = await broadcast_messages_group(int(group['id']), b_msg)
         if pti:
-            success += 1
+                success += 1
         elif sh == "Error":
                 failed += 1
         done += 1
