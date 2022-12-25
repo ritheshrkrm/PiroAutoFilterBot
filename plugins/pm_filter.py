@@ -163,11 +163,9 @@ async def advantage_spoll_choker(bot, query):
             await k.delete()
 
 
-@Client.on_callback_query()
+Client.on_callback_query()
 async def cb_handler(client: Client, query: CallbackQuery):
     if query.data == "close_data":
-        try:
-            await query.message.reply_to_message.delete()
         await query.message.delete()
     elif query.data == "gfiltersdeleteallconfirm":
         await del_allg(query.message, 'gfilters')
