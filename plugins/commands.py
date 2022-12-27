@@ -29,7 +29,7 @@ async def start(client, message):
         ], [
             InlineKeyboardButton('ℹ️ 𝖧𝖾𝗅𝗉', callback_data='help'),
             InlineKeyboardButton('😊 𝖠𝖻𝗈𝗎𝗍', callback_data='about')
-                  ]]
+        ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await message.reply(script.START_TXT.format(message.from_user.mention if message.from_user else message.chat.title, temp.U_NAME, temp.B_NAME), reply_markup=reply_markup)
         await asyncio.sleep(2)
@@ -50,7 +50,7 @@ async def start(client, message):
         ], [
             InlineKeyboardButton('ℹ️ 𝖧𝖾𝗅𝗉', callback_data='help'),
             InlineKeyboardButton('😊 𝖠𝖻𝗈𝗎𝗍', callback_data='about')
-                  ]]
+        ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await message.reply_chat_action(enums.ChatAction.TYPING)
         m=await message.reply_sticker("CAACAgUAAxkBAAEGj5hjgg59_usjYjzo5wOuxdgMMnRgrwACigcAAllQEFTTCQ7Ncv2JxysE")
@@ -100,7 +100,7 @@ async def start(client, message):
         ], [
             InlineKeyboardButton('ℹ️ 𝖧𝖾𝗅𝗉', callback_data='help'),
             InlineKeyboardButton('😊 𝖠𝖻𝗈𝗎𝗍', callback_data='about')
-                  ]]
+        ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await message.reply_chat_action(enums.ChatAction.TYPING)
         m=await message.reply_sticker("CAACAgUAAxkBAAEGj5hjgg59_usjYjzo5wOuxdgMMnRgrwACigcAAllQEFTTCQ7Ncv2JxysE")
@@ -152,7 +152,7 @@ async def start(client, message):
                     caption=f_caption,
                     reply_markup=InlineKeyboardMarkup( [ [ InlineKeyboardButton('⚔️ 𝖯𝖨𝖱𝖮 𝖴𝖯𝖣𝖠𝖳𝖤𝖲 ⚔️', url='https://t.me/rai_info17') ] ] ),
                     protect_content=msg.get('protect', False),
-                )
+                    )
             except FloodWait as e:
                 await asyncio.sleep(e.x)
                 logger.warning(f"Floodwait of {e.x} sec.")
@@ -162,7 +162,7 @@ async def start(client, message):
                     caption=f_caption,
                     reply_markup=InlineKeyboardMarkup( [ [ InlineKeyboardButton('⚔️ 𝖯𝖨𝖱𝖮 𝖴𝖯𝖣𝖠𝖳𝖤𝖲 ⚔️', url='https://t.me/rai_info17') ] ] ),
                     protect_content=msg.get('protect', False),
-                )
+                    )
             except Exception as e:
                 logger.warning(e, exc_info=True)
                 continue
@@ -223,7 +223,7 @@ async def start(client, message):
                 chat_id=message.from_user.id,
                 file_id=file_id,
                 protect_content=True if pre == 'filep' else False,
-            )
+                )
             filetype = msg.media
             file = getattr(msg, filetype.value)
             title = file.file_name
@@ -257,7 +257,7 @@ async def start(client, message):
         caption=f_caption,
         reply_markup=InlineKeyboardMarkup( [ [ InlineKeyboardButton('⚔️ 𝖯𝖨𝖱𝖮 𝖴𝖯𝖣𝖠𝖳𝖤𝖲 ⚔️', url='https://t.me/rai_info17') ] ] ),
         protect_content=True if pre == 'filep' else False,
-            )
+        )
                     
 
 @Client.on_message(filters.command('channel') & filters.user(ADMINS))
@@ -409,7 +409,7 @@ async def settings(client, message):
             and str(userid) not in ADMINS
     ):
         return
-    
+
     settings = await get_settings(grp_id)
 
     if settings is not None:
@@ -478,13 +478,13 @@ async def settings(client, message):
 
         reply_markup = InlineKeyboardMarkup(buttons)
 
-            await message.reply_text(
+        await message.reply_text(
             text=f"<b>Change Your Settings for {title} As Your Wish ⚙</b>",
-                reply_markup=reply_markup,
-                disable_web_page_preview=True,
-                parse_mode=enums.ParseMode.HTML,
-                reply_to_message_id=message.id
-            )
+            reply_markup=reply_markup,
+            disable_web_page_preview=True,
+            parse_mode=enums.ParseMode.HTML,
+            reply_to_message_id=message.id
+        )
 
 @Client.on_message(filters.command("send") & filters.user(ADMINS))
 async def send_msg(bot, message):
