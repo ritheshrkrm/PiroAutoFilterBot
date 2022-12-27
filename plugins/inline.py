@@ -5,6 +5,7 @@ from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, InlineQue
 from database.ia_filterdb import Media, get_file_details, get_search_results
 from utils import is_subscribed, get_size, temp
 from info import CACHE_TIME, AUTH_USERS, AUTH_CHANNEL, CUSTOM_FILE_CAPTION
+from database.connections_mdb import active_connection
 
 logger = logging.getLogger(__name__)
 cache_time = 0 if AUTH_USERS or AUTH_CHANNEL else CACHE_TIME
@@ -22,6 +23,7 @@ async def inline_users(query: InlineQuery):
 @Client.on_inline_query()
 async def answer(bot, query):
     """𝖲𝗁𝗈𝗐 𝖲𝖾𝖺𝗋𝖼𝗁 𝖱𝖾𝗌𝗎𝗅𝗍𝗌 𝖥𝗈𝗋 𝖦𝗂𝗏𝖾𝗇 𝖨𝗇𝗅𝗂𝗇𝖾 𝖰𝗎𝖾𝗋𝗒"""
+    chat_id = await active_connection(str(query.from_user.id))
     
     if not await inline_users(query):
         await query.answer(results=[],
@@ -48,7 +50,9 @@ async def answer(bot, query):
 
     offset = int(query.offset or 0)
     reply_markup = get_reply_markup(query=string)
-    files, next_offset, total = await get_search_results(string,
+    files, next_offset, total = await get_search_results(
+                                                  chat_id,
+                                                  string,
                                                   file_type=file_type,
                                                   max_results=10,
                                                   offset=offset)

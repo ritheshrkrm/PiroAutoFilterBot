@@ -12,7 +12,6 @@ mydb = myclient[DATABASE_NAME]
 
 async def add_gfilter(gfilters, text, reply_text, btn, file, alert):
     mycol = mydb[str(gfilters)]
-    # mycol.create_index([('text', 'text')])
 
     data = {
         'text':str(text),
@@ -88,7 +87,7 @@ async def del_allg(message, gfilters):
     except:
         await message.edit_text("Couldn't remove all gfilters !")
         return
-        
+
 async def count_gfilters(gfilters):
     mycol = mydb[str(gfilters)]
 
