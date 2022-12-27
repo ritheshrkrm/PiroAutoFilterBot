@@ -10,7 +10,7 @@ from info import SESSION, API_ID, API_HASH, BOT_TOKEN, LOG_STR, LOG_CHANNEL, POR
 from utils import temp
 from typing import Union, Optional, AsyncGenerator
 from pyrogram import types
-from datetime import datetime
+from datetime import datetime, date
 from pytz import timezone
 from pyrogram.errors import BadRequest, Unauthorized
 from plugins import web_server
