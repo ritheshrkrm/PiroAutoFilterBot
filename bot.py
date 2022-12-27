@@ -57,7 +57,7 @@ class Bot(Client):
 
     async def stop(self, *args):
         await super().stop()
-        logging.info("Bot stopped. Bye.")
+        logging.info("Bot stopped! Bye...")
 
     async def iter_messages(
         self,
