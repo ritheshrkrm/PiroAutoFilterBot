@@ -13,7 +13,6 @@ from info import ADMINS, AUTH_CHANNEL, AUTH_USERS, CUSTOM_FILE_CAPTION, AUTH_GRO
     SINGLE_BUTTON, SPELL_CHECK_REPLY, IMDB_TEMPLATE
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery
 from pyrogram import Client, filters, enums
-from plugins.admin_check import admin_fliter
 from pyrogram.errors import FloodWait, UserIsBlocked, MessageNotModified, PeerIdInvalid
 from utils import get_size, is_subscribed, get_poster, search_gagala, temp, get_settings, save_group_settings
 from database.users_chats_db import db
@@ -93,7 +92,7 @@ async def next_page(bot, query):
             ]
             for file in files
         ]
-    btn.insert(0, 
+            btn.insert(0, 
                 [
             InlineKeyboardButton(f'🔮 {search} 🔮', 'reqst')
                 ]
@@ -105,12 +104,12 @@ async def next_page(bot, query):
                 ]
             )
                 
-    if 0 < offset <= 10:
+            if 0 < offset <= 10:
                 off_set = 0
             elif offset == 0:
                 off_set = None
             else:
-        off_set = offset - 5
+        off_set = offset - 10
             if n_offset == 0:
                 btn.append(
             [InlineKeyboardButton("◀️ 𝖡𝖠𝖢𝖪", callback_data=f"next_{req}_{key}_{off_set}"),
@@ -118,6 +117,8 @@ async def next_page(bot, query):
                                   callback_data="pages")]
                 )
             elif off_set is None:
+                btn.append([InlineKeyboardButton("📃", callback_data="pages"), InlineKeyboardButton(f"{math.ceil(int(offset)/10)+1} / {math.ceil(total/10)}", callback_data="pages"), InlineKeyboardButton("𝖭𝖤𝖷𝖳 ▶️", callback_data=f"next_{req}_{key}_{n_offset}")])
+            else:
                 btn.append(
             [InlineKeyboardButton(f"📃 {math.ceil(int(offset) / 10) + 1} / {math.ceil(total / 10)}", callback_data="pages"),
              InlineKeyboardButton("𝖭𝖤𝖷𝖳 ▶️", callback_data=f"next_{req}_{key}_{n_offset}")])
@@ -371,6 +372,11 @@ async def cb_handler(client: Client, query: CallbackQuery):
             alert = alert.replace("\\n", "\n").replace("\\t", "\t")
             await query.answer(alert, show_alert=True)
     if query.data.startswith("file"):
+        clicked = query.from_user.id
+        try:
+            typed = query.message.reply_to_message.from_user.id
+        except:
+            typed = query.from_user.id
         ident, file_id = query.data.split("#")
         files_ = await get_file_details(file_id)
         if not files_:
@@ -701,6 +707,8 @@ async def cb_handler(client: Client, query: CallbackQuery):
 
     
 async def auto_filter(client, msg, spoll=False):
+    reqstr1 = msg.from_user.id if msg.from_user else 0
+    reqstr = await client.get_users(reqstr1)
     if not spoll:
         message = msg
         settings = await get_settings(message.chat.id)
@@ -735,11 +743,12 @@ async def auto_filter(client, msg, spoll=False):
         btn = [
             [
                 InlineKeyboardButton(
-                    text=f"{file.file_name}", callback_data=f'files#{file.file_id}'
+                    text=f"{file.file_name}",
+                    callback_data=f'{pre}#{file.file_id}',
                 ),
                 InlineKeyboardButton(
                     text=f"{get_size(file.file_size)}",
-                    callback_data=f'files_#{file.file_id}',
+                    callback_data=f'{pre}#{file.file_id}',
                 ),
             ]
             for file in files
@@ -755,7 +764,7 @@ async def auto_filter(client, msg, spoll=False):
             InlineKeyboardButton("🔎 𝖦𝗈𝗈𝗀𝗅𝖾", url=f"https://www.google.com/search?q={search}")
                 ]
             )
-
+                
     if offset != "":
         key = f"{message.chat.id}-{message.id}"
         BUTTONS[key] = search
@@ -824,7 +833,7 @@ async def auto_filter(client, msg, spoll=False):
             if SELF_DELETE:
                 await asyncio.sleep(300)
                         await fek.delete()
-        else:
+    else:
         fuk = await message.reply_text(cap, reply_markup=InlineKeyboardMarkup(btn))
         await asyncio.sleep(300)
                     await fuk.delete()
@@ -874,12 +883,15 @@ async def advantage_spell_chok(msg):
         await asyncio.sleep(8)
         await k.delete()
         return
-    SPELL_CHECK[msg.id] = movielist
-    btn = [[
+    movielist += [movie.get('title') for movie in movies]
+    movielist += [f"{movie.get('title')} {movie.get('year')}" for movie in movies]
+    SPELL_CHECK[msg_id] = movielist
+    btn = [
+        [
             InlineKeyboardButton(
             text=movie.strip(),
             callback_data=f"spolling#{user}#{k}",
-    )
+            )
     ] for k, movie in enumerate(movielist)]
     load = btn.append([InlineKeyboardButton(text="Close", callback_data=f'spolling#{user}#close_spellcheck')])
     zz = await msg.reply('<b><i>𝖲𝖾𝖺𝗋𝖼𝗁𝗂𝗇𝗀 𝖿𝗈𝗋 𝗒𝗈𝗎 𝗋𝖾𝗌𝗎𝗅𝗍 𝗂𝗇 𝖨𝖬𝖣𝖻 \n𝖶𝖺𝗂𝗍....🧐<i/></b>')
