@@ -109,7 +109,7 @@ async def next_page(bot, query):
             elif offset == 0:
                 off_set = None
             else:
-        off_set = offset - 10
+                 off_set = offset - 10
             if n_offset == 0:
                 btn.append(
             [InlineKeyboardButton("◀️ 𝖡𝖠𝖢𝖪", callback_data=f"next_{req}_{key}_{off_set}"),
