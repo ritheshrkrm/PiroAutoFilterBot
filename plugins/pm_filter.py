@@ -1,3 +1,4 @@
+# Kanged From @TroJanZheX
 import asyncio
 import re
 import ast
@@ -13,6 +14,7 @@ from info import ADMINS, AUTH_CHANNEL, AUTH_USERS, CUSTOM_FILE_CAPTION, AUTH_GRO
     SINGLE_BUTTON, SPELL_CHECK_REPLY, IMDB_TEMPLATE
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery
 from pyrogram import Client, filters, enums
+from plugins.admin_check import admin_fliter
 from pyrogram.errors import FloodWait, UserIsBlocked, MessageNotModified, PeerIdInvalid
 from utils import get_size, is_subscribed, get_poster, search_gagala, temp, get_settings, save_group_settings
 from database.users_chats_db import db
@@ -43,9 +45,10 @@ async def pv_filter(client, message):
 
 @Client.on_message(filters.group & filters.text & filters.incoming)
 async def give_filter(client, message):
+    await global_filters(client, message)
     mf = await manual_filters(client, message)
     if mf == False:
-                await auto_filter(client, message)
+        await auto_filter(client, message)
 
 @Client.on_callback_query(filters.regex(r"^next"))
 async def next_page(bot, query):
@@ -93,43 +96,43 @@ async def next_page(bot, query):
             for file in files
         ]
     btn.insert(0, 
-                [
+        [
             InlineKeyboardButton(f'🔮 {search} 🔮', 'reqst')
-                ]
-            )
+        ]
+    )
     btn.insert(1,
-                [
+        [
             InlineKeyboardButton(f'📝 𝖳𝗂𝗉𝗌', 'info'),
             InlineKeyboardButton("🔎 𝖦𝗈𝗈𝗀𝗅𝖾", url=f"https://www.google.com/search?q={search}")
-                ]
-            )
-                
-            if 0 < offset <= 10:
-                off_set = 0
-            elif offset == 0:
-                off_set = None
-            else:
-                 off_set = offset - 10
-            if n_offset == 0:
-                btn.append(
+        ]
+    )
+
+    if 0 < offset <= 10:
+        off_set = 0
+    elif offset == 0:
+        off_set = None
+    else:
+        off_set = offset - 10
+    if n_offset == 0:
+        btn.append(
             [InlineKeyboardButton("◀️ 𝖡𝖠𝖢𝖪", callback_data=f"next_{req}_{key}_{off_set}"),
              InlineKeyboardButton(f"📃 {math.ceil(int(offset) / 10) + 1} / {math.ceil(total / 10)}",
                                   callback_data="pages")]
-                )
-            elif off_set is None:
+        )
+    elif off_set is None:
                 btn.append([InlineKeyboardButton("📃", callback_data="pages"), InlineKeyboardButton(f"{math.ceil(int(offset)/10)+1} / {math.ceil(total/10)}", callback_data="pages"), InlineKeyboardButton("𝖭𝖤𝖷𝖳 ▶️", callback_data=f"next_{req}_{key}_{n_offset}")])
             else:
-                btn.append(
+        btn.append(
             [InlineKeyboardButton(f"📃 {math.ceil(int(offset) / 10) + 1} / {math.ceil(total / 10)}", callback_data="pages"),
              InlineKeyboardButton("𝖭𝖤𝖷𝖳 ▶️", callback_data=f"next_{req}_{key}_{n_offset}")])
-            else:
-                btn.append(
-                    [
+    else:
+        btn.append(
+            [
                 InlineKeyboardButton("◀️ 𝖡𝖠𝖢𝖪", callback_data=f"next_{req}_{key}_{off_set}"),
                 InlineKeyboardButton(f"📃 {math.ceil(int(offset) / 10) + 1} / {math.ceil(total / 10)}", callback_data="pages"),
                 InlineKeyboardButton("𝖭𝖤𝖷𝖳 ▶️", callback_data=f"next_{req}_{key}_{n_offset}")
-                    ],
-                )
+            ],
+        )
     try:
         await query.edit_message_reply_markup(
             reply_markup=InlineKeyboardMarkup(btn)
@@ -153,7 +156,7 @@ async def advantage_spoll_choker(bot, query):
     await query.answer('𝖢𝗁𝖾𝖼𝗄𝗂𝗇𝗀 𝖿𝗈𝗋 𝖬𝗈𝗏𝗂𝖾 𝗂𝗇 𝖽𝖺𝗍𝖺𝖻𝖺𝗌𝖾...')
     k = await manual_filters(bot, query.message, text=movie)
     if k == False:
-        files, offset, total_results = await get_search_results(query.message.chat.id, movie, offset=0, filter=True)
+        files, offset, total_results = await get_search_results(movie, offset=0, filter=True)
         if files:
             k = (movie, files, offset, total_results)
             await auto_filter(bot, query, k)
@@ -400,19 +403,19 @@ async def cb_handler(client: Client, query: CallbackQuery):
 
         try:
             if AUTH_CHANNEL and not await is_subscribed(client, query):
-                    await query.answer(url=f"https://t.me/{temp.U_NAME}?start={ident}_{file_id}")
-                    return
+                await query.answer(url=f"https://t.me/{temp.U_NAME}?start={ident}_{file_id}")
+                return
             elif settings['botpm']:
-                    await query.answer(url=f"https://t.me/{temp.U_NAME}?start={ident}_{file_id}")
-                    return
-                else:
-                    await client.send_cached_media(
-                        chat_id=query.from_user.id,
-                        file_id=file_id,
-                        caption=f_caption,
+                await query.answer(url=f"https://t.me/{temp.U_NAME}?start={ident}_{file_id}")
+                return
+            else:
+                await client.send_cached_media(
+                    chat_id=query.from_user.id,
+                    file_id=file_id,
+                    caption=f_caption,
                     reply_markup=InlineKeyboardMarkup( [ [ InlineKeyboardButton('⚔️ 𝖯𝖨𝖱𝖮 𝖴𝖯𝖣𝖠𝖳𝖤𝖲 ⚔️', url='https://t.me/rai_info17') ] ] ),
                     protect_content=True if ident == "filep" else False 
-                        )
+                )
                 await query.answer('𝖢𝗁𝖾𝖼𝗄 𝖯𝖬, 𝖨 𝗁𝖺𝗏𝖾 𝗌𝖾𝗇𝗍 𝖿𝗂𝗅𝖾𝗌 𝗂𝗇 𝖯𝖬', show_alert=True)
         except UserIsBlocked:
             await query.answer('𝖴𝗇𝖻𝗅𝗈𝖼𝗄 𝗍𝗁𝖾 𝖻𝗈𝗍 𝗆𝖺𝗇𝗁 !', show_alert=True)
@@ -497,7 +500,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         ], [
             InlineKeyboardButton('ℹ️ 𝖧𝖾𝗅𝗉', callback_data='help'),
             InlineKeyboardButton('😊 𝖠𝖻𝗈𝗎𝗍', callback_data='about')
-                  ]]
+        ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await query.message.edit_text(
             text=script.START_TXT.format(query.from_user.mention, temp.U_NAME, temp.B_NAME),
@@ -705,7 +708,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
     try: await query.answer('Piracy is Crime')
     except: pass
 
-    
+
 async def auto_filter(client, msg, spoll=False):
     reqstr1 = msg.from_user.id if msg.from_user else 0
     reqstr = await client.get_users(reqstr1)
@@ -753,28 +756,28 @@ async def auto_filter(client, msg, spoll=False):
             ]
             for file in files
         ]
-            btn.insert(0, 
-                [
+    btn.insert(0, 
+        [
                     InlineKeyboardButton(f'🔮 {search} 🔮', 'reqst')
-                ]
-            )
-            btn.insert(1, 
-                [
+        ]
+    )
+    btn.insert(1,
+        [
                     InlineKeyboardButton(f'📝 𝖳𝗂𝗉𝗌', 'info'),
             InlineKeyboardButton("🔎 𝖦𝗈𝗈𝗀𝗅𝖾", url=f"https://www.google.com/search?q={search}")
-                ]
-            )
-                
+        ]
+    )    
+
     if offset != "":
         key = f"{message.chat.id}-{message.id}"
         BUTTONS[key] = search
         req = message.from_user.id if message.from_user else 0
-                btn.append(
+        btn.append(
             [InlineKeyboardButton(text=f"📃 1/{math.ceil(int(total_results) / 10)}", callback_data="pages"),
              InlineKeyboardButton(text="𝖭𝖤𝖷𝖳 ▶️", callback_data=f"next_{req}_{key}_{offset}")]
-                )
-            else:
-                btn.append(
+        )
+    else:
+        btn.append(
             [InlineKeyboardButton(text="📃 1/1", callback_data="pages")]
         )
     imdb = await get_poster(search, file=(files[0]).file_name) if settings["imdb"] else None
@@ -819,24 +822,24 @@ async def auto_filter(client, msg, spoll=False):
                                       reply_markup=InlineKeyboardMarkup(btn))
             if SELF_DELETE:
                 await asyncio.sleep(300)
-                        await hehe.delete()
+                await hehe.delete()
         except (MediaEmpty, PhotoInvalidDimensions, WebpageMediaEmpty):
-                pic = imdb.get('poster')
-                poster = pic.replace('.jpg', "._V1_UX360.jpg")
-                hmm = await message.reply_photo(photo=poster, caption=cap[:1024], reply_markup=InlineKeyboardMarkup(btn))
+            pic = imdb.get('poster')
+            poster = pic.replace('.jpg', "._V1_UX360.jpg")
+            hmm = await message.reply_photo(photo=poster, caption=cap[:1024], reply_markup=InlineKeyboardMarkup(btn))
             if SELF_DELETE:
                 await asyncio.sleep(300)
-                        await hmm.delete()
+                await hmm.delete()
         except Exception as e:
-                logger.exception(e)
+            logger.exception(e)
             fek = await message.reply_text(cap, reply_markup=InlineKeyboardMarkup(btn))
             if SELF_DELETE:
                 await asyncio.sleep(300)
-                        await fek.delete()
+                await fek.delete()
     else:
         fuk = await message.reply_text(cap, reply_markup=InlineKeyboardMarkup(btn))
         await asyncio.sleep(300)
-                    await fuk.delete()
+        await fuk.delete()        
     if spoll:
         await msg.message.delete()
 
@@ -888,10 +891,10 @@ async def advantage_spell_chok(msg):
     SPELL_CHECK[msg_id] = movielist
     btn = [
         [
-            InlineKeyboardButton(
+        InlineKeyboardButton(
             text=movie.strip(),
             callback_data=f"spolling#{user}#{k}",
-            )
+        )
     ] for k, movie in enumerate(movielist)]
     load = btn.append([InlineKeyboardButton(text="Close", callback_data=f'spolling#{user}#close_spellcheck')])
     zz = await msg.reply('<b><i>𝖲𝖾𝖺𝗋𝖼𝗁𝗂𝗇𝗀 𝖿𝗈𝗋 𝗒𝗈𝗎 𝗋𝖾𝗌𝗎𝗅𝗍 𝗂𝗇 𝖨𝖬𝖣𝖻 \n𝖶𝖺𝗂𝗍....🧐<i/></b>')
@@ -998,7 +1001,7 @@ async def global_filters(client, message, text=False):
                             await asyncio.sleep(300)
                             await knd3.delete()
                             await message.delete()
-                            
+
                         else:
                             button = eval(btn)
                             knd2 = await client.send_message(
