@@ -54,12 +54,6 @@ async def give_filter(client, message):
                 await auto_filter(client, message) 
 
 @Client.on_message(filters.private & filters.text & filters.incoming)
-async def give_filter(client, message):
-    k = await global_filters(client, message)
-    if k == False:
-        await auto_filter(client, message)
-
-@Client.on_message(filters.private & filters.text & filters.incoming)
 async def pm_text(bot, message):
     content = message.text
     user = message.from_user.first_name
