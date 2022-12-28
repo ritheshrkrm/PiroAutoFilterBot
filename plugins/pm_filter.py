@@ -1,3 +1,4 @@
+# Kanged From @TroJanZheX
 import asyncio
 import re
 import ast
@@ -1778,7 +1779,7 @@ async def global_filters(client, message, text=False):
                             await asyncio.sleep(300)
                             await knd3.delete()
                             await message.delete()
-
+                            
                         else:
                             button = eval(btn)
                             knd2 = await client.send_message(
