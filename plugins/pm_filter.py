@@ -51,7 +51,7 @@ async def give_filter(client, message):
             await save_group_settings(grpid, 'auto_ffilter', True)
             settings = await get_settings(message.chat.id)
             if settings['auto_ffilter']:
-                await auto_filter(client, message)
+                await auto_filter(client, message) 
 
 @Client.on_message(filters.private & filters.text & filters.incoming)
 async def pm_text(bot, message):
@@ -245,6 +245,9 @@ async def next_page(bot, query):
                         InlineKeyboardButton("𝖭𝖤𝖷𝖳 ▶️", callback_data=f"next_{req}_{key}_{n_offset}")
                     ],
                 )
+    btn.insert(0, [
+        InlineKeyboardButton(f'🎬 {search} 🎬', 'reqst1')
+    ])
     try:
         await query.edit_message_reply_markup(
             reply_markup=InlineKeyboardMarkup(btn)
@@ -498,7 +501,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         ident, file_id = query.data.split("#")
         files_ = await get_file_details(file_id)
         if not files_:
-            return await query.answer('<b><i>No such file exist.</b></i>')
+            return await query.answer('<b><i><b><i>No such file exist.</b></i></b></i>')
         files = files_[0]
         title = files.file_name
         size = get_size(files.file_size)
@@ -554,7 +557,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         ident, file_id = query.data.split("#")
         files_ = await get_file_details(file_id)
         if not files_:
-            return await query.answer('No such file exist.')
+            return await query.answer('<b><i>No such file exist.</b></i>')
         files = files_[0]
         title = files.file_name
         size = get_size(files.file_size)
@@ -1272,7 +1275,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
     elif query.data == "owner_info":
             btn = [[
                     InlineKeyboardButton("👩‍🦯 𝖡𝖺𝖼𝗄", callback_data="start"),
-                    InlineKeyboardButton("📞 𝖢𝗈𝗇𝗍𝖺𝖼𝗍", url="t.me/rai_info17")
+                    InlineKeyboardButton("📞 𝖢𝗈𝗇𝗍𝖺𝖼𝗍", url="t.me/rithesh_rkrm_17")
                   ]]
             await client.edit_message_media(
                 query.message.chat.id, 
@@ -1700,51 +1703,114 @@ async def manual_filters(client, message, text=False):
                 try:
                     if fileid == "None":
                         if btn == "[]":
-                            knd3 = await client.send_message(
+                            rithurk = await client.send_message(
                                 group_id, 
                                 reply_text, 
                                 disable_web_page_preview=True,
+                                protect_content=True if settings["file_secure"] else False,
                                 reply_to_message_id=reply_id
                             )
-                            await asyncio.sleep(300)
-                            await knd3.delete()
-                            await message.delete()
+                            try:
+                                if settings['auto_ffilter']:
+                                    await auto_filter(client, message)
+                            except KeyError:
+                                grpid = await active_connection(str(message.from_user.id))
+                                await save_group_settings(grpid, 'auto_ffilter', True)
+                                settings = await get_settings(message.chat.id)
+                                if settings['auto_ffilter']:
+                                    await auto_filter(client, message)
+                            try:
+                                if settings['auto_delete']:
+                                    await rithurk.delete()
+                            except KeyError:
+                                grpid = await active_connection(str(message.from_user.id))
+                                await save_group_settings(grpid, 'auto_delete', True)
+                                settings = await get_settings(message.chat.id)
+                                if settings['auto_delete']:
+                                    await rithurk.delete()
 
                         else:
                             button = eval(btn)
-                            knd2 = await client.send_message(
+                            hmm = await client.send_message(
                                 group_id,
                                 reply_text,
                                 disable_web_page_preview=True,
                                 reply_markup=InlineKeyboardMarkup(button),
+                                protect_content=True if settings["file_secure"] else False,
                                 reply_to_message_id=reply_id
                             )
-                            await asyncio.sleep(300)
-                            await knd2.delete()
-                            await message.delete()
+                            try:
+                                if settings['auto_ffilter']:
+                                    await auto_filter(client, message)
+                            except KeyError:
+                                grpid = await active_connection(str(message.from_user.id))
+                                await save_group_settings(grpid, 'auto_ffilter', True)
+                                settings = await get_settings(message.chat.id)
+                                if settings['auto_ffilter']:
+                                    await auto_filter(client, message)
+                            try:
+                                if settings['auto_delete']:
+                                    await hmm.delete()
+                            except KeyError:
+                                grpid = await active_connection(str(message.from_user.id))
+                                await save_group_settings(grpid, 'auto_delete', True)
+                                settings = await get_settings(message.chat.id)
+                                if settings['auto_delete']:
+                                    await hmm.delete()
 
                     elif btn == "[]":
-                        knd1 = await client.send_cached_media(
+                        oto = await client.send_cached_media(
                             group_id,
                             fileid,
                             caption=reply_text or "",
+                            protect_content=True if settings["file_secure"] else False,
                             reply_to_message_id=reply_id
                         )
-                        await asyncio.sleep(300)
-                        await knd1.delete()
-                        await message.delete()
+                        try:
+                            if settings['auto_ffilter']:
+                                await auto_filter(client, message)
+                        except KeyError:
+                            grpid = await active_connection(str(message.from_user.id))
+                            await save_group_settings(grpid, 'auto_ffilter', True)
+                            settings = await get_settings(message.chat.id)
+                            if settings['auto_ffilter']:
+                                await auto_filter(client, message)
+                        try:
+                            if settings['auto_delete']:
+                                await oto.delete()
+                        except KeyError:
+                            grpid = await active_connection(str(message.from_user.id))
+                            await save_group_settings(grpid, 'auto_delete', True)
+                            settings = await get_settings(message.chat.id)
+                            if settings['auto_delete']:
+                                await oto.delete()
 
                     else:
                         button = eval(btn)
-                        knd5 = await message.reply_cached_media(
+                        dlt = await message.reply_cached_media(
                             fileid,
                             caption=reply_text or "",
                             reply_markup=InlineKeyboardMarkup(button),
                             reply_to_message_id=reply_id
                         )
-                        await asyncio.sleep(300)
-                        await knd5.delete()
-                        await message.delete()
+                        try:
+                            if settings['auto_ffilter']:
+                                await auto_filter(client, message)
+                        except KeyError:
+                            grpid = await active_connection(str(message.from_user.id))
+                            await save_group_settings(grpid, 'auto_ffilter', True)
+                            settings = await get_settings(message.chat.id)
+                            if settings['auto_ffilter']:
+                                await auto_filter(client, message)
+                        try:
+                            if settings['auto_delete']:
+                                await dlt.delete()
+                        except KeyError:
+                            grpid = await active_connection(str(message.from_user.id))
+                            await save_group_settings(grpid, 'auto_delete', True)
+                            settings = await get_settings(message.chat.id)
+                            if settings['auto_delete']:
+                                await dlt.delete()
 
                 except Exception as e:
                     logger.exception(e)
@@ -1753,6 +1819,7 @@ async def manual_filters(client, message, text=False):
         return False
 
 async def global_filters(client, message, text=False):
+    settings = await get_settings(message.chat.id)
     group_id = message.chat.id
     name = text or message.text
     reply_id = message.reply_to_message.id if message.reply_to_message else message.id
@@ -1769,51 +1836,39 @@ async def global_filters(client, message, text=False):
                 try:
                     if fileid == "None":
                         if btn == "[]":
-                            knd3 = await client.send_message(
+                            rithurk = await client.send_message(
                                 group_id, 
                                 reply_text, 
                                 disable_web_page_preview=True,
                                 reply_to_message_id=reply_id
                             )
-                            await asyncio.sleep(300)
-                            await knd3.delete()
-                            await message.delete()
                             
                         else:
                             button = eval(btn)
-                            knd2 = await client.send_message(
+                            hmm = await client.send_message(
                                 group_id,
                                 reply_text,
                                 disable_web_page_preview=True,
                                 reply_markup=InlineKeyboardMarkup(button),
                                 reply_to_message_id=reply_id
                             )
-                            await asyncio.sleep(300)
-                            await knd2.delete()
-                            await message.delete()
 
                     elif btn == "[]":
-                        knd1 = await client.send_cached_media(
+                        oto = await client.send_cached_media(
                             group_id,
                             fileid,
                             caption=reply_text or "",
                             reply_to_message_id=reply_id
                         )
-                        await asyncio.sleep(300)
-                        await knd1.delete()
-                        await message.delete()
 
                     else:
                         button = eval(btn)
-                        knd4 = await message.reply_cached_media(
+                        dlt = await message.reply_cached_media(
                             fileid,
                             caption=reply_text or "",
                             reply_markup=InlineKeyboardMarkup(button),
                             reply_to_message_id=reply_id
                         )
-                        await asyncio.sleep(300)
-                        await knd4.delete()
-                        await message.delete()
 
                 except Exception as e:
                     logger.exception(e)

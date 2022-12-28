@@ -239,7 +239,7 @@ async def start(client, message):
             return
         except:
             pass
-        return await message.reply('No such file exist.')
+        return await message.reply('<b><i>No such file exist.</b></i>')
     files = files_[0]
     title = files.file_name
     size=get_size(files.file_size)
