@@ -192,7 +192,7 @@ Request Again"""
 """
 
     NORSLTS = """
-★ #NoResults ★
+• #NoResults 
 
 ID <b>: {}</b>
 
