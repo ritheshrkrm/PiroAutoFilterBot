@@ -1528,7 +1528,7 @@ async def auto_filter(client, msg, spoll=False):
             url=imdb['url'],
             **locals()
         )
-     else:
+    else:
         cap = f"<b>👋 𝖧𝖾𝗒 {message.from_user.mention}\n📁 𝖸𝗈𝗎𝗋 𝖥𝗂𝗅𝖾𝗌 𝖠𝗋𝖾 𝖱𝖾𝖺𝖽𝗒\n\n♨️ 𝖯𝗈𝗐𝖾𝗋𝖾𝖽 𝖡𝗒 @rai_info17</b>"
     if imdb and imdb.get('poster'):
         try:
@@ -1779,7 +1779,7 @@ async def global_filters(client, message, text=False):
                             await asyncio.sleep(300)
                             await knd3.delete()
                             await message.delete()
-
+                            
                         else:
                             button = eval(btn)
                             knd2 = await client.send_message(
