@@ -52,7 +52,7 @@ async def give_filter(client, message):
             await save_group_settings(grpid, 'auto_ffilter', True)
             settings = await get_settings(message.chat.id)
             if settings['auto_ffilter']:
-                await auto_filter(client, message) 
+                await auto_filter(client, message)
 
 @Client.on_message(filters.private & filters.text & filters.incoming)
 async def pm_text(bot, message):
