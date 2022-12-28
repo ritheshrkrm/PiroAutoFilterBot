@@ -8,7 +8,7 @@ from pyrogram.errors import ChatAdminRequired, FloodWait
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 from database.ia_filterdb import Media, get_file_details, unpack_new_file_id
 from database.users_chats_db import db
-from info import CHANNELS, ADMINS, AUTH_CHANNEL, LOG_CHANNEL, PICS, BATCH_FILE_CAPTION, CUSTOM_FILE_CAPTION, PROTECT_CONTENT
+from info import CHANNELS, ADMINS, AUTH_CHANNEL, LOG_CHANNEL, PICS, BATCH_FILE_CAPTION, CUSTOM_FILE_CAPTION, PROTECT_CONTENT, CHNL_LNK, REQST_CHANNEL, SUPPORT_CHAT_ID, MAX_B_TN
 from utils import get_settings, get_size, is_subscribed, save_group_settings, temp
 from database.connections_mdb import active_connection
 import re
@@ -22,14 +22,16 @@ BATCH_FILES = {}
 async def start(client, message):
     if message.chat.type in [enums.ChatType.GROUP, enums.ChatType.SUPERGROUP]:
         buttons = [[
-            InlineKeyboardButton('➕ 𝖠𝖽𝖽 𝖬𝖾 𝖳𝗈 𝖸𝗈𝗎𝗋 𝖦𝗋𝗈𝗎𝗉 ➕', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
-        ], [
-            InlineKeyboardButton('🔍 𝖲𝖾𝖺𝗋𝖼𝗁', switch_inline_query_current_chat=''),
-            InlineKeyboardButton('🤖 𝖣𝖾𝗏𝖾𝗅𝗈𝗉𝖾𝗋', url='https://t.me/rai_info17')
-        ], [
-            InlineKeyboardButton('ℹ️ 𝖧𝖾𝗅𝗉', callback_data='help'),
-            InlineKeyboardButton('😊 𝖠𝖻𝗈𝗎𝗍', callback_data='about')
-        ]]
+                    InlineKeyboardButton('➕ 𝖠𝖽𝖽 𝖬𝖾 𝖳𝗈 𝖸𝗈𝗎𝗋 𝖦𝗋𝗈𝗎𝗉 ➕', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
+                ],[
+                    InlineKeyboardButton('🛡 𝖮𝖶𝖭𝖤𝖱 🛡', callback_data="owner_info"),
+                    InlineKeyboardButton('🧩 𝖲𝖴𝖯𝖯𝖮𝖱𝖳 𝖦𝖱𝖮𝖴𝖯 🧩', url=f"https://t.me/{SUPPORT_CHAT}")
+                ],[
+                    InlineKeyboardButton('ℹ️ 𝖧𝖾𝗅𝗉', callback_data='help'),
+                    InlineKeyboardButton('😊 𝖠𝖻𝗈𝗎𝗍', callback_data='about')
+                ],[
+                    InlineKeyboardButton('🧩 𝖨𝖭𝖫𝖨𝖭𝖤 𝖲𝖤𝖠𝖱𝖢𝖧 🧩', switch_inline_query_current_chat='')
+                  ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await message.reply(script.START_TXT.format(message.from_user.mention if message.from_user else message.chat.title, temp.U_NAME, temp.B_NAME), reply_markup=reply_markup)
         await asyncio.sleep(2)
@@ -43,19 +45,17 @@ async def start(client, message):
         await client.send_message(LOG_CHANNEL, script.LOG_TEXT_P.format(message.from_user.id, message.from_user.mention))
     if len(message.command) != 2:
         buttons = [[
-            InlineKeyboardButton('➕ 𝖠𝖽𝖽 𝖬𝖾 𝖳𝗈 𝖸𝗈𝗎𝗋 𝖦𝗋𝗈𝗎𝗉 ➕', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
-        ], [
-            InlineKeyboardButton('🔍 𝖲𝖾𝖺𝗋𝖼𝗁', switch_inline_query_current_chat=''),
-            InlineKeyboardButton('🤖 𝖣𝖾𝗏𝖾𝗅𝗈𝗉𝖾𝗋', url='https://t.me/rai_info17')
-        ], [
-            InlineKeyboardButton('ℹ️ 𝖧𝖾𝗅𝗉', callback_data='help'),
-            InlineKeyboardButton('😊 𝖠𝖻𝗈𝗎𝗍', callback_data='about')
-        ]]
+                    InlineKeyboardButton('➕ 𝖠𝖽𝖽 𝖬𝖾 𝖳𝗈 𝖸𝗈𝗎𝗋 𝖦𝗋𝗈𝗎𝗉 ➕', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
+                ],[
+                    InlineKeyboardButton('🛡 𝖮𝖶𝖭𝖤𝖱', callback_data="owner_info"),
+                    InlineKeyboardButton('🧩 𝖲𝖴𝖯𝖯𝖮𝖱𝖳 𝖦𝖱𝖮𝖴𝖯 🧩', url=f"https://t.me/{SUPPORT_CHAT}")
+                ],[
+                    InlineKeyboardButton('ℹ️ 𝖧𝖾𝗅𝗉', callback_data='help'),
+                    InlineKeyboardButton('😊 𝖠𝖻𝗈𝗎𝗍', callback_data='about'),
+                ],[
+                    InlineKeyboardButton('🧩 𝖨𝖭𝖫𝖨𝖭𝖤 𝖲𝖤𝖠𝖱𝖢𝖧 🧩', switch_inline_query_current_chat='')🤖 𝖩𝗈𝗂𝗇 𝖴𝗉𝖽𝖺𝗍𝖾𝗌 𝖢𝗁𝖺𝗇𝗇𝖾𝗅 🤖
+                  ]]
         reply_markup = InlineKeyboardMarkup(buttons)
-        await message.reply_chat_action(enums.ChatAction.TYPING)
-        m=await message.reply_sticker("CAACAgUAAxkBAAEGj5hjgg59_usjYjzo5wOuxdgMMnRgrwACigcAAllQEFTTCQ7Ncv2JxysE")
-        await asyncio.sleep(1)
-        await m.delete()
         await message.reply_photo(
             photo=random.choice(PICS),
             caption=script.START_TXT.format(message.from_user.mention, temp.U_NAME, temp.B_NAME),
@@ -81,9 +81,9 @@ async def start(client, message):
             try:
                 kk, file_id = message.command[1].split("_", 1)
                 pre = 'checksubp' if kk == 'filep' else 'checksub' 
-                btn.append([InlineKeyboardButton(" 🔄 𝖳𝗋𝗒 𝖠𝗀𝖺𝗂𝗇 🔄", callback_data=f"{pre}#{file_id}")])
+                btn.append([InlineKeyboardButton("🔄 𝖳𝗋𝗒 𝖠𝗀𝖺𝗂𝗇 🔄", callback_data=f"{pre}#{file_id}")])
             except (IndexError, ValueError):
-                btn.append([InlineKeyboardButton(" 🔄 𝖳𝗋𝗒 𝖠𝗀𝖺𝗂𝗇 🔄", url=f"https://t.me/{temp.U_NAME}?start={message.command[1]}")])
+                btn.append([InlineKeyboardButton("🔄 𝖳𝗋𝗒 𝖠𝗀𝖺𝗂𝗇 🔄", url=f"https://t.me/{temp.U_NAME}?start={message.command[1]}")])
         await client.send_message(
             chat_id=message.from_user.id,
             text="**Please Join My Updates Channel to use this Bot!**",
@@ -93,19 +93,18 @@ async def start(client, message):
         return
     if len(message.command) == 2 and message.command[1] in ["subscribe", "error", "okay", "help"]:
         buttons = [[
-            InlineKeyboardButton('➕ 𝖠𝖽𝖽 𝖬𝖾 𝖳𝗈 𝖸𝗈𝗎𝗋 𝖦𝗋𝗈𝗎𝗉 ➕', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
-        ], [
-            InlineKeyboardButton('🔍 𝖲𝖾𝖺𝗋𝖼𝗁', switch_inline_query_current_chat=''),
-            InlineKeyboardButton('🤖 𝖣𝖾𝗏𝖾𝗅𝗈𝗉𝖾𝗋', url='https://t.me/rai_info17')
-        ], [
-            InlineKeyboardButton('ℹ️ 𝖧𝖾𝗅𝗉', callback_data='help'),
-            InlineKeyboardButton('😊 𝖠𝖻𝗈𝗎𝗍', callback_data='about')
-        ]]
+                    InlineKeyboardButton('➕ 𝖠𝖽𝖽 𝖬𝖾 𝖳𝗈 𝖸𝗈𝗎𝗋 𝖦𝗋𝗈𝗎𝗉 ➕', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
+                ],[
+                    InlineKeyboardButton('🛡 𝖮𝖶𝖭𝖤𝖱', callback_data="owner_info"),
+                    InlineKeyboardButton('🧩 𝖲𝖴𝖯𝖯𝖮𝖱𝖳 𝖦𝖱𝖮𝖴𝖯 🧩', url=f"https://t.me/{SUPPORT_CHAT}")
+                ],[
+                    InlineKeyboardButton('ℹ️ 𝖧𝖾𝗅𝗉', callback_data='help'),
+                    InlineKeyboardButton('😊 𝖠𝖻𝗈𝗎𝗍', callback_data='about')
+                ],[
+                    InlineKeyboardButton('🧩 𝖨𝖭𝖫𝖨𝖭𝖤 𝖲𝖤𝖠𝖱𝖢𝖧 🧩', switch_inline_query_current_chat='')
+                    
+                  ]]
         reply_markup = InlineKeyboardMarkup(buttons)
-        await message.reply_chat_action(enums.ChatAction.TYPING)
-        m=await message.reply_sticker("CAACAgUAAxkBAAEGj5hjgg59_usjYjzo5wOuxdgMMnRgrwACigcAAllQEFTTCQ7Ncv2JxysE")
-        await asyncio.sleep(1)
-        await m.delete()
         await message.reply_photo(
             photo=random.choice(PICS),
             caption=script.START_TXT.format(message.from_user.mention, temp.U_NAME, temp.B_NAME),
@@ -150,9 +149,10 @@ async def start(client, message):
                     chat_id=message.from_user.id,
                     file_id=msg.get("file_id"),
                     caption=f_caption,
-                    reply_markup=InlineKeyboardMarkup( [ [ InlineKeyboardButton('⚔️ 𝖯𝖨𝖱𝖮 𝖴𝖯𝖣𝖠𝖳𝖤𝖲 ⚔️', url='https://t.me/rai_info17') ] ] ),
                     protect_content=msg.get('protect', False),
-                    )
+                    reply_markup=InlineKeyboardMarkup( [ [ InlineKeyboardButton('⚔️ 𝖯𝖨𝖱𝖮 𝖴𝖯𝖣𝖠𝖳𝖤𝖲 ⚔️', url='https://t.me/rai_info17') ] ] ),
+                    
+                )
             except FloodWait as e:
                 await asyncio.sleep(e.x)
                 logger.warning(f"Floodwait of {e.x} sec.")
@@ -160,9 +160,9 @@ async def start(client, message):
                     chat_id=message.from_user.id,
                     file_id=msg.get("file_id"),
                     caption=f_caption,
-                    reply_markup=InlineKeyboardMarkup( [ [ InlineKeyboardButton('⚔️ 𝖯𝖨𝖱𝖮 𝖴𝖯𝖣𝖠𝖳𝖤𝖲 ⚔️', url='https://t.me/rai_info17') ] ] ),
                     protect_content=msg.get('protect', False),
-                    )
+                    reply_markup=InlineKeyboardMarkup( [ [ InlineKeyboardButton('⚔️ 𝖯𝖨𝖱𝖮 𝖴𝖯𝖣𝖠𝖳𝖤𝖲 ⚔️', url='https://t.me/rai_info17') ] ] ),
+                )
             except Exception as e:
                 logger.warning(e, exc_info=True)
                 continue
@@ -223,7 +223,8 @@ async def start(client, message):
                 chat_id=message.from_user.id,
                 file_id=file_id,
                 protect_content=True if pre == 'filep' else False,
-                )
+                reply_markup=InlineKeyboardMarkup( [ [ InlineKeyboardButton('⚔️ 𝖯𝖨𝖱𝖮 𝖴𝖯𝖣𝖠𝖳𝖤𝖲 ⚔️', url='https://t.me/rai_info17') ] ] ),
+            )
             filetype = msg.media
             file = getattr(msg, filetype.value)
             title = file.file_name
@@ -255,9 +256,9 @@ async def start(client, message):
         chat_id=message.from_user.id,
         file_id=file_id,
         caption=f_caption,
-        reply_markup=InlineKeyboardMarkup( [ [ InlineKeyboardButton('⚔️ 𝖯𝖨𝖱𝖮 𝖴𝖯𝖣𝖠𝖳𝖤𝖲 ⚔️', url='https://t.me/rai_info17') ] ] ),
         protect_content=True if pre == 'filep' else False,
-        )
+        reply_markup=InlineKeyboardMarkup( [ [ InlineKeyboardButton('⚔️ 𝖯𝖨𝖱𝖮 𝖴𝖯𝖣𝖠𝖳𝖤𝖲 ⚔️', url='https://t.me/rai_info17') ] ] ),
+    )
                     
 
 @Client.on_message(filters.command('channel') & filters.user(ADMINS))
@@ -409,82 +410,132 @@ async def settings(client, message):
             and str(userid) not in ADMINS
     ):
         return
-
+    
     settings = await get_settings(grp_id)
+
+    try:
+        if settings['max_btn']:
+            settings = await get_settings(grp_id)
+    except KeyError:
+        await save_group_settings(grp_id, 'max_btn', False)
+        settings = await get_settings(grp_id)
 
     if settings is not None:
         buttons = [
             [
                 InlineKeyboardButton(
-                    'Filter Button',
+                    '𝖥𝗂𝗅𝗍𝖾𝗋 𝖡𝗎𝗍𝗍𝗈𝗇',
                     callback_data=f'setgs#button#{settings["button"]}#{grp_id}',
                 ),
                 InlineKeyboardButton(
-                    'Single' if settings["button"] else 'Double',
+                    '𝖲𝗂𝗇𝗀𝗅𝖾 𝖡𝗎𝗍𝗍𝗈𝗇' if settings["button"] else 'Dᴏᴜʙʟᴇ',
                     callback_data=f'setgs#button#{settings["button"]}#{grp_id}',
                 ),
             ],
             [
                 InlineKeyboardButton(
-                    'Bot PM',
+                    '𝖥𝗂𝗅𝖾 𝖲𝖾𝗇𝖽 𝖬𝗈𝖽𝖾',
                     callback_data=f'setgs#botpm#{settings["botpm"]}#{grp_id}',
                 ),
                 InlineKeyboardButton(
-                    '✅ Yes' if settings["botpm"] else '❌ No',
+                    '𝖬𝖺𝗇𝗎𝖺𝗅 𝖲𝗍𝖺𝗋𝗍' if settings["botpm"] else 'Aᴜᴛᴏ Sᴇɴᴅ',
                     callback_data=f'setgs#botpm#{settings["botpm"]}#{grp_id}',
                 ),
             ],
             [
                 InlineKeyboardButton(
-                    'File Secure',
+                    '𝖯𝗋𝗈𝗍𝖾𝖼𝗍 𝖢𝗈𝗇𝗍𝖾𝗇𝗍',
                     callback_data=f'setgs#file_secure#{settings["file_secure"]}#{grp_id}',
                 ),
                 InlineKeyboardButton(
-                    '✅ Yes' if settings["file_secure"] else '❌ No',
+                    '✅ 𝖮𝗇' if settings["file_secure"] else '✘ Oғғ',
                     callback_data=f'setgs#file_secure#{settings["file_secure"]}#{grp_id}',
                 ),
             ],
             [
                 InlineKeyboardButton(
-                    'IMDB',
+                    '𝖨𝖬𝖣𝖻',
                     callback_data=f'setgs#imdb#{settings["imdb"]}#{grp_id}',
                 ),
                 InlineKeyboardButton(
-                    '✅ Yes' if settings["imdb"] else '❌ No',
+                    '✅ 𝖮𝗇' if settings["imdb"] else '✘ Oғғ',
                     callback_data=f'setgs#imdb#{settings["imdb"]}#{grp_id}',
                 ),
             ],
             [
                 InlineKeyboardButton(
-                    'Spell Check',
+                    '𝖲𝗉𝖾𝗅𝗅 𝖢𝗁𝖾𝖼𝗄',
                     callback_data=f'setgs#spell_check#{settings["spell_check"]}#{grp_id}',
                 ),
                 InlineKeyboardButton(
-                    '✅ Yes' if settings["spell_check"] else '❌ No',
+                    '✅ 𝖮𝗇' if settings["spell_check"] else '✘ Oғғ',
                     callback_data=f'setgs#spell_check#{settings["spell_check"]}#{grp_id}',
                 ),
             ],
             [
                 InlineKeyboardButton(
-                    'Welcome',
+                    '𝖶𝖾𝗅𝖼𝗈𝗆𝖾 𝖬𝖾𝗌𝗌𝖺𝗀𝖾',
                     callback_data=f'setgs#welcome#{settings["welcome"]}#{grp_id}',
                 ),
                 InlineKeyboardButton(
-                    '✅ Yes' if settings["welcome"] else '❌ No',
+                    '✅ 𝖮𝗇' if settings["welcome"] else '✘ Oғғ',
                     callback_data=f'setgs#welcome#{settings["welcome"]}#{grp_id}',
+                ),
+            ],
+            [
+                InlineKeyboardButton(
+                    '𝖠𝗎𝗍𝗈 𝖣𝖾𝗅𝖾𝗍𝖾',
+                    callback_data=f'setgs#auto_delete#{settings["auto_delete"]}#{grp_id}',
+                ),
+                InlineKeyboardButton(
+                    '10 𝖬𝗂𝗇' if settings["auto_delete"] else '✘ Oғғ',
+                    callback_data=f'setgs#auto_delete#{settings["auto_delete"]}#{grp_id}',
+                ),
+            ],
+            [
+                InlineKeyboardButton(
+                    '𝖠𝗎𝗍𝗈-𝖥𝗂𝗅𝗍𝖾𝗋',
+                    callback_data=f'setgs#auto_ffilter#{settings["auto_ffilter"]}#{grp_id}',
+                ),
+                InlineKeyboardButton(
+                    '✅ 𝖮𝗇' if settings["auto_ffilter"] else '✘ Oғғ',
+                    callback_data=f'setgs#auto_ffilter#{settings["auto_ffilter"]}#{grp_id}',
+                ),
+            ],
+            [
+                InlineKeyboardButton(
+                    '𝖬𝖺𝗑 𝖡𝗎𝗍𝗍𝗈𝗇𝗌',
+                    callback_data=f'setgs#max_btn#{settings["max_btn"]}#{grp_id}',
+                ),
+                InlineKeyboardButton(
+                    '10' if settings["max_btn"] else f'{MAX_B_TN}',
+                    callback_data=f'setgs#max_btn#{settings["max_btn"]}#{grp_id}',
                 ),
             ],
         ]
 
-        reply_markup = InlineKeyboardMarkup(buttons)
+        btn = [[
+                InlineKeyboardButton("⬇ 𝖮𝗉𝖾𝗇 𝖧𝖾𝗋𝖾 ⬇", callback_data=f"opnsetgrp#{grp_id}"),
+                InlineKeyboardButton("➡ 𝖮𝗉𝖾𝗇 𝗂𝗇 𝖯𝖬 ➡", callback_data=f"opnsetpm#{grp_id}")
+              ]]
 
-        await message.reply_text(
-            text=f"<b>Change Your Settings for {title} As Your Wish ⚙</b>",
-            reply_markup=reply_markup,
-            disable_web_page_preview=True,
-            parse_mode=enums.ParseMode.HTML,
-            reply_to_message_id=message.id
-        )
+        reply_markup = InlineKeyboardMarkup(buttons)
+        if chat_type in [enums.ChatType.GROUP, enums.ChatType.SUPERGROUP]:
+            await message.reply_text(
+                text="<b>𝖣𝗈 𝖸𝗈𝗎 𝖶𝖺𝗇𝗍 𝖳𝗈 𝖮𝗉𝖾𝗇 𝖲𝖾𝗍𝗍𝗂𝗇𝗀𝗌 𝖧𝖾𝗋𝖾 ?</b>",
+                reply_markup=InlineKeyboardMarkup(btn),
+                disable_web_page_preview=True,
+                parse_mode=enums.ParseMode.HTML,
+                reply_to_message_id=message.id
+            )
+        else:
+            await message.reply_text(
+                text=f"<b>𝖢𝗁𝖺𝗇𝗀𝖾 𝖸𝗈𝗎𝗋 𝖲𝖾𝗍𝗍𝗂𝗇𝗀𝗌 𝖥𝗈𝗋 {title} 𝖠𝗌 𝖸𝗈𝗎𝗋 𝖶𝗂𝗌𝗁</b>",
+                reply_markup=reply_markup,
+                disable_web_page_preview=True,
+                parse_mode=enums.ParseMode.HTML,
+                reply_to_message_id=message.id
+            )
 
 @Client.on_message(filters.command("send") & filters.user(ADMINS))
 async def send_msg(bot, message):
@@ -558,3 +609,136 @@ async def save_template(client, message):
     template = message.text.split(" ", 1)[1]
     await save_group_settings(grp_id, 'template', template)
     await sts.edit(f"Successfully changed template for {title} to\n\n{template}")
+
+
+@Client.on_message((filters.command(["request", "Request"]) | filters.regex("#request") | filters.regex("#Request")) & filters.group)
+async def requests(bot, message):
+    if REQST_CHANNEL is None or 🧩 𝖲𝖴𝖯𝖯𝖮𝖱𝖳 GROUP 🧩_CHAT_ID is None: return # Must add REQST_CHANNEL and 🧩 𝖲𝖴𝖯𝖯𝖮𝖱𝖳 GROUP 🧩_CHAT_ID to use this feature
+    if message.reply_to_message and 🧩 𝖲𝖴𝖯𝖯𝖮𝖱𝖳 GROUP 🧩_CHAT_ID == message.chat.id:
+        chat_id = message.chat.id
+        reporter = str(message.from_user.id)
+        mention = message.from_user.mention
+        success = True
+        content = message.reply_to_message.text
+        try:
+            if REQST_CHANNEL is not None:
+                btn = [[
+                        InlineKeyboardButton('📥 𝖵𝗂𝖾𝗐 𝖱𝖾𝗊𝗎𝖾𝗌𝗍 📥', url=f"{message.reply_to_message.link}"),
+                        InlineKeyboardButton('📝 𝖲𝗁𝗈𝗐 𝖮𝗉𝗍𝗂𝗈𝗇𝗌 📝', callback_data=f'show_option#{reporter}')
+                      ]]
+                reported_post = await bot.send_message(chat_id=REQST_CHANNEL, text=f"<b>𝖱𝖾𝗉𝗈𝗋𝗍𝖾𝗋 : {mention} ({reporter})\n\n𝖬𝖾𝗌𝗌𝖺𝗀𝖾 : {content}</b>", reply_markup=InlineKeyboardMarkup(btn))
+                success = True
+            elif len(content) >= 3:
+                for admin in ADMINS:
+                    btn = [[
+                        InlineKeyboardButton('📥 𝖵𝗂𝖾𝗐 𝖱𝖾𝗊𝗎𝖾𝗌𝗍 📥', url=f"{message.reply_to_message.link}"),
+                        InlineKeyboardButton('📝 𝖲𝗁𝗈𝗐 𝖮𝗉𝗍𝗂𝗈𝗇𝗌 📝', callback_data=f'show_option#{reporter}')
+                      ]]
+                    reported_post = await bot.send_message(chat_id=admin, text=f"<b>𝖱𝖾𝗉𝗈𝗋𝗍𝖾𝗋 : {mention} ({reporter})\n\n𝖬𝖾𝗌𝗌𝖺𝗀𝖾 : {content}</b>", reply_markup=InlineKeyboardMarkup(btn))
+                    success = True
+            else:
+                if len(content) < 3:
+                    await message.reply_text("<b>You must type about your request [Minimum 3 Characters]. Requests can't be empty.</b>")
+            if len(content) < 3:
+                success = False
+        except Exception as e:
+            await message.reply_text(f"Error: {e}")
+            pass
+        
+    elif 🧩 𝖲𝖴𝖯𝖯𝖮𝖱𝖳 GROUP 🧩_CHAT_ID == message.chat.id:
+        chat_id = message.chat.id
+        reporter = str(message.from_user.id)
+        mention = message.from_user.mention
+        success = True
+        content = message.text
+        keywords = ["#request", "/request", "#Request", "/Request"]
+        for keyword in keywords:
+            if keyword in content:
+                content = content.replace(keyword, "")
+        try:
+            if REQST_CHANNEL is not None and len(content) >= 3:
+                btn = [[
+                        InlineKeyboardButton('📥 𝖵𝗂𝖾𝗐 𝖱𝖾𝗊𝗎𝖾𝗌𝗍 📥', url=f"{message.link}"),
+                        InlineKeyboardButton('📝 𝖲𝗁𝗈𝗐 𝖮𝗉𝗍𝗂𝗈𝗇𝗌 📝', callback_data=f'show_option#{reporter}')
+                      ]]
+                reported_post = await bot.send_message(chat_id=REQST_CHANNEL, text=f"<b>𝖱𝖾𝗉𝗈𝗋𝗍𝖾𝗋 : {mention} ({reporter})\n\n𝖬𝖾𝗌𝗌𝖺𝗀𝖾 : {content}</b>", reply_markup=InlineKeyboardMarkup(btn))
+                success = True
+            elif len(content) >= 3:
+                for admin in ADMINS:
+                    btn = [[
+                        InlineKeyboardButton('📥 𝖵𝗂𝖾𝗐 𝖱𝖾𝗊𝗎𝖾𝗌𝗍 📥', url=f"{message.link}"),
+                        InlineKeyboardButton('📝 𝖲𝗁𝗈𝗐 𝖮𝗉𝗍𝗂𝗈𝗇𝗌 📝', callback_data=f'show_option#{reporter}')
+                      ]]
+                    reported_post = await bot.send_message(chat_id=admin, text=f"<b>𝖱𝖾𝗉𝗈𝗋𝗍𝖾𝗋 : {mention} ({reporter})\n\n𝖬𝖾𝗌𝗌𝖺𝗀𝖾 : {content}</b>", reply_markup=InlineKeyboardMarkup(btn))
+                    success = True
+            else:
+                if len(content) < 3:
+                    await message.reply_text("<b>You must type about your request [Minimum 3 Characters]. Requests can't be empty.</b>")
+            if len(content) < 3:
+                success = False
+        except Exception as e:
+            await message.reply_text(f"Error: {e}")
+            pass
+
+    else:
+        success = False
+    
+    if success:
+        btn = [[
+                InlineKeyboardButton('📥 𝖵𝗂𝖾𝗐 𝖱𝖾𝗊𝗎𝖾𝗌𝗍 📥', url=f"{reported_post.link}")
+              ]]
+        await message.reply_text("<b>Your request has been added! Please wait for some time.</b>", reply_markup=InlineKeyboardMarkup(btn))
+
+        
+@Client.on_message(filters.command("send") & filters.user(ADMINS))
+async def send_msg(bot, message):
+    if message.reply_to_message:
+        target_id = message.text
+        command = ["/send"]
+        out = "Users Saved In DB Are:\n\n"
+        for cmd in command:
+            if cmd in target_id:
+                target_id = target_id.replace(cmd, "")
+        success = False
+        try:
+            user = await bot.get_users(target_id)
+            users = await db.get_all_users()
+            async for usr in users:
+                out += f"{usr['id']}"
+                out += '\n'
+            if str(user.id) in str(out):
+                await message.reply_to_message.copy(int(user.id))
+                success = True
+            else:
+                success = False
+            if success:
+                await message.reply_text(f"<b>Your message has been successfully send to {user.mention}.</b>")
+            else:
+                await message.reply_text("<b>This user didn't started this bot yet !</b>")
+        except Exception as e:
+            await message.reply_text(f"<b>Error: {e}</b>")
+    else:
+        await message.reply_text("<b>Use this command as a reply to any message using the target chat id. For eg: /send userid</b>")
+
+@Client.on_message(filters.command("deletefiles") & filters.user(ADMINS))
+async def deletemultiplefiles(bot, message):
+    btn = [[
+            InlineKeyboardButton("PʀᴇDVD", callback_data="predvd"),
+            InlineKeyboardButton("PʀᴇDVD Rɪᴘ", callback_data="predvdrip")
+          ],[
+            InlineKeyboardButton("HDᴛs", callback_data="hdts"),
+            InlineKeyboardButton("HD-ᴛs", callback_data="hdtss")
+          ],[
+            InlineKeyboardButton("HDCᴀᴍ", callback_data="hdcam"),
+            InlineKeyboardButton("HD-Cᴀᴍ", callback_data="hdcams")
+          ],[
+            InlineKeyboardButton("CᴀᴍRɪᴘ", callback_data="camrip"),
+            InlineKeyboardButton("S-Pʀɪɴᴛ", callback_data="sprint")
+          ],[
+            InlineKeyboardButton("Cᴀɴᴄᴇʟ", callback_data="close_data")
+          ]]
+    await message.reply_text(
+        text="<b>Sᴇʟᴇᴄᴛ Tʜᴇ Tʏᴘᴇ Oғ Fɪʟᴇs Yᴏᴜ Wᴀɴᴛ Tᴏ Dᴇʟᴇᴛᴇ..?</b>",
+        reply_markup=InlineKeyboardMarkup(btn),
+        quote=True
+    ) 

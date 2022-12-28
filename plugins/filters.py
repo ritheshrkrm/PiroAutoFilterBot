@@ -124,6 +124,7 @@ async def get_all(client, message):
     if not userid:
         return await message.reply(f"You are anonymous admin. Use /connect {message.chat.id} in PM")
     if chat_type == enums.ChatType.PRIVATE:
+        userid = message.from_user.id
         grpid = await active_connection(str(userid))
         if grpid is not None:
             grp_id = grpid
@@ -187,7 +188,7 @@ async def deletefilter(client, message):
     chat_type = message.chat.type
 
     if chat_type == enums.ChatType.PRIVATE:
-        grpid = await active_connection(str(userid))
+        grpid  = await active_connection(str(userid))
         if grpid is not None:
             grp_id = grpid
             try:
@@ -239,7 +240,7 @@ async def delallconfirm(client, message):
     chat_type = message.chat.type
 
     if chat_type == enums.ChatType.PRIVATE:
-        grpid = await active_connection(str(userid))
+        grpid  = await active_connection(str(userid))
         if grpid is not None:
             grp_id = grpid
             try:

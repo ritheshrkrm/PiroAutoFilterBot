@@ -37,12 +37,12 @@ async def save_group(bot, message):
             await bot.leave_chat(message.chat.id)
             return
         buttons = [[
-            InlineKeyboardButton('🌐 𝖲𝗎𝗉𝗉𝗈𝗋𝗍 🌐', url=f"https://t.me/{SUPPORT_CHAT}"),
-            InlineKeyboardButton('📢 𝖴𝗉𝖽𝖺𝗍𝖾𝗌', url='https://t.me/rai_info17')
-                  ]]
+            InlineKeyboardButton('🧩 𝖲𝖴𝖯𝖯𝖮𝖱𝖳 GROUP 🧩', url=f"https://t.me/{SUPPORT_CHAT}"),
+            InlineKeyboardButton('📢 𝖴𝗉𝖽𝖺𝗍𝖾𝗌 📢', url='https://t.me/rai_info17')
+        ]]
         reply_markup=InlineKeyboardMarkup(buttons)
         await message.reply_text(
-            text=f"<b>Thankyou For Adding Me In {message.chat.title} ❣️\n\nIf you have any questions & doubts about using me contact support.</b>",
+            text=f"<b>Thankyou For Adding Me In {message.chat.title} ❣️\n\nIf you have any questions & doubts about using me contact 𝖲𝖴𝖯𝖯𝖮𝖱𝖳 GROUP.</b>",
             reply_markup=reply_markup)
     else:
         settings = await get_settings(message.chat.id)
@@ -56,10 +56,23 @@ async def save_group(bot, message):
                 temp.MELCOW['welcome'] = await message.reply_video(
                                                  video=(MELCOW_VID),
                                                  caption=(script.MELCOW_ENG.format(u.mention, message.chat.title)),
-                                                 reply_markup=InlineKeyboardMarkup( [ [ InlineKeyboardButton('⚔️ 𝖯𝖨𝖱𝖮 𝖴𝖯𝖣𝖠𝖳𝖤𝖲 ⚔️', url='https://t.me/rai_info17') ] ] ),
+                                                 reply_markup=InlineKeyboardMarkup(
+        [[
+            InlineKeyboardButton('🧩 𝖲𝖴𝖯𝖯𝖮𝖱𝖳 GROUP 🧩', url=f"https://t.me/{SUPPORT_CHAT}"),
+            InlineKeyboardButton('📢 𝖴𝗉𝖽𝖺𝗍𝖾𝗌 📢', url='https://t.me/rai_info17')
+        ]]
+                                                 ),
                                                  parse_mode=enums.ParseMode.HTML
                 )
-            
+                
+        if settings["auto_delete"]:
+            await asyncio.sleep(300)
+            await (temp.MELCOW['welcome']).delete()
+                
+               
+
+
+
 @Client.on_message(filters.command('leave') & filters.user(ADMINS))
 async def leave_a_chat(bot, message):
     if len(message.command) == 1:
@@ -71,12 +84,13 @@ async def leave_a_chat(bot, message):
         chat = chat
     try:
         buttons = [[
-            InlineKeyboardButton('🌐 𝖲𝗎𝗉𝗉𝗈𝗋𝗍 🌐', url=f'https://t.me/{SUPPORT_CHAT}')
+            InlineKeyboardButton('🧩 𝖲𝖴𝖯𝖯𝖮𝖱𝖳 GROUP 🧩', url=f"https://t.me/{SUPPORT_CHAT}"),
+            InlineKeyboardButton('📢 𝖴𝗉𝖽𝖺𝗍𝖾𝗌 📢', url='https://t.me/rai_info17')
         ]]
         reply_markup=InlineKeyboardMarkup(buttons)
         await bot.send_message(
             chat_id=chat,
-            text='<b>𝖧𝖾𝗅𝗅𝗈 𝖥𝗋𝗂𝖾𝗇𝖽𝗌, \n𝖬𝗒 𝖺𝖽𝗆𝗂𝗇 𝗁𝖺𝗌 𝗍𝗈𝗅𝖽 𝗆𝖾 𝗍𝗈 𝗅𝖾𝖺𝗏𝖾 𝖿𝗋𝗈𝗆 𝗀𝗋𝗈𝗎𝗉 𝗌𝗈 𝗂 𝗀𝗈! 𝖨𝖿 𝗒𝗈𝗎 𝗐𝖺𝗇𝗇𝖺 𝖺𝖽𝖽 𝗆𝖾 𝖺𝗀𝖺𝗂𝗇 𝖼𝗈𝗇𝗍𝖺𝖼𝗍 𝗆𝗒 𝗌𝗎𝗉𝗉𝗈𝗋𝗍 𝗀𝗋𝗈𝗎𝗉.</b>',
+            text='<b>Hello Friends, \nMy admin has told me to leave from group so i go! If you wanna add me again contact my 🧩 𝖲𝖴𝖯𝖯𝖮𝖱𝖳 GROUP 🧩 group.</b>',
             reply_markup=reply_markup,
         )
 
@@ -110,7 +124,8 @@ async def disable_chat(bot, message):
     await message.reply('Chat Successfully Disabled')
     try:
         buttons = [[
-            InlineKeyboardButton('🌐 𝖲𝗎𝗉𝗉𝗈𝗋𝗍 🌐', url=f'https://t.me/{SUPPORT_CHAT}')
+            InlineKeyboardButton('🧩 𝖲𝖴𝖯𝖯𝖮𝖱𝖳 GROUP 🧩', url=f"https://t.me/{SUPPORT_CHAT}"),
+            InlineKeyboardButton('📢 𝖴𝗉𝖽𝖺𝗍𝖾𝗌 📢', url='https://t.me/rai_info17')
         ]]
         reply_markup=InlineKeyboardMarkup(buttons)
         await bot.send_message(

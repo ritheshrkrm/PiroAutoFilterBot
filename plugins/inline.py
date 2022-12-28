@@ -2,7 +2,7 @@ import logging
 from pyrogram import Client, emoji, filters
 from pyrogram.errors.exceptions.bad_request_400 import QueryIdInvalid
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, InlineQueryResultCachedDocument, InlineQuery
-from database.ia_filterdb import Media, get_file_details, get_search_results
+from database.ia_filterdb import get_search_results
 from utils import is_subscribed, get_size, temp
 from info import CACHE_TIME, AUTH_USERS, AUTH_CHANNEL, CUSTOM_FILE_CAPTION
 from database.connections_mdb import active_connection
@@ -108,7 +108,7 @@ def get_reply_markup(query):
     buttons = [
         [
             InlineKeyboardButton('🔎 𝖲𝖾𝖺𝗋𝖼𝗁 𝖠𝗀𝖺𝗂𝗇', switch_inline_query_current_chat=query),
-            InlineKeyboardButton('📢 𝖴𝗉𝖽𝖺𝗍𝖾𝗌', url='https://t.me/rai_info17')
+            InlineKeyboardButton('📢 𝖴𝗉𝖽𝖺𝗍𝖾𝗌 📢', url='https://t.me/rai_info17')
         ]
         ]
     return InlineKeyboardMarkup(buttons)
