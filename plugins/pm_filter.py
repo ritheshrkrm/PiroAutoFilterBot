@@ -1507,17 +1507,17 @@ async def auto_filter(client, msg, spoll=False):
     else:
         try:
             if settings['auto_delete']:
-                cap = script.CAP_DLT_TXT.format(search, message.from_user.mention if message.from_user else message.chat.title)
+                cap = f"👋 𝖧𝖾𝗅𝗅𝗈 𝖳𝗁𝖾𝗋𝖾...!!!\n📁 𝖸𝗈𝗎𝗋 𝖥𝗂𝗅𝖾𝗌 𝖠𝗋𝖾 𝖱𝖾𝖺𝖽𝗒\n\n♨️ 𝖯𝗈𝗐𝖾𝗋𝖾𝖽 𝖡𝗒 @rai_info17"
             else:
-                cap = script.CAP_TXT.format(search, message.from_user.mention if message.from_user else message.chat.title)
+                cap = f"👋 𝖧𝖾𝗅𝗅𝗈 𝖳𝗁𝖾𝗋𝖾...!!!\n📁 𝖸𝗈𝗎𝗋 𝖥𝗂𝗅𝖾𝗌 𝖠𝗋𝖾 𝖱𝖾𝖺𝖽𝗒\n\n♨️ 𝖯𝗈𝗐𝖾𝗋𝖾𝖽 𝖡𝗒 @rai_info17"
         except KeyError:
             grpid = await active_connection(str(message.from_user.id))
             await save_group_settings(grpid, 'auto_delete', True)
             settings = await get_settings(message.chat.id)
             if settings['auto_delete']:
-                cap = script.CAP_DLT_TXT.format(search, message.from_user.mention if message.from_user else message.chat.title)
+               cap = f"👋 𝖧𝖾𝗅𝗅𝗈 𝖳𝗁𝖾𝗋𝖾...!!!\n📁 𝖸𝗈𝗎𝗋 𝖥𝗂𝗅𝖾𝗌 𝖠𝗋𝖾 𝖱𝖾𝖺𝖽𝗒\n\n♨️ 𝖯𝗈𝗐𝖾𝗋𝖾𝖽 𝖡𝗒 @rai_info17"
             else:
-                cap = script.CAP_TXT.format(search, message.from_user.mention if message.from_user else message.chat.title)
+                cap = f"👋 𝖧𝖾𝗅𝗅𝗈 𝖳𝗁𝖾𝗋𝖾...!!!\n📁 𝖸𝗈𝗎𝗋 𝖥𝗂𝗅𝖾𝗌 𝖠𝗋𝖾 𝖱𝖾𝖺𝖽𝗒\n\n♨️ 𝖯𝗈𝗐𝖾𝗋𝖾𝖽 𝖡𝗒 @rai_info17"
     if imdb and imdb.get('poster'):
         try:
             if settings['auto_delete']:
