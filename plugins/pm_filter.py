@@ -115,11 +115,6 @@ async def next_page(bot, query):
         if settings['auto_delete']:
             btn.insert(0, 
                 [
-                    InlineKeyboardButton(f'🎬 {search} 🎬', 'reqst1')
-                ]
-            )
-            btn.insert(1, 
-                [
                     InlineKeyboardButton(f'📝 𝖳𝗂𝗉𝗌', 'info'),
                     InlineKeyboardButton("🔎 𝖦𝗈𝗈𝗀𝗅𝖾", url=f"https://www.google.com/search?q={search}")
                 ]
@@ -127,11 +122,6 @@ async def next_page(bot, query):
 
         else:
             btn.insert(0, 
-                [
-                    InlineKeyboardButton(f'🎬 {search} 🎬', 'reqst1')
-                ]
-            )
-            btn.insert(1, 
                 [
                     InlineKeyboardButton(f'📝 𝖳𝗂𝗉𝗌', 'info'),
                     InlineKeyboardButton("🔎 𝖦𝗈𝗈𝗀𝗅𝖾", url=f"https://www.google.com/search?q={search}")
@@ -145,12 +135,13 @@ async def next_page(bot, query):
         if settings['auto_delete']:
             btn.insert(0, 
                 [
-                    InlineKeyboardButton(f'🎬 {search} 🎬', 'reqst1')
+                    InlineKeyboardButton(f'📝 𝖳𝗂𝗉𝗌', 'info'),
+                    InlineKeyboardButton("🔎 𝖦𝗈𝗈𝗀𝗅𝖾", url=f"https://www.google.com/search?q={search}")
                 ]
             )
 
         else:
-            btn.insert(1, 
+            btn.insert(0, 
                 [
                     InlineKeyboardButton(f'📝 𝖳𝗂𝗉𝗌', 'info'),
                     InlineKeyboardButton("🔎 𝖦𝗈𝗈𝗀𝗅𝖾", url=f"https://www.google.com/search?q={search}")
@@ -501,7 +492,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         ident, file_id = query.data.split("#")
         files_ = await get_file_details(file_id)
         if not files_:
-            return await query.answer('<b><i><b><i>No such file exist.</b></i></b></i>')
+            return await query.answer('No such file exist.')
         files = files_[0]
         title = files.file_name
         size = get_size(files.file_size)
@@ -557,7 +548,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         ident, file_id = query.data.split("#")
         files_ = await get_file_details(file_id)
         if not files_:
-            return await query.answer('<b><i>No such file exist.</b></i>')
+            return await query.answer('No such file exist.')
         files = files_[0]
         title = files.file_name
         size = get_size(files.file_size)
@@ -573,16 +564,13 @@ async def cb_handler(client: Client, query: CallbackQuery):
         if f_caption is None:
             f_caption = f"{title}"
         buttons = InlineKeyboardMarkup( [ [ InlineKeyboardButton('⚔️ 𝖯𝖨𝖱𝖮 𝖴𝖯𝖣𝖠𝖳𝖤𝖲 ⚔️', url='https://t.me/rai_info17') ] ] )
-        
-        
         await query.answer()
         await client.send_cached_media(
             chat_id=query.from_user.id,
             file_id=file_id,
             caption=f_caption,
             protect_content=True if ident == 'checksubp' else False,
-            reply_markup=InlineKeyboardMarkup( [ [ InlineKeyboardButton('⚔️ 𝖯𝖨𝖱𝖮 𝖴𝖯𝖣𝖠𝖳𝖤𝖲 ⚔️', url='https://t.me/rai_info17') ] ] ),
-        )
+            buttons = InlineKeyboardMarkup( [ [ InlineKeyboardButton('⚔️ 𝖯𝖨𝖱𝖮 𝖴𝖯𝖣𝖠𝖳𝖤𝖲 ⚔️', url='https://t.me/rai_info17') ] ] ))
     elif query.data == "pages":
         await query.answer()
 
@@ -1416,22 +1404,13 @@ async def auto_filter(client, msg, spoll=False):
         if settings['auto_delete']:
             btn.insert(0, 
                 [
-                    InlineKeyboardButton(f'🎬 {search} 🎬', 'reqst1')
-                ]
-            )
-            btn.insert(1, 
-                [
                     InlineKeyboardButton(f'📝 𝖳𝗂𝗉𝗌', 'info'),
                     InlineKeyboardButton("🔎 𝖦𝗈𝗈𝗀𝗅𝖾", url=f"https://www.google.com/search?q={search}")
                 ]
             )
+
         else:
             btn.insert(0, 
-                [
-                    InlineKeyboardButton(f'🎬 {search} 🎬', 'reqst1')
-                ]
-            )
-            btn.insert(1, 
                 [
                     InlineKeyboardButton(f'📝 𝖳𝗂𝗉𝗌', 'info'),
                     InlineKeyboardButton("🔎 𝖦𝗈𝗈𝗀𝗅𝖾", url=f"https://www.google.com/search?q={search}")
@@ -1445,11 +1424,6 @@ async def auto_filter(client, msg, spoll=False):
         if settings['auto_delete']:
             btn.insert(0, 
                 [
-                    InlineKeyboardButton(f'🎬 {search} 🎬', 'reqst1')
-                ]
-            )
-            btn.insert(1, 
-                [
                     InlineKeyboardButton(f'📝 𝖳𝗂𝗉𝗌', 'info'),
                     InlineKeyboardButton("🔎 𝖦𝗈𝗈𝗀𝗅𝖾", url=f"https://www.google.com/search?q={search}")
                 ]
@@ -1458,15 +1432,15 @@ async def auto_filter(client, msg, spoll=False):
         else:
             btn.insert(0, 
                 [
-                    InlineKeyboardButton(f'🎬 {search} 🎬', 'reqst1')
-                ]
-            )
-            btn.insert(1, 
-                [
                     InlineKeyboardButton(f'📝 𝖳𝗂𝗉𝗌', 'info'),
                     InlineKeyboardButton("🔎 𝖦𝗈𝗈𝗀𝗅𝖾", url=f"https://www.google.com/search?q={search}")
                 ]
             )
+
+    btn.insert(0, [
+        InlineKeyboardButton(f'🎬 {search} 🎬', 'reqst1')
+    ])
+
     if offset != "":
         key = f"{message.chat.id}-{message.id}"
         BUTTONS[key] = search
