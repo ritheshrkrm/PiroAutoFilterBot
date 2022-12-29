@@ -1505,83 +1505,92 @@ async def auto_filter(client, msg, spoll=False):
             **locals()
         )
     else:
-        cap = f"<b>👋 𝖧𝖾𝗒 {message.from_user.mention}\n📁 𝖸𝗈𝗎𝗋 𝖥𝗂𝗅𝖾𝗌 𝖠𝗋𝖾 𝖱𝖾𝖺𝖽𝗒\n\n♨️ 𝖯𝗈𝗐𝖾𝗋𝖾𝖽 𝖡𝗒 @rai_info17</b>"
+        try:
+            if settings['auto_delete']:
+                cap = script.CAP_DLT_TXT.format(search, message.from_user.mention if message.from_user else message.chat.title)
+            else:
+                cap = script.CAP_TXT.format(search, message.from_user.mention if message.from_user else message.chat.title)
+        except KeyError:
+            grpid = await active_connection(str(message.from_user.id))
+            await save_group_settings(grpid, 'auto_delete', True)
+            settings = await get_settings(message.chat.id)
+            if settings['auto_delete']:
+                cap = script.CAP_DLT_TXT.format(search, message.from_user.mention if message.from_user else message.chat.title)
+            else:
+                cap = script.CAP_TXT.format(search, message.from_user.mention if message.from_user else message.chat.title)
     if imdb and imdb.get('poster'):
         try:
-            if message.chat.id == SUPPORT_CHAT_ID:
-                await message.reply_text(f"<b>👋 𝖧𝖾𝗒 {message.from_user.mention} \n📁 {str(total_results)} 𝖱𝖾𝗌𝗎𝗅𝗍𝗌 𝖺𝗋𝖾 𝖿𝗈𝗎𝗇𝖽 𝖿𝗈𝗋 𝗒𝗈𝗎𝗋 𝗊𝗎𝖾𝗋𝗒 {search}.\n\nKindly ask movies and series here ➡  @BlasterMovieszz</b>")
+            if settings['auto_delete']:
+                hehe = await message.reply_photo(photo=imdb.get('poster'), caption=cap[:1024] + "\n\n<b>𝖳𝗁𝗂𝗌 𝗆𝖾𝗌𝗌𝖺𝗀𝖾 𝗐𝗂𝗅𝗅 𝖻𝖾 𝖽𝖾𝗅𝖾𝗍𝖾𝖽 𝖺𝖿𝗍𝖾𝗋 5 𝗆𝗂𝗇𝗎𝗍𝖾𝗌</b>", reply_markup=InlineKeyboardMarkup(btn))
+                await asyncio.sleep(300)
+                await hehe.delete()
+                await message.delete()
             else:
-                hehe = await message.reply_photo(photo=imdb.get('poster'), caption=cap[:1024], reply_markup=InlineKeyboardMarkup(btn))
-                try:
-                    if settings['auto_delete']:
-                        await asyncio.sleep(300)
-                        await hehe.delete()
-                        await message.delete()
-                except KeyError:
-                    grpid = await active_connection(str(message.from_user.id))
-                    await save_group_settings(grpid, 'auto_delete', True)
-                    settings = await get_settings(message.chat.id)
-                    if settings['auto_delete']:
-                        await asyncio.sleep(300)
-                        await hehe.delete()
-                        await message.delete()
+                await message.reply_photo(photo=imdb.get('poster'), caption=cap[:1024], reply_markup=InlineKeyboardMarkup(btn))
+        except KeyError:
+            grpid = await active_connection(str(message.from_user.id))
+            await save_group_settings(grpid, 'auto_delete', True)
+            settings = await get_settings(message.chat.id)
+            if settings['auto_delete']:
+                hehe = await message.reply_photo(photo=imdb.get('poster'), caption=cap[:1024] + "\n\n<b>𝖳𝗁𝗂𝗌 𝗆𝖾𝗌𝗌𝖺𝗀𝖾 𝗐𝗂𝗅𝗅 𝖻𝖾 𝖽𝖾𝗅𝖾𝗍𝖾𝖽 𝖺𝖿𝗍𝖾𝗋 5 𝗆𝗂𝗇𝗎𝗍𝖾𝗌</b>", reply_markup=InlineKeyboardMarkup(btn))
+                await asyncio.sleep(300)
+                await hehe.delete()
+                await message.delete()
+            else:
+                await message.reply_photo(photo=imdb.get('poster'), caption=cap[:1024], reply_markup=InlineKeyboardMarkup(btn))
         except (MediaEmpty, PhotoInvalidDimensions, WebpageMediaEmpty):
-            if message.chat.id == SUPPORT_CHAT_ID:
-                await message.reply_text(f"<b>👋 𝖧𝖾𝗒 {message.from_user.mention} \n📁 {str(total_results)} 𝖱𝖾𝗌𝗎𝗅𝗍𝗌 𝖺𝗋𝖾 𝖿𝗈𝗎𝗇𝖽 𝖿𝗈𝗋 𝗒𝗈𝗎𝗋 𝗊𝗎𝖾𝗋𝗒 {search}.\n\nKindly ask movies and series here ➡  @BlasterMovieszz</b>")
-            else:
-                pic = imdb.get('poster')
-                poster = pic.replace('.jpg', "._V1_UX360.jpg")
-                hmm = await message.reply_photo(photo=poster, caption=cap[:1024], reply_markup=InlineKeyboardMarkup(btn))
-                try:
-                    if settings['auto_delete']:
-                        await asyncio.sleep(300)
-                        await hmm.delete()
-                        await message.delete()
-                except KeyError:
-                    grpid = await active_connection(str(message.from_user.id))
-                    await save_group_settings(grpid, 'auto_delete', True)
-                    settings = await get_settings(message.chat.id)
-                    if settings['auto_delete']:
-                        await asyncio.sleep(300)
-                        await hmm.delete()
-                        await message.delete()
-        except Exception as e:
-            if message.chat.id == SUPPORT_CHAT_ID:
-                await message.reply_text(f"<b>👋 𝖧𝖾𝗒 {message.from_user.mention} \n📁 {str(total_results)} 𝖱𝖾𝗌𝗎𝗅𝗍𝗌 𝖺𝗋𝖾 𝖿𝗈𝗎𝗇𝖽 𝖿𝗈𝗋 𝗒𝗈𝗎𝗋 𝗊𝗎𝖾𝗋𝗒 {search}.\n\nKindly ask movies and series here ➡  @BlasterMovieszz</b>")
-            else:
-                logger.exception(e)
-                fek = await message.reply_text(reply_markup=InlineKeyboardMarkup(btn))
-                try:
-                    if settings['auto_delete']:
-                        await asyncio.sleep(300)
-                        await fek.delete()
-                        await message.delete()
-                except KeyError:
-                    grpid = await active_connection(str(message.from_user.id))
-                    await save_group_settings(grpid, 'auto_delete', True)
-                    settings = await get_settings(message.chat.id)
-                    if settings['auto_delete']:
-                        await asyncio.sleep(300)
-                        await fek.delete()
-                        await message.delete()
-    else:
-        if message.chat.id == SUPPORT_CHAT_ID:
-            await message.reply_text(f"<b>👋 𝖧𝖾𝗒 {message.from_user.mention} \n📁 {str(total_results)} 𝖱𝖾𝗌𝗎𝗅𝗍𝗌 𝖺𝗋𝖾 𝖿𝗈𝗎𝗇𝖽 𝖿𝗈𝗋 𝗒𝗈𝗎𝗋 𝗊𝗎𝖾𝗋𝗒 {search}.\n\nKindly ask movies and series here ➡  @BlasterMovieszz</b>")
-        else:
-            fuk = await message.reply_text(reply_markup=InlineKeyboardMarkup(btn))
+            pic = imdb.get('poster')
+            poster = pic.replace('.jpg', "._V1_UX360.jpg")
             try:
                 if settings['auto_delete']:
-                    await asyncio.sleep(600)
-                    await fuk.delete()
+                    hmm = await message.reply_photo(photo=imdb.get('poster'), caption=cap[:1024] + "\n\n<b>𝖳𝗁𝗂𝗌 𝗆𝖾𝗌𝗌𝖺𝗀𝖾 𝗐𝗂𝗅𝗅 𝖻𝖾 𝖽𝖾𝗅𝖾𝗍𝖾𝖽 𝖺𝖿𝗍𝖾𝗋 5 𝗆𝗂𝗇𝗎𝗍𝖾𝗌</b>", reply_markup=InlineKeyboardMarkup(btn))
+                    await asyncio.sleep(300)
+                    await hmm.delete()
+                    await message.delete()
+                else:
+                    await message.reply_photo(photo=imdb.get('poster'), caption=cap[:1024], reply_markup=InlineKeyboardMarkup(btn))
+            except KeyError:
+                grpid = await active_connection(str(message.from_user.id))
+                await save_group_settings(grpid, 'auto_delete', True)
+                settings = await get_settings(message.chat.id)
+                if settings['auto_delete']:
+                    hmm = await message.reply_photo(photo=imdb.get('poster'), caption=cap[:1024] + "\n\n<b>𝖳𝗁𝗂𝗌 𝗆𝖾𝗌𝗌𝖺𝗀𝖾 𝗐𝗂𝗅𝗅 𝖻𝖾 𝖽𝖾𝗅𝖾𝗍𝖾𝖽 𝖺𝖿𝗍𝖾𝗋 5 𝗆𝗂𝗇𝗎𝗍𝖾𝗌</b>", reply_markup=InlineKeyboardMarkup(btn))
+                    await asyncio.sleep(300)
+                    await hmm.delete()
+                    await message.delete()
+                else:
+                    await message.reply_photo(photo=imdb.get('poster'), caption=cap[:1024], reply_markup=InlineKeyboardMarkup(btn))
+        except Exception as e:
+            logger.exception(e)
+            fek = await message.reply_photo(photo=NOR_IMG, caption=cap, reply_markup=InlineKeyboardMarkup(btn))
+            try:
+                if settings['auto_delete']:
+                    await asyncio.sleep(300)
+                    await fek.delete()
                     await message.delete()
             except KeyError:
                 grpid = await active_connection(str(message.from_user.id))
                 await save_group_settings(grpid, 'auto_delete', True)
                 settings = await get_settings(message.chat.id)
                 if settings['auto_delete']:
-                    await asyncio.sleep(600)
-                    await fuk.delete()
+                    await asyncio.sleep(300)
+                    await fek.delete()
                     await message.delete()
+    else:
+        fuk = await message.reply_photo(photo=NOR_IMG, caption=cap, reply_markup=InlineKeyboardMarkup(btn))
+        try:
+            if settings['auto_delete']:
+                await asyncio.sleep(300)
+                await fuk.delete()
+                await message.delete()
+        except KeyError:
+            grpid = await active_connection(str(message.from_user.id))
+            await save_group_settings(grpid, 'auto_delete', True)
+            settings = await get_settings(message.chat.id)
+            if settings['auto_delete']:
+                await asyncio.sleep(300)
+                await fuk.delete()
+                await message.delete()
     if spoll:
         await msg.message.delete()
 
