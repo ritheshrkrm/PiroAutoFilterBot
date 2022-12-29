@@ -1,10 +1,6 @@
 from aiohttp import web
+from .route import routes
 
-routes = web.RouteTableDef()
-
-@routes.get("/", allow_head=True)
-async def root_route_handler(request):
-    return web.json_response("PIRO BOT")
 
 async def web_server():
     web_app = web.Application(client_max_size=30000000)
