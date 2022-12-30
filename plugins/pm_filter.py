@@ -115,16 +115,16 @@ async def next_page(bot, query):
         if settings['auto_delete']:
             btn.insert(0, 
             [
-                InlineKeyboardButton(f'📝 𝖳𝗂𝗉𝗌', 'info'),
-                InlineKeyboardButton('🔎 𝖦𝗈𝗈𝗀𝗅𝖾', url=f"https://www.google.com/search?q={search}")
+                InlineKeyboardButton(f'📂 𝖥𝗂𝗅𝖾𝗌: {str(total_results)}', 'dupe'),
+                InlineKeyboardButton(f'📝 𝖳𝗂𝗉𝗌', 'info')
             ]
             )
 
         else:
             btn.insert(0, 
             [
-                InlineKeyboardButton(f'📝 𝖳𝗂𝗉𝗌', 'info'),
-                InlineKeyboardButton('🔎 𝖦𝗈𝗈𝗀𝗅𝖾', url=f"https://www.google.com/search?q={search}")
+                InlineKeyboardButton(f'📂 𝖥𝗂𝗅𝖾𝗌: {str(total_results)}', 'dupe'),
+                InlineKeyboardButton(f'📝 𝖳𝗂𝗉𝗌', 'info')
             ]
             )
                 
@@ -135,16 +135,16 @@ async def next_page(bot, query):
         if settings['auto_delete']:
             btn.insert(0, 
             [
-                InlineKeyboardButton(f'📝 𝖳𝗂𝗉𝗌', 'info'),
-                InlineKeyboardButton('🔎 𝖦𝗈𝗈𝗀𝗅𝖾', url=f"https://www.google.com/search?q={search}")
+                InlineKeyboardButton(f'📂 𝖥𝗂𝗅𝖾𝗌: {str(total_results)}', 'dupe'),
+                InlineKeyboardButton(f'📝 𝖳𝗂𝗉𝗌', 'info')
             ]
             )
 
         else:
             btn.insert(0, 
             [
-                InlineKeyboardButton(f'📝 𝖳𝗂𝗉𝗌', 'info'),
-                InlineKeyboardButton('🔎 𝖦𝗈𝗈𝗀𝗅𝖾', url=f"https://www.google.com/search?q={search}")
+                InlineKeyboardButton(f'📂 𝖥𝗂𝗅𝖾𝗌: {str(total_results)}', 'dupe'),
+                InlineKeyboardButton(f'📝 𝖳𝗂𝗉𝗌', 'info')
             ]
             )
     try:
@@ -1401,16 +1401,16 @@ async def auto_filter(client, msg, spoll=False):
         if settings['auto_delete']:
             btn.insert(0, 
             [
-                InlineKeyboardButton(f'📝 𝖳𝗂𝗉𝗌', 'info'),
-                InlineKeyboardButton('🔎 𝖦𝗈𝗈𝗀𝗅𝖾', url=f"https://www.google.com/search?q={search}")
+                InlineKeyboardButton(f'📂 𝖥𝗂𝗅𝖾𝗌: {str(total_results)}', 'dupe'),
+                InlineKeyboardButton(f'📝 𝖳𝗂𝗉𝗌', 'info')
             ]
             )
 
         else:
             btn.insert(0, 
             [
-                InlineKeyboardButton(f'📝 𝖳𝗂𝗉𝗌', 'info'),
-                InlineKeyboardButton('🔎 𝖦𝗈𝗈𝗀𝗅𝖾', url=f"https://www.google.com/search?q={search}")
+                InlineKeyboardButton(f'📂 𝖥𝗂𝗅𝖾𝗌: {str(total_results)}', 'dupe'),
+                InlineKeyboardButton(f'📝 𝖳𝗂𝗉𝗌', 'info')
             ]
             )
                 
@@ -1421,16 +1421,16 @@ async def auto_filter(client, msg, spoll=False):
         if settings['auto_delete']:
             btn.insert(0, 
             [
-                InlineKeyboardButton(f'📝 𝖳𝗂𝗉𝗌', 'info'),
-                InlineKeyboardButton('🔎 𝖦𝗈𝗈𝗀𝗅𝖾', url=f"https://www.google.com/search?q={search}")
+                InlineKeyboardButton(f'📂 𝖥𝗂𝗅𝖾𝗌: {str(total_results)}', 'dupe'),
+                InlineKeyboardButton(f'📝 𝖳𝗂𝗉𝗌', 'info')
             ]
             )
 
         else:
             btn.insert(0, 
             [
-                InlineKeyboardButton(f'📝 𝖳𝗂𝗉𝗌', 'info'),
-                InlineKeyboardButton('🔎 𝖦𝗈𝗈𝗀𝗅𝖾', url=f"https://www.google.com/search?q={search}")
+                InlineKeyboardButton(f'📂 𝖥𝗂𝗅𝖾𝗌: {str(total_results)}', 'dupe'),
+                InlineKeyboardButton(f'📝 𝖳𝗂𝗉𝗌', 'info')
             ]
             )
 
