@@ -114,18 +114,18 @@ async def next_page(bot, query):
     try:
         if settings['auto_delete']:
             btn.insert(0, 
-                [
-                    InlineKeyboardButton(f'📂 𝖥𝗂𝗅𝖾𝗌: {str(total_results)}', 'dupe'),
-                    InlineKeyboardButton(f'📝 𝖳𝗂𝗉𝗌', 'info')
-                ]
+            [
+                InlineKeyboardButton(f'📝 𝖳𝗂𝗉𝗌', 'info'),
+                InlineKeyboardButton('🔎 𝖦𝗈𝗈𝗀𝗅𝖾', url=f"https://www.google.com/search?q={search}")
+            ]
             )
 
         else:
             btn.insert(0, 
-                [
-                    InlineKeyboardButton(f'📂 𝖥𝗂𝗅𝖾𝗌: {str(total_results)}', 'dupe'),
-                    InlineKeyboardButton(f'📝 𝖳𝗂𝗉𝗌', 'info')
-                ]
+            [
+                InlineKeyboardButton(f'📝 𝖳𝗂𝗉𝗌', 'info'),
+                InlineKeyboardButton('🔎 𝖦𝗈𝗈𝗀𝗅𝖾', url=f"https://www.google.com/search?q={search}")
+            ]
             )
                 
     except KeyError:
@@ -134,18 +134,18 @@ async def next_page(bot, query):
         settings = await get_settings(query.message.chat.id)
         if settings['auto_delete']:
             btn.insert(0, 
-                [
-                    InlineKeyboardButton(f'📂 𝖥𝗂𝗅𝖾𝗌: {str(total_results)}', 'dupe'),
-                    InlineKeyboardButton(f'📝 𝖳𝗂𝗉𝗌', 'info')
-                ]
+            [
+                InlineKeyboardButton(f'📝 𝖳𝗂𝗉𝗌', 'info'),
+                InlineKeyboardButton('🔎 𝖦𝗈𝗈𝗀𝗅𝖾', url=f"https://www.google.com/search?q={search}")
+            ]
             )
 
         else:
             btn.insert(0, 
-                [
-                    InlineKeyboardButton(f'📂 𝖥𝗂𝗅𝖾𝗌: {str(total_results)}', 'dupe'),
-                    InlineKeyboardButton(f'📝 𝖳𝗂𝗉𝗌', 'info')
-                ]
+            [
+                InlineKeyboardButton(f'📝 𝖳𝗂𝗉𝗌', 'info'),
+                InlineKeyboardButton('🔎 𝖦𝗈𝗈𝗀𝗅𝖾', url=f"https://www.google.com/search?q={search}")
+            ]
             )
     try:
         settings = await get_settings(query.message.chat.id)
@@ -1400,18 +1400,18 @@ async def auto_filter(client, msg, spoll=False):
     try:
         if settings['auto_delete']:
             btn.insert(0, 
-                [
-                    InlineKeyboardButton(f'📂 𝖥𝗂𝗅𝖾𝗌: {str(total_results)}', 'dupe'),
-                    InlineKeyboardButton(f'📝 𝖳𝗂𝗉𝗌', 'info')
-                ]
+            [
+                InlineKeyboardButton(f'📝 𝖳𝗂𝗉𝗌', 'info'),
+                InlineKeyboardButton('🔎 𝖦𝗈𝗈𝗀𝗅𝖾', url=f"https://www.google.com/search?q={search}")
+            ]
             )
 
         else:
             btn.insert(0, 
-                [
-                    InlineKeyboardButton(f'📂 𝖥𝗂𝗅𝖾𝗌: {str(total_results)}', 'dupe'),
-                    InlineKeyboardButton(f'📝 𝖳𝗂𝗉𝗌', 'info')
-                ]
+            [
+                InlineKeyboardButton(f'📝 𝖳𝗂𝗉𝗌', 'info'),
+                InlineKeyboardButton('🔎 𝖦𝗈𝗈𝗀𝗅𝖾', url=f"https://www.google.com/search?q={search}")
+            ]
             )
                 
     except KeyError:
@@ -1420,18 +1420,18 @@ async def auto_filter(client, msg, spoll=False):
         settings = await get_settings(message.chat.id)
         if settings['auto_delete']:
             btn.insert(0, 
-                [
-                    InlineKeyboardButton(f'📂 𝖥𝗂𝗅𝖾𝗌: {str(total_results)}', 'dupe'),
-                    InlineKeyboardButton(f'📝 𝖳𝗂𝗉𝗌', 'info')
-                ]
+            [
+                InlineKeyboardButton(f'📝 𝖳𝗂𝗉𝗌', 'info'),
+                InlineKeyboardButton('🔎 𝖦𝗈𝗈𝗀𝗅𝖾', url=f"https://www.google.com/search?q={search}")
+            ]
             )
 
         else:
             btn.insert(0, 
-                [
-                    InlineKeyboardButton(f'📂 𝖥𝗂𝗅𝖾𝗌: {str(total_results)}', 'dupe'),
-                    InlineKeyboardButton(f'📝 𝖳𝗂𝗉𝗌', 'info')
-                ]
+            [
+                InlineKeyboardButton(f'📝 𝖳𝗂𝗉𝗌', 'info'),
+                InlineKeyboardButton('🔎 𝖦𝗈𝗈𝗀𝗅𝖾', url=f"https://www.google.com/search?q={search}")
+            ]
             )
 
     btn.insert(0, [
