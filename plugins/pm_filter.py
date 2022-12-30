@@ -115,16 +115,16 @@ async def next_page(bot, query):
         if settings['auto_delete']:
             btn.insert(0, 
                 [
-                    InlineKeyboardButton(f'📝 𝖳𝗂𝗉𝗌', 'info'),
-                    InlineKeyboardButton("🔎 𝖦𝗈𝗈𝗀𝗅𝖾", url=f"https://www.google.com/search?q={search}")
+                    InlineKeyboardButton(f'📂 𝖥𝗂𝗅𝖾𝗌: {str(total_results)}', 'dupe'),
+                    InlineKeyboardButton(f'📝 𝖳𝗂𝗉𝗌', 'info')
                 ]
             )
 
         else:
             btn.insert(0, 
                 [
-                    InlineKeyboardButton(f'📝 𝖳𝗂𝗉𝗌', 'info'),
-                    InlineKeyboardButton("🔎 𝖦𝗈𝗈𝗀𝗅𝖾", url=f"https://www.google.com/search?q={search}")
+                    InlineKeyboardButton(f'📂 𝖥𝗂𝗅𝖾𝗌: {str(total_results)}', 'dupe'),
+                    InlineKeyboardButton(f'📝 𝖳𝗂𝗉𝗌', 'info')
                 ]
             )
                 
@@ -135,16 +135,16 @@ async def next_page(bot, query):
         if settings['auto_delete']:
             btn.insert(0, 
                 [
-                    InlineKeyboardButton(f'📝 𝖳𝗂𝗉𝗌', 'info'),
-                    InlineKeyboardButton("🔎 𝖦𝗈𝗈𝗀𝗅𝖾", url=f"https://www.google.com/search?q={search}")
+                    InlineKeyboardButton(f'📂 𝖥𝗂𝗅𝖾𝗌: {str(total_results)}', 'dupe'),
+                    InlineKeyboardButton(f'📝 𝖳𝗂𝗉𝗌', 'info')
                 ]
             )
 
         else:
             btn.insert(0, 
                 [
-                    InlineKeyboardButton(f'📝 𝖳𝗂𝗉𝗌', 'info'),
-                    InlineKeyboardButton("🔎 𝖦𝗈𝗈𝗀𝗅𝖾", url=f"https://www.google.com/search?q={search}")
+                    InlineKeyboardButton(f'📂 𝖥𝗂𝗅𝖾𝗌: {str(total_results)}', 'dupe'),
+                    InlineKeyboardButton(f'📝 𝖳𝗂𝗉𝗌', 'info')
                 ]
             )
     try:
@@ -529,7 +529,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
                         file_id=file_id,
                         caption=f_caption,
                         protect_content=True if ident == "filep" else False,
-                        reply_markup=InlineKeyboardMarkup( [ [ InlineKeyboardButton('⚔️ 𝖯𝖨𝖱𝖮 𝖴𝖯𝖣𝖠𝖳𝖤𝖲 ⚔️', url='https://t.me/rai_info17') ] ] ))
+                        reply_markup=InlineKeyboardMarkup( [ [ InlineKeyboardButton('⚔️ 𝖯𝖨𝖱𝖮 𝖴𝖯𝖣𝖠𝖳𝖤𝖲 ⚔️', url="https://t.me/rai_info17") ] ] ))
                 else:
                     await query.answer(f"𝖧𝖾𝗒 {query.from_user.first_name}, 𝖳𝗁𝗂𝗌 𝗂𝗌 𝗇𝗈𝗍 𝗒𝗈𝗎𝗋 𝗋𝖾𝗊𝗎𝖾𝗌𝗍 !", show_alert=True)
                 await query.answer('𝖢𝗁𝖾𝖼𝗄 𝖯𝖬, 𝖨 𝗁𝖺𝗏𝖾 𝗌𝖾𝗇𝗍 𝖿𝗂𝗅𝖾𝗌 𝗂𝗇 𝖯𝖬', show_alert=True)
@@ -567,7 +567,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             file_id=file_id,
             caption=f_caption,
             protect_content=True if ident == 'checksubp' else False,
-            reply_markup=InlineKeyboardMarkup( [ [ InlineKeyboardButton('⚔️ 𝖯𝖨𝖱𝖮 𝖴𝖯𝖣𝖠𝖳𝖤𝖲 ⚔️', url='https://t.me/rai_info17') ] ] ))
+            reply_markup=InlineKeyboardMarkup( [ [ InlineKeyboardButton('⚔️ 𝖯𝖨𝖱𝖮 𝖴𝖯𝖣𝖠𝖳𝖤𝖲 ⚔️', url="https://t.me/rai_info17") ] ] ))
     elif query.data == "pages":
         await query.answer()
 
@@ -1401,16 +1401,16 @@ async def auto_filter(client, msg, spoll=False):
         if settings['auto_delete']:
             btn.insert(0, 
                 [
-                    InlineKeyboardButton(f'📝 𝖳𝗂𝗉𝗌', 'info'),
-                    InlineKeyboardButton("🔎 𝖦𝗈𝗈𝗀𝗅𝖾", url=f"https://www.google.com/search?q={search}")
+                    InlineKeyboardButton(f'📂 𝖥𝗂𝗅𝖾𝗌: {str(total_results)}', 'dupe'),
+                    InlineKeyboardButton(f'📝 𝖳𝗂𝗉𝗌', 'info')
                 ]
             )
 
         else:
             btn.insert(0, 
                 [
-                    InlineKeyboardButton(f'📝 𝖳𝗂𝗉𝗌', 'info'),
-                    InlineKeyboardButton("🔎 𝖦𝗈𝗈𝗀𝗅𝖾", url=f"https://www.google.com/search?q={search}")
+                    InlineKeyboardButton(f'📂 𝖥𝗂𝗅𝖾𝗌: {str(total_results)}', 'dupe'),
+                    InlineKeyboardButton(f'📝 𝖳𝗂𝗉𝗌', 'info')
                 ]
             )
                 
@@ -1421,16 +1421,16 @@ async def auto_filter(client, msg, spoll=False):
         if settings['auto_delete']:
             btn.insert(0, 
                 [
-                    InlineKeyboardButton(f'📝 𝖳𝗂𝗉𝗌', 'info'),
-                    InlineKeyboardButton("🔎 𝖦𝗈𝗈𝗀𝗅𝖾", url=f"https://www.google.com/search?q={search}")
+                    InlineKeyboardButton(f'📂 𝖥𝗂𝗅𝖾𝗌: {str(total_results)}', 'dupe'),
+                    InlineKeyboardButton(f'📝 𝖳𝗂𝗉𝗌', 'info')
                 ]
             )
 
         else:
             btn.insert(0, 
                 [
-                    InlineKeyboardButton(f'📝 𝖳𝗂𝗉𝗌', 'info'),
-                    InlineKeyboardButton("🔎 𝖦𝗈𝗈𝗀𝗅𝖾", url=f"https://www.google.com/search?q={search}")
+                    InlineKeyboardButton(f'📂 𝖥𝗂𝗅𝖾𝗌: {str(total_results)}', 'dupe'),
+                    InlineKeyboardButton(f'📝 𝖳𝗂𝗉𝗌', 'info')
                 ]
             )
 
