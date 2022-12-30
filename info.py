@@ -23,9 +23,9 @@ CACHE_TIME = int(environ.get('CACHE_TIME', 300))
 USE_CAPTION_FILTER = bool(environ.get('USE_CAPTION_FILTER', True))
 # Bot images & videos
 PICS = (environ.get('PICS', 'https://telegra.ph/file/5553dc39f968b364d4856.jpg')).split()
-NOR_IMG = environ.get("NOR_IMG", "https://telegra.ph/file/63b6556fdfcd74b96c938.jpg")
+NOR_IMG = environ.get("NOR_IMG", "https://te.legra.ph/file/bc801a2b2a039aa7bc36d.jpg")
 MELCOW_VID = environ.get("MELCOW_VID", "https://te.legra.ph/file/485b93dd1ec801061f091.mp4")
-SPELL_IMG = environ.get("SPELL_IMG", "https://telegra.ph/file/8ad57e4450f9a82f4b5cc.jpg")
+SPELL_IMG = environ.get("SPELL_IMG", "https://te.legra.ph/file/9c1a4aeded086bc531b4e.jpg")
 
 # Admins, Channels & Users
 ADMINS = [int(admin) if id_pattern.search(admin) else admin for admin in environ.get('ADMINS', '').split()]
