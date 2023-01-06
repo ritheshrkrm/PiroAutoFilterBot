@@ -739,3 +739,29 @@ async def deletemultiplefiles(bot, message):
         reply_markup=InlineKeyboardMarkup(btn),
         quote=True
     ) 
+
+@Client.on_message(filters.command("gsend") & filters.user(ADMINS))
+async def send_chatmsg(bot, message):
+    if message.reply_to_message:
+        target_id = message.text.split(" ", 1)[1]
+        out = "Chats Saved In DB Are:\n\n"
+        success = False
+        try:
+            chat = await bot.get_chat(target_id)
+            chats = await db.get_all_chats()
+            async for cht in chats:
+                out += f"{cht['id']}"
+                out += '\n'
+            if str(chat.id) in str(out):
+                await message.reply_to_message.copy(int(chat.id))
+                success = True
+            else:
+                success = False
+            if success:
+                await message.reply_text(f"<b>Yᴏᴜʀ Mᴇssᴀɢᴇ Hᴀs Bᴇᴇɴ Sᴜᴄᴇssғᴜʟʟʏ Sᴇɴᴅ To <code>{chat.id}</code>.</b>")
+            else:
+                await message.reply_text("<b>Aɴ Eʀʀᴏʀ Oᴄᴄᴜʀʀᴇᴅ !</b>")
+        except Exception as e:
+            await message.reply_text(f"<b>Eʀʀᴏʀ :- <code>{e}</code></b>")
+    else:
+        await message.reply_text("<b>Cᴏᴍᴍᴀɴᴅ Iɴᴄᴏᴍᴘʟᴇᴛᴇ...</b>")
