@@ -139,9 +139,9 @@ unban  - to unban a use
 ### Thanks to 
  - Thanks To Dan For His Awesome Library
  - Thanks To Mahesh For His Awesome Media-Search-bot
- - Thanks To Trojanz for Their AwesomeUnlimited Filter Bot And AutoFilterBoT
+ - Thanks To Trojanz for Their Awesome Unlimited Filter Bot
  - Thanks To EvaMaria Devs For Their AutoFIlterBot
- - Thank To Professor-Bot & KD Bots
+ - Thank To KD Bots
  - Thanks To Me For Wasting Time On This Repo Instead Of Studying :)
 
  ### Note 🏷️

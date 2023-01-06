@@ -48,7 +48,7 @@ class script(object):
 ○ 𝖲𝗎𝗉𝗉𝗈𝗋𝗍 𝖦𝗋𝗈𝗎𝗉 : <a href='https://t.me/raixchat'>𝖳𝖺𝗉 𝖧𝖾𝗋𝖾</a>"""
 
     SOURCE_TXT = """<b>NOTE:</b>
-Special Thanks to PiroAutoFilterBot and LUCIFER for the codes 
+Special Thanks to LUCIFER for the codes 
 <b>DEV:</b>
 
 - <a href=https://t.me/rithesh_rkrm_17>『ᴘɪʀᴏ』</a>
