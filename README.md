@@ -84,15 +84,6 @@
 </a>
 </details>
 
-<details><summary> Deploy To Okteto </summary>
-<br>
-<p>
-<a href="https://cloud.okteto.com/deploy?repository=https://github.com/ritheshrkrm/PiroAutoFilterBot&branch=main">
-  <img src="https://okteto.com/develop-okteto.svg" alt="Deploy to Okteto">
-</a>
-</p>
-</details>
-
 <details><summary>Deploy To VPS</summary>
 <p>
 <pre>
