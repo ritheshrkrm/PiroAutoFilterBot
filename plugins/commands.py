@@ -707,13 +707,13 @@ async def send_msg(bot, message):
             else:
                 success = False
             if success:
-                await message.reply_text(f"<b>Yᴏᴜʀ Mᴇssᴀɢᴇ Hᴀs Bᴇᴇɴ Sᴜᴄᴇssғᴜʟʟʏ Sᴇɴᴅ To {user.mention}.</b>")
+                await message.reply_text(f"<b>𝖸𝗈𝗎𝗋 𝖬𝖾𝗌𝗌𝖺𝗀𝖾 𝖧𝖺𝗌 𝖲𝗎𝖼𝖼𝖾𝗌𝗌𝖿𝗎𝗅𝗅𝗒 𝖲𝖾𝗇𝗍 𝖳𝗈 {user.mention}.</b>")
             else:
-                await message.reply_text("<b>Aɴ Eʀʀᴏʀ Oᴄᴄᴜʀʀᴇᴅ !</b>")
+                await message.reply_text("<b>An Error Occured !</b>")
         except Exception as e:
-            await message.reply_text(f"<b>Eʀʀᴏʀ :- <code>{e}</code></b>")
+            await message.reply_text(f"<b>Error :- <code>{e}</code></b>")
     else:
-        await message.reply_text("<b>Cᴏᴍᴍᴀɴᴅ Iɴᴄᴏᴍᴘʟᴇᴛᴇ...</b>")
+        await message.reply_text("<b>Error𝖢𝗈𝗆𝗆𝖺𝗇𝖽 𝖨𝗇𝖼𝗈𝗆𝗉𝗅𝖾𝗍𝖾 !</b>")
         
 @Client.on_message(filters.command("send") & filters.user(ADMINS))
 async def send_msg(bot, message):
@@ -760,7 +760,7 @@ async def deletemultiplefiles(bot, message):
             InlineKeyboardButton("Cᴀɴᴄᴇʟ", callback_data="close_data")
           ]]
     await message.reply_text(
-        text="<b>Sᴇʟᴇᴄᴛ Tʜᴇ Tʏᴘᴇ Oғ Fɪʟᴇs Yᴏᴜ Wᴀɴᴛ Tᴏ Dᴇʟᴇᴛᴇ..?</b>",
+        text="<b>𝖲𝖾𝗅𝖾𝖼𝗍 𝗍𝗁𝖾 𝗍𝗒𝗉𝖾 𝗒𝗈𝗎 𝖿𝗂𝗅𝖾 𝗒𝗈𝗎 𝗐𝖺𝗇𝗍 𝗍𝗈 𝖣𝖾𝗅𝖾𝗍𝖾...??</b>",
         reply_markup=InlineKeyboardMarkup(btn),
         quote=True
     ) 
@@ -783,10 +783,10 @@ async def send_chatmsg(bot, message):
             else:
                 success = False
             if success:
-                await message.reply_text(f"<b>Yᴏᴜʀ Mᴇssᴀɢᴇ Hᴀs Bᴇᴇɴ Sᴜᴄᴇssғᴜʟʟʏ Sᴇɴᴅ To <code>{chat.id}</code>.</b>")
+                await message.reply_text(f"<b>Your message has been successfully send to <code>{chat.id}</code>.</b>")
             else:
-                await message.reply_text("<b>Aɴ Eʀʀᴏʀ Oᴄᴄᴜʀʀᴇᴅ !</b>")
+                await message.reply_text("<b>An Error Occured !</b>")
         except Exception as e:
-            await message.reply_text(f"<b>Eʀʀᴏʀ :- <code>{e}</code></b>")
+            await message.reply_text(f"<b>Error :- <code>{e}</code></b>")
     else:
-        await message.reply_text("<b>Cᴏᴍᴍᴀɴᴅ Iɴᴄᴏᴍᴘʟᴇᴛᴇ...</b>")
+        await message.reply_text("<b>Error𝖢𝗈𝗆𝗆𝖺𝗇𝖽 𝖨𝗇𝖼𝗈𝗆𝗉𝗅𝖾𝗍𝖾 !</b>")

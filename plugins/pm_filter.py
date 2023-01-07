@@ -732,8 +732,8 @@ async def cb_handler(client: Client, query: CallbackQuery):
     elif query.data.startswith("show_option"):
         ident, from_user = query.data.split("#")
         btn = [[
-                InlineKeyboardButton("⚠ 𝖴𝖭𝖠𝖵𝖠𝖨𝖫𝖠𝖡𝖫𝖤 ⚠", callback_data=f"unavailable#{from_user}"),
-                InlineKeyboardButton("✅ 𝖴𝖯𝖫𝖮𝖠𝖣𝖤𝖣 ✅", callback_data=f"uploaded#{from_user}")
+                InlineKeyboardButton("⚠ 𝖴𝗇𝖺𝗏𝖺𝗂𝖺𝗅𝖺𝖻𝗅𝖾 ⚠", callback_data=f"unavailable#{from_user}"),
+                InlineKeyboardButton("✅ 𝖴𝗉𝗅𝗈𝖺𝖽𝖾𝖽 ✅", callback_data=f"uploaded#{from_user}")
              ],[
                 InlineKeyboardButton("🔰 𝖠𝗅𝗋𝖾𝖺𝖽𝗒 𝖠𝗏𝖺𝗂𝗅𝖺𝖻𝗅𝖾 🔰", callback_data=f"already_available#{from_user}")
               ]]
@@ -751,7 +751,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
     elif query.data.startswith("unavailable"):
         ident, from_user = query.data.split("#")
         btn = [[
-                InlineKeyboardButton("⚠ 𝖴𝖭𝖠𝖵𝖠𝖨𝖫𝖠𝖡𝖫𝖤 ⚠", callback_data=f"unalert#{from_user}")
+                InlineKeyboardButton("⚠ 𝖴𝗇𝖺𝗏𝖺𝗂𝖺𝗅𝖺𝖻𝗅𝖾 ⚠", callback_data=f"unalert#{from_user}")
               ]]
         btn2 = [[
                  InlineKeyboardButton("❕ 𝖵𝗂𝖾𝗐 𝖲𝗍𝖺𝗍𝗎𝗌 ❕", url=f"{query.message.link}")
@@ -773,7 +773,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
     elif query.data.startswith("uploaded"):
         ident, from_user = query.data.split("#")
         btn = [[
-                InlineKeyboardButton("✅ 𝖴𝖯𝖫𝖮𝖠𝖣𝖤𝖣 ✅", callback_data=f"upalert#{from_user}")
+                InlineKeyboardButton("✅ 𝖴𝗉𝗅𝗈𝖺𝖽𝖾𝖽 ✅", callback_data=f"upalert#{from_user}")
               ]]
         btn2 = [[
                  InlineKeyboardButton("❕ 𝖵𝗂𝖾𝗐 𝖲𝗍𝖺𝗍𝗎𝗌 ❕", url=f"{query.message.link}")
@@ -839,7 +839,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             await query.answer("𝖸𝗈𝗎 𝖽𝗈𝗇'𝗍 𝗁𝖺𝗏𝖾 𝗌𝗎𝖿𝖿𝗂𝖼𝗂𝖾𝗇𝗍 𝗋𝗂𝗀𝗁𝗍𝗌 𝗍𝗈 𝖽𝗈 𝗍𝗁𝗂𝗌 !", show_alert=True)
             
     elif query.data == "predvd":
-        k = await client.send_message(chat_id=query.message.chat.id, text="<b>Dᴇʟᴇᴛɪɴɢ...</b>")
+        k = await client.send_message(chat_id=query.message.chat.id, text="<b>𝖣𝖾𝗅𝖾𝗍𝗂𝗇𝗀....</b>")
         files, next_offset, total = await get_bad_files(
                                                   'predvd',
                                                   offset=0)
@@ -853,10 +853,10 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 logger.info('PreDVD File Found ! Successfully deleted from database.')
             deleted+=1
         deleted = str(deleted)
-        await k.edit_text(text=f"<b>Sᴜᴄᴄᴇssғᴜʟʟʏ Dᴇʟᴇᴛᴇᴅ {deleted} PʀᴇDVD Fɪʟᴇs.</b>")
+        await k.edit_text(text=f"<b>𝖲𝗎𝖼𝖼𝖾𝗌𝗌𝖿𝗎𝗅𝗅𝗒 𝖣𝖾𝗅𝖾𝗍𝖾𝖽 {deleted} PʀᴇDVD 𝖥𝗂𝗅𝖾𝗌.</b>")
 
     elif query.data == "camrip":
-        k = await client.send_message(chat_id=query.message.chat.id, text="<b>Dᴇʟᴇᴛɪɴɢ...</b>")
+        k = await client.send_message(chat_id=query.message.chat.id, text="<b>𝖣𝖾𝗅𝖾𝗍𝗂𝗇𝗀....</b>")
         files, next_offset, total = await get_bad_files(
                                                   'camrip',
                                                   offset=0)
@@ -870,10 +870,10 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 logger.info('CamRip File Found ! Successfully deleted from database.')
             deleted+=1
         deleted = str(deleted)
-        await k.edit_text(text=f"<b>Sᴜᴄᴄᴇssғᴜʟʟʏ Dᴇʟᴇᴛᴇᴅ {deleted} CᴀᴍRɪᴘ Fɪʟᴇs.</b>")
+        await k.edit_text(text=f"<b>𝖲𝗎𝖼𝖼𝖾𝗌𝗌𝖿𝗎𝗅𝗅𝗒 𝖣𝖾𝗅𝖾𝗍𝖾𝖽 {deleted} CᴀᴍRɪᴘ 𝖥𝗂𝗅𝖾𝗌.</b>")
 
     elif query.data == "predvdrip":
-        k = await client.send_message(chat_id=query.message.chat.id, text="<b>Dᴇʟᴇᴛɪɴɢ...</b>")
+        k = await client.send_message(chat_id=query.message.chat.id, text="<b>𝖣𝖾𝗅𝖾𝗍𝗂𝗇𝗀....</b>")
         files, next_offset, total = await get_bad_files(
                                                   'Predvdrip',
                                                   offset=0)
@@ -887,10 +887,10 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 logger.info('PreDVDRip File Found ! Successfully deleted from database.')
             deleted+=1
         deleted = str(deleted)
-        await k.edit_text(text=f"<b>Sᴜᴄᴄᴇssғᴜʟʟʏ Dᴇʟᴇᴛᴇᴅ {deleted} PʀᴇDVDRɪᴘ Fɪʟᴇs.</b>")
+        await k.edit_text(text=f"<b>𝖲𝗎𝖼𝖼𝖾𝗌𝗌𝖿𝗎𝗅𝗅𝗒 𝖣𝖾𝗅𝖾𝗍𝖾𝖽 {deleted} PʀᴇDVDRɪᴘ 𝖥𝗂𝗅𝖾𝗌.</b>")
 
     elif query.data == "hdcam":
-        k = await client.send_message(chat_id=query.message.chat.id, text="<b>Dᴇʟᴇᴛɪɴɢ...</b>")
+        k = await client.send_message(chat_id=query.message.chat.id, text="<b>𝖣𝖾𝗅𝖾𝗍𝗂𝗇𝗀....</b>")
         files, next_offset, total = await get_bad_files(
                                                   'HDCam',
                                                   offset=0)
@@ -904,10 +904,10 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 logger.info('HDCams File Found ! Successfully deleted from database.')
             deleted+=1
         deleted = str(deleted)
-        await k.edit_text(text=f"<b>Sᴜᴄᴄᴇssғᴜʟʟʏ Dᴇʟᴇᴛᴇᴅ {deleted} HDCᴀᴍ Fɪʟᴇs.</b>")
+        await k.edit_text(text=f"<b>𝖲𝗎𝖼𝖼𝖾𝗌𝗌𝖿𝗎𝗅𝗅𝗒 𝖣𝖾𝗅𝖾𝗍𝖾𝖽 {deleted} HDCᴀᴍ 𝖥𝗂𝗅𝖾𝗌.</b>")
 
     elif query.data == "hdcams":
-        k = await client.send_message(chat_id=query.message.chat.id, text="<b>Dᴇʟᴇᴛɪɴɢ...</b>")
+        k = await client.send_message(chat_id=query.message.chat.id, text="<b>𝖣𝖾𝗅𝖾𝗍𝗂𝗇𝗀....</b>")
         files, next_offset, total = await get_bad_files(
                                                   'HD-Cam',
                                                   offset=0)
@@ -921,10 +921,10 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 logger.info('HD-Cams File Found ! Successfully deleted from database.')
             deleted+=1
         deleted = str(deleted)
-        await k.edit_text(text=f"<b>Sᴜᴄᴄᴇssғᴜʟʟʏ Dᴇʟᴇᴛᴇᴅ {deleted} HD-Cᴀᴍ Fɪʟᴇs.</b>")
+        await k.edit_text(text=f"<b>𝖲𝗎𝖼𝖼𝖾𝗌𝗌𝖿𝗎𝗅𝗅𝗒 𝖣𝖾𝗅𝖾𝗍𝖾𝖽 {deleted} HD-Cᴀᴍ 𝖥𝗂𝗅𝖾𝗌.</b>")
 
     elif query.data == "sprint":
-        k = await client.send_message(chat_id=query.message.chat.id, text="<b>Dᴇʟᴇᴛɪɴɢ...</b>")
+        k = await client.send_message(chat_id=query.message.chat.id, text="<b>𝖣𝖾𝗅𝖾𝗍𝗂𝗇𝗀....</b>")
         files, next_offset, total = await get_bad_files(
                                                   'S-print',
                                                   offset=0)
@@ -938,10 +938,10 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 logger.info('S-Print File Found ! Successfully deleted from database.')
             deleted+=1
         deleted = str(deleted)
-        await k.edit_text(text=f"<b>Sᴜᴄᴄᴇssғᴜʟʟʏ Dᴇʟᴇᴛᴇᴅ {deleted} S-Pʀɪɴᴛ Fɪʟᴇs.</b>")
+        await k.edit_text(text=f"<b>𝖲𝗎𝖼𝖼𝖾𝗌𝗌𝖿𝗎𝗅𝗅𝗒 𝖣𝖾𝗅𝖾𝗍𝖾𝖽 {deleted} S-Pʀɪɴᴛ 𝖥𝗂𝗅𝖾𝗌.</b>")
 
     elif query.data == "hdts":
-        k = await client.send_message(chat_id=query.message.chat.id, text="<b>Dᴇʟᴇᴛɪɴɢ...</b>")
+        k = await client.send_message(chat_id=query.message.chat.id, text="<b>𝖣𝖾𝗅𝖾𝗍𝗂𝗇𝗀....</b>")
         files, next_offset, total = await get_bad_files(
                                                   'HDTS',
                                                   offset=0)
@@ -955,10 +955,10 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 logger.info('HDTS File Found ! Successfully deleted from database.')
             deleted+=1
         deleted = str(deleted)
-        await k.edit_text(text=f"<b>Sᴜᴄᴄᴇssғᴜʟʟʏ Dᴇʟᴇᴛᴇᴅ {deleted} HDTS Fɪʟᴇs.</b>")
+        await k.edit_text(text=f"<b>𝖲𝗎𝖼𝖼𝖾𝗌𝗌𝖿𝗎𝗅𝗅𝗒 𝖣𝖾𝗅𝖾𝗍𝖾𝖽 {deleted} HDTS 𝖥𝗂𝗅𝖾𝗌.</b>")
 
     elif query.data == "hdtss":
-        k = await client.send_message(chat_id=query.message.chat.id, text="<b>Dᴇʟᴇᴛɪɴɢ...</b>")
+        k = await client.send_message(chat_id=query.message.chat.id, text="<b>𝖣𝖾𝗅𝖾𝗍𝗂𝗇𝗀....</b>")
         files, next_offset, total = await get_bad_files(
                                                   'HD-TS',
                                                   offset=0)
@@ -972,7 +972,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 logger.info('HD-TS File Found ! Successfully deleted from database.')
             deleted+=1
         deleted = str(deleted)
-        await k.edit_text(text=f"<b>Sᴜᴄᴄᴇssғᴜʟʟʏ Dᴇʟᴇᴛᴇᴅ {deleted} HD-TS Fɪʟᴇs.</b>")
+        await k.edit_text(text=f"<b>𝖲𝗎𝖼𝖼𝖾𝗌𝗌𝖿𝗎𝗅𝗅𝗒 𝖣𝖾𝗅𝖾𝗍𝖾𝖽 {deleted} HD-TS 𝖥𝗂𝗅𝖾𝗌.</b>")
 
     elif query.data == 'rkbtn':
         await query.answer("𝖧𝖾𝗒 𝖡𝗋𝗈 😍\n\n🎯 𝖢𝗅𝗂𝖼𝗄 𝖮𝗇 𝖳𝗁𝖾 𝖡𝗎𝗍𝗍𝗈𝗇 𝖻𝖾𝗅𝗈𝗐 𝖳𝗁𝖾 𝖥𝗂𝗅𝖾𝗌 𝖸𝗈𝗎 𝖶𝖺𝗇𝗍 𝖠𝗇𝖽 𝖲𝗍𝖺𝗋𝗍 𝖳𝗁𝖾 𝖡𝗈𝗍 ⬇️", True)
@@ -1508,7 +1508,7 @@ async def auto_filter(client, msg, spoll=False):
     if imdb and imdb.get('poster'):
         try:
             if message.chat.id == SUPPORT_CHAT_ID:
-                await message.reply_text(f"<b>👋 𝖧𝖾𝗒 {message.from_user.mention} \n📁 {str(total_results)} 𝖱𝖾𝗌𝗎𝗅𝗍𝗌 𝖺𝗋𝖾 𝖿𝗈𝗎𝗇𝖽 𝖿𝗈𝗋 𝗒𝗈𝗎𝗋 𝗊𝗎𝖾𝗋𝗒 {search}.\n\nKindly ask movies and series here⬇\n@BlasterMovieszz</b>")
+                await message.reply_text(f"<b>👋 𝖧𝖾𝗒 {message.from_user.mention} \n📁 {str(total_results)} 𝖱𝖾𝗌𝗎𝗅𝗍𝗌 𝖺𝗋𝖾 𝖿𝗈𝗎𝗇𝖽 𝖿𝗈𝗋 𝗒𝗈𝗎𝗋 𝗊𝗎𝖾𝗋𝗒 {search}.\n\nKindly ask movies and series here ⬇\n@BlasterMovieszz</b>")
             else:
                 hehe = await message.reply_photo(photo=imdb.get('poster'), caption=cap[:1024], reply_markup=InlineKeyboardMarkup(btn))
                 try:
@@ -1526,7 +1526,7 @@ async def auto_filter(client, msg, spoll=False):
                         await message.delete()
         except (MediaEmpty, PhotoInvalidDimensions, WebpageMediaEmpty):
             if message.chat.id == SUPPORT_CHAT_ID:
-                await message.reply_text(f"<b>👋 𝖧𝖾𝗒 {message.from_user.mention} \n📁 {str(total_results)} 𝖱𝖾𝗌𝗎𝗅𝗍𝗌 𝖺𝗋𝖾 𝖿𝗈𝗎𝗇𝖽 𝖿𝗈𝗋 𝗒𝗈𝗎𝗋 𝗊𝗎𝖾𝗋𝗒 {search}.\n\nKindly ask movies and series here⬇\n@BlasterMovieszz</b>")
+                await message.reply_text(f"<b>👋 𝖧𝖾𝗒 {message.from_user.mention} \n📁 {str(total_results)} 𝖱𝖾𝗌𝗎𝗅𝗍𝗌 𝖺𝗋𝖾 𝖿𝗈𝗎𝗇𝖽 𝖿𝗈𝗋 𝗒𝗈𝗎𝗋 𝗊𝗎𝖾𝗋𝗒 {search}.\n\nKindly ask movies and series here ⬇\n@BlasterMovieszz</b>")
             else:
                 pic = imdb.get('poster')
                 poster = pic.replace('.jpg', "._V1_UX360.jpg")
@@ -1546,7 +1546,7 @@ async def auto_filter(client, msg, spoll=False):
                         await message.delete()
         except Exception as e:
             if message.chat.id == SUPPORT_CHAT_ID:
-                await message.reply_text(f"<b>👋 𝖧𝖾𝗒 {message.from_user.mention} \n📁 {str(total_results)} 𝖱𝖾𝗌𝗎𝗅𝗍𝗌 𝖺𝗋𝖾 𝖿𝗈𝗎𝗇𝖽 𝖿𝗈𝗋 𝗒𝗈𝗎𝗋 𝗊𝗎𝖾𝗋𝗒 {search}.\n\nKindly ask movies and series here⬇\n@BlasterMovieszz</b>")
+                await message.reply_text(f"<b>👋 𝖧𝖾𝗒 {message.from_user.mention} \n📁 {str(total_results)} 𝖱𝖾𝗌𝗎𝗅𝗍𝗌 𝖺𝗋𝖾 𝖿𝗈𝗎𝗇𝖽 𝖿𝗈𝗋 𝗒𝗈𝗎𝗋 𝗊𝗎𝖾𝗋𝗒 {search}.\n\nKindly ask movies and series here ⬇\n@BlasterMovieszz</b>")
             else:
                 logger.exception(e)
                 fek = await message.reply_photo(photo=NOR_IMG, caption=cap, reply_markup=InlineKeyboardMarkup(btn))
@@ -1565,7 +1565,7 @@ async def auto_filter(client, msg, spoll=False):
                         await message.delete()
     else:
         if message.chat.id == SUPPORT_CHAT_ID:
-            await message.reply_text(f"<b>👋 𝖧𝖾𝗒 {message.from_user.mention} \n📁 {str(total_results)} 𝖱𝖾𝗌𝗎𝗅𝗍𝗌 𝖺𝗋𝖾 𝖿𝗈𝗎𝗇𝖽 𝖿𝗈𝗋 𝗒𝗈𝗎𝗋 𝗊𝗎𝖾𝗋𝗒 {search}.\n\nKindly ask movies and series here⬇\n@BlasterMovieszz</b>")
+            await message.reply_text(f"<b>👋 𝖧𝖾𝗒 {message.from_user.mention} \n📁 {str(total_results)} 𝖱𝖾𝗌𝗎𝗅𝗍𝗌 𝖺𝗋𝖾 𝖿𝗈𝗎𝗇𝖽 𝖿𝗈𝗋 𝗒𝗈𝗎𝗋 𝗊𝗎𝖾𝗋𝗒 {search}.\n\nKindly ask movies and series here ⬇\n@BlasterMovieszz</b>")
         else:
             fuk = await message.reply_photo(photo=NOR_IMG, caption=cap, reply_markup=InlineKeyboardMarkup(btn))
             try:

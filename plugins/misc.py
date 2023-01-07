@@ -100,7 +100,7 @@ async def who_is(client, message):
             message=chat_photo.big_file_id
         )
         buttons = [[
-            InlineKeyboardButton('🔐 Close', callback_data='close_data')
+            InlineKeyboardButton('🔐 𝖢𝗅𝗈𝗌𝖾', callback_data='close_data')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await message.reply_photo(
@@ -114,7 +114,7 @@ async def who_is(client, message):
         os.remove(local_user_photo)
     else:
         buttons = [[
-            InlineKeyboardButton('🔐 Close', callback_data='close_data')
+            InlineKeyboardButton('🔐 𝖢𝗅𝗈𝗌𝖾', callback_data='close_data')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await message.reply_text(
