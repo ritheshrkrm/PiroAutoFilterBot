@@ -41,32 +41,26 @@ async def verupikkals(bot, message):
     await sts.edit(f"Broadcast Completed:\nCompleted in {time_taken} seconds.\n\nTotal Users {total_users}\nCompleted: {done} / {total_users}\nSuccess: {success}\nBlocked: {blocked}\nDeleted: {deleted}")
 
 @Client.on_message(filters.command("group_broadcast") & filters.user(ADMINS) & filters.reply)
-async def grp_brodcst(bot, message):
-    chats = await db.get_all_chats()
+async def broadcast_group(bot, message):
+    groups = await db.get_all_chats()
     b_msg = message.reply_to_message
     sts = await message.reply_text(
-        text='Broadcasting your messages...'
+        text='Broadcasting your messages To Groups...'
     )
     start_time = time.time()
-    total_chats = await db.total_chat_count()
+    total_groups = await db.total_chat_count()
     done = 0
     failed =0
 
     success = 0
-    async for chat in chats:
-        pti, sh = await broadcast_messages(int(chat['id']), b_msg)
+    async for group in groups:
+        pti, sh = await broadcast_messages_group(int(group['id']), b_msg)
         if pti:
             success += 1
-        elif pti == False:
-            if sh == "Blocked":
-                blocked+=1
-            elif sh == "Deleted":
-                deleted += 1
-            elif sh == "Error":
+        elif sh == "Error":
                 failed += 1
         done += 1
-        await asyncio.sleep(2)
         if not done % 20:
-            await sts.edit(f"Broadcast in progress:\n\nTotal Chats {total_chats}\nCompleted: {done} / {total_chats}\nSuccess: {success}\nFailed: {failed}")    
+            await sts.edit(f"Broadcast in progress:\n\nTotal Groups {total_groups}\nCompleted: {done} / {total_groups}\nSuccess: {success}")    
     time_taken = datetime.timedelta(seconds=int(time.time()-start_time))
-    await sts.edit(f"Broadcast Completed:\nCompleted in {time_taken} seconds.\n\nTotal Chats {total_chats}\nCompleted: {done} / {total_chats}\nSuccess: {success}\nFailed: {failed}")
+    await sts.edit(f"Broadcast Completed:\nCompleted in {time_taken} seconds.\n\nTotal Groups {total_groups}\nCompleted: {done} / {total_groups}\nSuccess: {success}")
