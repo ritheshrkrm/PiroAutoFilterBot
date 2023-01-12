@@ -741,30 +741,6 @@ async def send_msg(bot, message):
     else:
         await message.reply_text("<b>Use this command as a reply to any message using the target chat id. For eg: /send userid</b>")
 
-
-@Client.on_message(filters.command("deletefiles") & filters.user(ADMINS))
-async def deletemultiplefiles(bot, message):
-    btn = [[
-            InlineKeyboardButton("PʀᴇDVD", callback_data="predvd"),
-            InlineKeyboardButton("PʀᴇDVD Rɪᴘ", callback_data="predvdrip")
-          ],[
-            InlineKeyboardButton("HDᴛs", callback_data="hdts"),
-            InlineKeyboardButton("HD-ᴛs", callback_data="hdtss")
-          ],[
-            InlineKeyboardButton("HDCᴀᴍ", callback_data="hdcam"),
-            InlineKeyboardButton("HD-Cᴀᴍ", callback_data="hdcams")
-          ],[
-            InlineKeyboardButton("CᴀᴍRɪᴘ", callback_data="camrip"),
-            InlineKeyboardButton("S-Pʀɪɴᴛ", callback_data="sprint")
-          ],[
-            InlineKeyboardButton("Cᴀɴᴄᴇʟ", callback_data="close_data")
-          ]]
-    await message.reply_text(
-        text="<b>𝖲𝖾𝗅𝖾𝖼𝗍 𝗍𝗁𝖾 𝗍𝗒𝗉𝖾 𝗒𝗈𝗎 𝖿𝗂𝗅𝖾 𝗒𝗈𝗎 𝗐𝖺𝗇𝗍 𝗍𝗈 𝖣𝖾𝗅𝖾𝗍𝖾...??</b>",
-        reply_markup=InlineKeyboardMarkup(btn),
-        quote=True
-    ) 
-
 @Client.on_message(filters.command("gsend") & filters.user(ADMINS))
 async def send_chatmsg(bot, message):
     if message.reply_to_message:
@@ -790,3 +766,30 @@ async def send_chatmsg(bot, message):
             await message.reply_text(f"<b>Error :- <code>{e}</code></b>")
     else:
         await message.reply_text("<b>Error𝖢𝗈𝗆𝗆𝖺𝗇𝖽 𝖨𝗇𝖼𝗈𝗆𝗉𝗅𝖾𝗍𝖾 !</b>")
+
+@Client.on_message(filters.command("deletefiles") & filters.user(ADMINS))
+async def deletemultiplefiles(bot, message):
+    chat_type = message.chat.type
+    if chat_type != enums.ChatType.PRIVATE: #No need to use this command on groups
+        return await message.reply_text(f"<b>Hey {message.from_user.mention}, This command won't work in groups. It only works on my PM !</b>")
+    else:
+        pass
+    try:
+        keyword = message.text.split(" ", 1)[1] #extracting keyword from command
+    except: #if extracting failed
+        return await message.reply_text(f"<b>Hey {message.from_user.mention}, Give me a keyword along with the command to delete files.</b>")
+    k = await bot.send_message(chat_id=message.chat.id, text=f"<b>Fetching Files for your query {keyword} on DB... Please wait...</b>")
+    files, next_offset, total = await get_bad_files(keyword) #fetching files from db
+    await k.edit_text(f"<b>Found {total} files for your query {keyword} !</b>")
+    deleted = 0
+    for file in files:
+        file_ids = file.file_id
+        file_name = file.file_name
+        result = await Media.collection.delete_one({
+            '_id': file_ids,
+        })
+        if result.deleted_count:
+            logger.info(f'File Found for your query {keyword}! Successfully deleted {file_name} from database.')
+        deleted += 1
+    deleted = str(deleted)
+    await k.edit_text(text=f"<b>Successfully deleted {deleted} files from database for your query {keyword}.</b>")
