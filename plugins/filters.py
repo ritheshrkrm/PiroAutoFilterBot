@@ -13,7 +13,7 @@ from utils import get_file_id, parser, split_quotes
 from info import ADMINS
 
 
-@Client.on_message(filters.command(['filter', 'add']) & filters.incoming)
+@Client.on_message(filters.command(['filter', 'addf']) & filters.incoming)
 async def addfilter(client, message):
     userid = message.from_user.id if message.from_user else None
     if not userid:
