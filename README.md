@@ -94,6 +94,7 @@
 <details><summary>Deploy To VPS</summary>
 <p>
 <pre>
+Use VPS Branch
 git clone https://github.com/ritheshrkrm/PiroAutoFilterBot
 # Install Packages
 pip3 install -U -r requirements.txt
