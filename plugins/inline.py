@@ -42,7 +42,7 @@ async def answer(bot, query):
     results = []
     if '|' in query.query:
         string, file_type = query.query.split('|', maxsplit=1)
-        string = string.strip()import logging
+        string = string.strip() import logging
 from pyrogram import Client, emoji, filters
 from pyrogram.errors.exceptions.bad_request_400 import QueryIdInvalid
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, InlineQueryResultCachedDocument, InlineQuery
