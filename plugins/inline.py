@@ -83,6 +83,8 @@ async def answer(bot, query):
             switch_pm_text += f" for {string}"
         try:
             await query.answer(results=results,
+                           is_personal = True,
+                           cache_time=cache_time,
                            switch_pm_text=switch_pm_text,
                            switch_pm_parameter="start",
                            next_offset=str(next_offset))
@@ -96,6 +98,8 @@ async def answer(bot, query):
             switch_pm_text += f' for "{string}"'
 
         await query.answer(results=[],
+                           is_personal = True,
+                           cache_time=cache_time,
                            switch_pm_text=switch_pm_text,
                            switch_pm_parameter="okay")
 
@@ -108,7 +112,6 @@ def get_reply_markup(query):
         ]
         ]
     return InlineKeyboardMarkup(buttons)
-
 
 
 
