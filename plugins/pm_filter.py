@@ -1673,7 +1673,7 @@ async def global_filters(client, message, text=False):
                 try:
                     if fileid == "None":
                         if btn == "[]":
-                            joelkb = await client.send_message(
+                            pirork = await client.send_message(
                                 group_id, 
                                 reply_text, 
                                 disable_web_page_preview=True,
@@ -1682,13 +1682,15 @@ async def global_filters(client, message, text=False):
                             await manual_filters(client, message)
                             try:
                                 if settings['auto_delete']:
-                                    await joelkb.delete()
+                                    await asyncio.sleep(300)
+                                    await pirork.delete()
                             except KeyError:
                                 grpid = await active_connection(str(message.from_user.id))
                                 await save_group_settings(grpid, 'auto_delete', True)
                                 settings = await get_settings(message.chat.id)
                                 if settings['auto_delete']:
-                                    await joelkb.delete()
+                                    await asyncio.sleep(300)
+                                    await pirork.delete()
                             
                         else:
                             button = eval(btn)
@@ -1702,12 +1704,14 @@ async def global_filters(client, message, text=False):
                             await manual_filters(client, message)
                             try:
                                 if settings['auto_delete']:
+                                    await asyncio.sleep(300)
                                     await hmm.delete()
                             except KeyError:
                                 grpid = await active_connection(str(message.from_user.id))
                                 await save_group_settings(grpid, 'auto_delete', True)
                                 settings = await get_settings(message.chat.id)
                                 if settings['auto_delete']:
+                                    await asyncio.sleep(300)
                                     await hmm.delete()
 
                     elif btn == "[]":
@@ -1720,12 +1724,14 @@ async def global_filters(client, message, text=False):
                         await manual_filters(client, message)
                         try:
                             if settings['auto_delete']:
+                                await asyncio.sleep(300)
                                 await oto.delete()
                         except KeyError:
                             grpid = await active_connection(str(message.from_user.id))
                             await save_group_settings(grpid, 'auto_delete', True)
                             settings = await get_settings(message.chat.id)
                             if settings['auto_delete']:
+                                await asyncio.sleep(300)
                                 await oto.delete()
 
                     else:
@@ -1739,12 +1745,14 @@ async def global_filters(client, message, text=False):
                         await manual_filters(client, message)
                         try:
                             if settings['auto_delete']:
+                                await asyncio.sleep(300)
                                 await dlt.delete()
                         except KeyError:
                             grpid = await active_connection(str(message.from_user.id))
                             await save_group_settings(grpid, 'auto_delete', True)
                             settings = await get_settings(message.chat.id)
                             if settings['auto_delete']:
+                                await asyncio.sleep(300)
                                 await dlt.delete()
 
                 except Exception as e:
