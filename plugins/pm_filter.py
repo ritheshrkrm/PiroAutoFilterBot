@@ -244,8 +244,8 @@ async def next_page(bot, query):
 
 @Client.on_callback_query(filters.regex(r"^spol"))
 async def advantage_spoll_choker(bot, query):
-    _, user, movie_ = query.data.split('#')
-    movies = SPELL_CHECK.get(query.message.reply_to_message.id)
+    _, key, user, movie_ = query.data.split('#')
+    movies = SPELL_CHECK.get(key)
     if not movies:
         return await query.answer(script.OLD_ALRT_TXT.format(query.from_user.first_name), show_alert=True)
     if int(user) != 0 and query.from_user.id != int(user):
@@ -1493,17 +1493,18 @@ async def advantage_spell_chok(client, msg): #modified spell check
         return
     movielist += [movie.get('title') for movie in movies]
     movielist += [f"{movie.get('title')} {movie.get('year')}" for movie in movies]
-    SPELL_CHECK[mv_id] = movielist
+    key = f"{msg.chat.id}-{msg.id}"
+    SPELL_CHECK[key] = movielist
     btn = [
         [
             InlineKeyboardButton(
                 text=movie_name.strip(),
-                callback_data=f"spol#{reqstr1}#{k}",
+                callback_data=f"spol#{key}#{reqstr1}#{k}",
             )
         ]
         for k, movie_name in enumerate(movielist)
     ]
-    btn.append([InlineKeyboardButton(text="Close", callback_data=f'spol#{reqstr1}#close_spellcheck')])
+    btn.append([InlineKeyboardButton(text="Close", callback_data=f'spol#{key}#{reqstr1}#close_spellcheck')])
     spell_check_del = await msg.reply_photo(
         photo=(SPELL_IMG),
         caption=(script.CUDNT_FND.format(mv_rqst)),
