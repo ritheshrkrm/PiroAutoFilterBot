@@ -1396,9 +1396,9 @@ async def auto_filter(client, msg, spoll=False):
             hmm = await message.reply_photo(photo=poster, caption=cap[:1024], reply_markup=InlineKeyboardMarkup(btn))
             try:
                 if settings['auto_delete']:
-                await asyncio.sleep(300)
-                await hmm.delete()
-                await message.delete()
+                    await asyncio.sleep(300)
+                    await hmm.delete()
+                    await message.delete()
             except KeyError:
                 grpid = await active_connection(str(message.from_user.id))
                 await save_group_settings(grpid, 'auto_delete', True)
