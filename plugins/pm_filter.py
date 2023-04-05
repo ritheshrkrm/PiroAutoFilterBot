@@ -1344,7 +1344,7 @@ async def auto_filter(client, msg, spoll=False):
             )
 
     btn.insert(0, [
-        InlineKeyboardButton("📤 𝖲𝖾𝗇𝖽 𝖠𝗅𝗅 𝖥𝗂𝗅𝖾𝗌 📤", callback_data=f"send_fall#files#{key}#{offset}")
+        InlineKeyboardButton("📤 𝖲𝖾𝗇𝖽 𝖠𝗅𝗅 𝖥𝗂𝗅𝖾𝗌 📤", callback_data=f"send_fall#{pre}#{message.chat.id}-{message.id}#{0}")
     ])
     btn.insert(0, [
         InlineKeyboardButton(f'🎬 {search} 🎬', 'rkbtn')
