@@ -1425,7 +1425,7 @@ async def auto_filter(client, msg, spoll=False):
                     if settings['auto_delete']:
                         await asyncio.sleep(600)
                         await hehe.delete()
-                        
+                        await message.delete()
                 except KeyError:
                     grpid = await active_connection(str(message.from_user.id))
                     await save_group_settings(grpid, 'auto_delete', True)
@@ -1433,6 +1433,7 @@ async def auto_filter(client, msg, spoll=False):
                     if settings['auto_delete']:
                         await asyncio.sleep(600)
                         await hehe.delete()
+                        await message.delete()
                         
         except (MediaEmpty, PhotoInvalidDimensions, WebpageMediaEmpty):
             if message.chat.id == SUPPORT_CHAT_ID:
@@ -1445,7 +1446,7 @@ async def auto_filter(client, msg, spoll=False):
                     if settings['auto_delete']:
                         await asyncio.sleep(600)
                         await hmm.delete()
-                        
+                        await message.delete()
                 except KeyError:
                     grpid = await active_connection(str(message.from_user.id))
                     await save_group_settings(grpid, 'auto_delete', True)
@@ -1453,6 +1454,7 @@ async def auto_filter(client, msg, spoll=False):
                     if settings['auto_delete']:
                         await asyncio.sleep(600)
                         await hmm.delete()
+                        await message.delete()
                         
         except Exception as e:
             if message.chat.id == SUPPORT_CHAT_ID:
@@ -1464,7 +1466,7 @@ async def auto_filter(client, msg, spoll=False):
                     if settings['auto_delete']:
                         await asyncio.sleep(600)
                         await fek.delete()
-                        
+                        await message.delete()
                 except KeyError:
                     grpid = await active_connection(str(message.from_user.id))
                     await save_group_settings(grpid, 'auto_delete', True)
@@ -1472,6 +1474,7 @@ async def auto_filter(client, msg, spoll=False):
                     if settings['auto_delete']:
                         await asyncio.sleep(600)
                         await fek.delete()
+                        await message.delete()
                         
     else:
         if message.chat.id == SUPPORT_CHAT_ID:
@@ -1482,7 +1485,7 @@ async def auto_filter(client, msg, spoll=False):
                 if settings['auto_delete']:
                     await asyncio.sleep(600)
                     await fuk.delete()
-                    
+                    await message.delete()
             except KeyError:
                 grpid = await active_connection(str(message.from_user.id))
                 await save_group_settings(grpid, 'auto_delete', True)
@@ -1490,10 +1493,9 @@ async def auto_filter(client, msg, spoll=False):
                 if settings['auto_delete']:
                     await asyncio.sleep(600)
                     await fuk.delete()
-                    
+                    await message.delete()
     if spoll:
         await msg.message.delete()
-
 
 async def advantage_spell_chok(client, msg):
     mv_id = msg.id
