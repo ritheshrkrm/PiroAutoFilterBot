@@ -231,7 +231,7 @@ async def next_page(bot, query):
                         InlineKeyboardButton("𝖭𝖤𝖷𝖳 ▶️", callback_data=f"next_{req}_{key}_{n_offset}")
                     ],
                 )
-    btn.insert(0, [
+    btn.insert(1, [
         InlineKeyboardButton("📤 𝖲𝖾𝗇𝖽 𝖠𝗅𝗅 𝖥𝗂𝗅𝖾𝗌 📤", callback_data=f"send_fall#files#{key}#{offset}")
     ])
     btn.insert(0, [
@@ -1343,7 +1343,7 @@ async def auto_filter(client, msg, spoll=False):
             ]
             )
 
-    btn.insert(0, [
+    btn.insert(1, [
         InlineKeyboardButton("📤 𝖲𝖾𝗇𝖽 𝖠𝗅𝗅 𝖥𝗂𝗅𝖾𝗌 📤", callback_data=f"send_fall#{pre}#{message.chat.id}-{message.id}#{0}")
     ])
     btn.insert(0, [
