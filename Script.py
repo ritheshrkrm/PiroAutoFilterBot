@@ -152,7 +152,7 @@ Cᴏᴍᴍᴀɴᴅs Aɴᴅ Usᴀɢᴇ:
 
     ALRT_TXT = """Hello {},
 This is Not your Request
-Request Yourself..."""
+Request Yourself...!!"""
 
     OLD_ALRT_TXT = """Hey {},
 You are using one of old message,
