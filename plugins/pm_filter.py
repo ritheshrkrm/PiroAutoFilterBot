@@ -586,10 +586,20 @@ async def cb_handler(client: Client, query: CallbackQuery):
         await query.answer()
 
     elif query.data.startswith("send_fall"):
-        _, req, key = query.data.split("#")
-        if int(req) not in [query.from_user.id, 0]:
-            return await query.answer(script.ALRT_TXT.format(query.from_user.first_name), show_alert=True)
-        await query.answer(url=f"https://t.me/{temp.U_NAME}?start=all_{key}")
+        temp_var, ident, offset = query.data.split("#")
+        search = temp.KEYWORD.get(query.from_user.id)
+        if not search:
+            await query.answer(script.OLD_ALRT_TXT.format(query.from_user.first_name),show_alert=True)
+            return
+        files, n_offset, total = await get_search_results(query.message.chat.id, search, offset=int(offset), filter=True)
+        temp.SEND_ALL_TEMP[query.from_user.id] = files
+        is_over = await send_all(client, query.from_user.id, files, ident)
+        if is_over == 'done':
+            return await query.answer(f"Hey {query.from_user.first_name}, All Files On This Channel Has Send To Your PM!", show_alert=True)
+        elif is_over == 'fsub':
+            return await query.answer("Please Join My Updates Channel to use this Bot!", show_alert=True)
+        else:
+            return await query.answer(f"Error: {is_over}", show_alert=True)
 
     elif query.data.startswith("killfilesdq"):
         ident, keyword = query.data.split("#")
