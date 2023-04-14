@@ -1346,7 +1346,7 @@ async def auto_filter(client, msg, spoll=False):
             [
                 InlineKeyboardButton(f'😇 Info', 'tips'),
                 InlineKeyboardButton(f'📝 𝖳𝗂𝗉𝗌', 'info')
-            ]
+            ])
             
                        
     req = message.from_user.id if message.from_user else 0
