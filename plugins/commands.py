@@ -118,6 +118,31 @@ async def start(client, message):
     except:
         file_id = data
         pre = ""
+        
+    if data.startswith("all"):
+        _, key = data.split("_", 1)
+        files = temp.FILES_IDS.get(key)
+        if not files:
+            return await message.reply('<b><i>No such file exist.</b></i>')
+        
+        for file in files:
+            title = file.file_name
+            size=get_size(file.file_size)
+            f_caption=file.caption
+            if CUSTOM_FILE_CAPTION:
+                try:
+                    f_caption=CUSTOM_FILE_CAPTION.format(file_name= '' if title is None else title, file_size='' if size is None else size, file_caption='' if f_caption is None else f_caption)
+                except:
+                    f_caption=f_caption
+            if f_caption is None:
+                f_caption = f"{files.file_name}"
+            await client.send_cached_media(
+                chat_id=message.from_user.id,
+                file_id=file.file_id,
+                caption=f_caption,
+                reply_markup=InlineKeyboardMarkup( [ [ InlineKeyboardButton('⚔️ 𝖯𝖨𝖱𝖮 𝖴𝖯𝖣𝖠𝖳𝖤𝖲 ⚔️', url="https://t.me/piroxbots") ] ] ),
+            )
+        
     if data.split("-", 1)[0] == "BATCH":
         sts = await message.reply("<b>Please wait...</b>")
         file_id = data.split("-", 1)[1]
