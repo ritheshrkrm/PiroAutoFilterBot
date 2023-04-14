@@ -231,11 +231,11 @@ async def next_page(bot, query):
                         InlineKeyboardButton("𝖭𝖤𝖷𝖳 ▶️", callback_data=f"next_{req}_{key}_{n_offset}")
                     ],
                 )
-    btn.insert(1, [
-        InlineKeyboardButton("📤 𝖲𝖾𝗇𝖽 𝖠𝗅𝗅 𝖥𝗂𝗅𝖾𝗌 📤", callback_data=f"send_fall#files#{offset}")
-    ])
     btn.insert(0, [
         InlineKeyboardButton(f'🎬 {search} 🎬', 'rkbtn')
+    ])
+    btn.insert(0, [
+        InlineKeyboardButton("📤 𝖲𝖾𝗇𝖽 𝖠𝗅𝗅 𝖥𝗂𝗅𝖾𝗌 📤", callback_data=f"send_fall#{pre}#{0}")
     ])
     try:
         await query.edit_message_reply_markup(
@@ -1357,11 +1357,11 @@ async def auto_filter(client, msg, spoll=False):
             ])
             
                       
-    btn.insert(1, [
-        InlineKeyboardButton("📤 𝖲𝖾𝗇𝖽 𝖠𝗅𝗅 𝖥𝗂𝗅𝖾𝗌 📤", callback_data=f"send_fall#{pre}#{0}")
-    ])
     btn.insert(0, [
         InlineKeyboardButton(f'🎬 {search} 🎬', 'rkbtn')
+    ])
+    btn.insert(0, [
+        InlineKeyboardButton("📤 𝖲𝖾𝗇𝖽 𝖠𝗅𝗅 𝖥𝗂𝗅𝖾𝗌 📤", callback_data=f"send_fall#{pre}#{0}")
     ])
     
     if offset != "":
