@@ -1347,19 +1347,19 @@ async def auto_filter(client, msg, spoll=False):
                 InlineKeyboardButton(f'😇 Info', 'tips'),
                 InlineKeyboardButton(f'📝 𝖳𝗂𝗉𝗌', 'info')
             ]
-            )
-
+            
+                       
+    req = message.from_user.id if message.from_user else 0
+    key = f"{message.chat.id}-{message.id}"
+    temp.FILES_IDS[key] = files
+    BUTTONS[key] = search
+                       
     btn.insert(1, [
         InlineKeyboardButton("📤 𝖲𝖾𝗇𝖽 𝖠𝗅𝗅 𝖥𝗂𝗅𝖾𝗌 📤", callback_data=f"send_all#{req}#{key}")
     ])
     btn.insert(0, [
         InlineKeyboardButton(f'🎬 {search} 🎬', 'rkbtn')
     ])
-
-    req = message.from_user.id if message.from_user else 0
-    key = f"{message.chat.id}-{message.id}"
-    temp.FILES_IDS[key] = files
-    BUTTONS[key] = search
     
     if offset != "":
         try:
