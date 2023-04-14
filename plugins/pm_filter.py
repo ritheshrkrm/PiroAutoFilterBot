@@ -233,7 +233,7 @@ async def next_page(bot, query):
                 )
     temp.FILES_IDS[key] = files
     btn.insert(1, [
-        InlineKeyboardButton("📤 𝖲𝖾𝗇𝖽 𝖠𝗅𝗅 𝖥𝗂𝗅𝖾𝗌 📤", callback_data=f"send_all#{req}#{key}")
+        InlineKeyboardButton("📤 𝖲𝖾𝗇𝖽 𝖠𝗅𝗅 𝖥𝗂𝗅𝖾𝗌 📤", callback_data=f"send_fall#files#{offset}")
     ])
     btn.insert(0, [
         InlineKeyboardButton(f'🎬 {search} 🎬', 'rkbtn')
@@ -1350,7 +1350,7 @@ async def auto_filter(client, msg, spoll=False):
             
                       
     btn.insert(1, [
-        InlineKeyboardButton("📤 𝖲𝖾𝗇𝖽 𝖠𝗅𝗅 𝖥𝗂𝗅𝖾𝗌 📤", callback_data=f"send_all#{req}#{key}")
+        InlineKeyboardButton("📤 𝖲𝖾𝗇𝖽 𝖠𝗅𝗅 𝖥𝗂𝗅𝖾𝗌 📤", callback_data=f"send_fall#{pre}#{0}")
     ])
     btn.insert(0, [
         InlineKeyboardButton(f'🎬 {search} 🎬', 'rkbtn')
