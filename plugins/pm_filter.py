@@ -585,11 +585,10 @@ async def cb_handler(client: Client, query: CallbackQuery):
     elif query.data == "pages":
         await query.answer()
 
-    elif query.data.startswith("send_all"):
+    elif query.data.startswith("send_fall"):
         _, req, key = query.data.split("#")
         if int(req) not in [query.from_user.id, 0]:
             return await query.answer(script.ALRT_TXT.format(query.from_user.first_name), show_alert=True)
-        
         await query.answer(url=f"https://t.me/{temp.U_NAME}?start=all_{key}")
 
     elif query.data.startswith("killfilesdq"):
