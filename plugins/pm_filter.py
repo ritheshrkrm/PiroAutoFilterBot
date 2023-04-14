@@ -231,7 +231,6 @@ async def next_page(bot, query):
                         InlineKeyboardButton("𝖭𝖤𝖷𝖳 ▶️", callback_data=f"next_{req}_{key}_{n_offset}")
                     ],
                 )
-    temp.FILES_IDS[key] = files
     btn.insert(1, [
         InlineKeyboardButton("📤 𝖲𝖾𝗇𝖽 𝖠𝗅𝗅 𝖥𝗂𝗅𝖾𝗌 📤", callback_data=f"send_fall#files#{offset}")
     ])
