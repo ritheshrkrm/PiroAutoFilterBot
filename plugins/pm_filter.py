@@ -1348,12 +1348,7 @@ async def auto_filter(client, msg, spoll=False):
                 InlineKeyboardButton(f'📝 𝖳𝗂𝗉𝗌', 'info')
             ])
             
-                       
-    req = message.from_user.id if message.from_user else 0
-    key = f"{message.chat.id}-{message.id}"
-    temp.FILES_IDS[key] = files
-    BUTTONS[key] = search
-                       
+                      
     btn.insert(1, [
         InlineKeyboardButton("📤 𝖲𝖾𝗇𝖽 𝖠𝗅𝗅 𝖥𝗂𝗅𝖾𝗌 📤", callback_data=f"send_all#{req}#{key}")
     ])
@@ -1362,6 +1357,9 @@ async def auto_filter(client, msg, spoll=False):
     ])
     
     if offset != "":
+        key = f"{message.chat.id}-{message.id}"
+        BUTTONS[key] = search
+        req = message.from_user.id if message.from_user else 0
         try:
             settings = await get_settings(message.chat.id)
             if settings['max_btn']:
