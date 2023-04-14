@@ -1356,12 +1356,12 @@ async def auto_filter(client, msg, spoll=False):
         InlineKeyboardButton(f'🎬 {search} 🎬', 'rkbtn')
     ])
 
+    req = message.from_user.id if message.from_user else 0
     key = f"{message.chat.id}-{message.id}"
     temp.FILES_IDS[key] = files
+    BUTTONS[key] = search
     
     if offset != "":
-        BUTTONS[key] = search
-        req = message.from_user.id if message.from_user else 0
         try:
             settings = await get_settings(message.chat.id)
             if settings['max_btn']:
