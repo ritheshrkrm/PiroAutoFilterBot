@@ -120,7 +120,7 @@ async def start(client, message):
         pre = ""
         
     if data.startswith("all"):
-        _, key = data.split("_", 1)
+        _, key, pre = data.split("_", 2)
         files = temp.FILES_IDS.get(key)
         if not files:
             return await message.reply('<b><i>No such file exist.</b></i>')
@@ -140,6 +140,7 @@ async def start(client, message):
                 chat_id=message.from_user.id,
                 file_id=file.file_id,
                 caption=f_caption,
+                protect_content=True if pre == 'filep' else False,
                 reply_markup=InlineKeyboardMarkup( [ [ InlineKeyboardButton('⚔️ 𝖯𝖨𝖱𝖮 𝖴𝖯𝖣𝖠𝖳𝖤𝖲 ⚔️', url="https://t.me/piroxbots") ] ] ),
             )
         
