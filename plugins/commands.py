@@ -77,7 +77,7 @@ async def start(client, message):
             ]
         ]
 
-        if message.command[1] != "subscribe":
+        if message.command[1] != "subscribe" or message.command[1] != "send_all":
             try:
                 kk, file_id = message.command[1].split("_", 1)
                 pre = 'checksubp' if kk == 'filep' else 'checksub' 
@@ -118,6 +118,33 @@ async def start(client, message):
     except:
         file_id = data
         pre = ""
+        
+    if data.startswith("all"):
+        _, key, pre = data.split("_", 2)
+        files = temp.FILES_IDS.get(key)
+        if not files:
+            return await message.reply('<b><i>No such file exist.</b></i>')
+        
+        for file in files:
+            title = file.file_name
+            size=get_size(file.file_size)
+            f_caption=file.caption
+            if CUSTOM_FILE_CAPTION:
+                try:
+                    f_caption=CUSTOM_FILE_CAPTION.format(file_name= '' if title is None else title, file_size='' if size is None else size, file_caption='' if f_caption is None else f_caption)
+                except:
+                    f_caption=f_caption
+            if f_caption is None:
+                f_caption = f"{file.file_name}"
+            await client.send_cached_media(
+                chat_id=message.from_user.id,
+                file_id=file.file_id,
+                caption=f_caption,
+                protect_content=True if pre == 'filep' else False,
+                reply_markup=InlineKeyboardMarkup( [ [ InlineKeyboardButton('⚔️ 𝖯𝖨𝖱𝖮 𝖴𝖯𝖣𝖠𝖳𝖤𝖲 ⚔️', url="https://t.me/piroxbots") ] ] ),
+            )
+        return
+    
     if data.split("-", 1)[0] == "BATCH":
         sts = await message.reply("<b>Please wait...</b>")
         file_id = data.split("-", 1)[1]
