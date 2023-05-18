@@ -152,7 +152,7 @@ Cᴏᴍᴍᴀɴᴅs Aɴᴅ Usᴀɢᴇ:
 
     ALRT_TXT = """Hello {},
 This is Not your Request
-Request Yourself..."""
+Request Yourself...!!"""
 
     OLD_ALRT_TXT = """Hey {},
 You are using one of old message,
@@ -248,6 +248,12 @@ Aᴠᴀɪʟᴀʙʟᴇ ᴄᴏᴍᴍᴀɴᴅs:
 ⏰ 𝖳𝗂𝗆𝖾 : <code>{}</code>
 🌐 𝖳𝗂𝗆𝖾𝗓𝗈𝗇𝖾 : <code>Asia/Kolkata</code>
 🛠️ 𝖡𝗎𝗂𝗅𝖽 𝖲𝗍𝖺𝗍𝗎𝗌 : <code>𝗏2.7.3 [ 𝖲𝗍𝖺𝖻𝗅𝖾 ]</code></b>"""
+
+    RESTART_GC_TXT = """
+<b>𝖨'𝗆  𝖭𝗈𝗍 𝖣𝗈𝗇𝖾 𝖸𝖾𝗍 !</b>
+
+<i>𝖡𝗈𝗍 𝖱𝖾𝗌𝗍𝖺𝗋𝗍𝖾𝖽 ✅</i>"""
+
 
     LOGO = """
 PIRO BOTS"""
