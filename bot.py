@@ -17,6 +17,8 @@ from typing import Union, Optional, AsyncGenerator
 from pyrogram import types
 from Script import script 
 from datetime import date, datetime 
+import pytz
+
 
 class Bot(Client):
 
