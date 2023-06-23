@@ -2,7 +2,7 @@ import os
 import asyncio
 from pyrogram import Client, filters
 from pyrogram.types import Message, User, ChatJoinRequest
-from info import CHAT_ID, TEXT, APPROVED 
+from info import CHAT_ID, TEXT, APPROVED, API_HASH, API_ID, BOT_TOKEN
 
 
 ritheshpiro17=Client(
