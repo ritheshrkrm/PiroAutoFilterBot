@@ -5,6 +5,13 @@ from pyrogram.types import Message, User, ChatJoinRequest
 from info import CHAT_ID, TEXT, APPROVED 
 
 
+ritheshpiro17=Client(
+    "Auto Approved",
+    bot_token = environ["BOT_TOKEN"],
+    api_id = int(environ["API_ID"]),
+    api_hash = environ["API_HASH"]
+)
+
 @ritheshpiro17.on_chat_join_request((filters.group | filters.channel) & filters.chat(CHAT_ID) if CHAT_ID else (filters.group | filters.channel))
 async def autoapprove(client: ritheshpiro17, message: ChatJoinRequest):
     chat=message.chat # Chat
