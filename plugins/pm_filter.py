@@ -258,7 +258,7 @@ async def next_page(bot, query):
 @Client.on_callback_query(filters.regex(r"^spol"))
 async def advantage_spoll_choker(bot, query):
     _, user, movie_ = query.data.split('#')
-    movies = temp.SPELL_CHECK.get(str(query.message.reply_to_message.id))
+    movies = temp.SPELL_CHECK.get(query.message.reply_to_message.id)
     if not movies:
         return await query.answer(script.OLD_ALRT_TXT.format(query.from_user.first_name), show_alert=True)
     if int(user) != 0 and query.from_user.id != int(user):
@@ -1533,7 +1533,7 @@ async def advantage_spell_chok(client, msg):
         return
     movielist += [movie.get('title') for movie in movies]
     movielist += [f"{movie.get('title')} {movie.get('year')}" for movie in movies]
-    SPELL_CHECK[mv_id] = movielist
+    temp.SPELL_CHECK[mv_id] = movielist
     btn = [
         [
             InlineKeyboardButton(
