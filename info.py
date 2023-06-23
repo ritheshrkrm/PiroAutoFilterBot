@@ -1,14 +1,6 @@
 import re
-import os
 from os import environ
-from pyrogram import enums
-from Script import script
-
-import asyncio
-import json
-from collections import defaultdict
-from typing import Dict, List, Union
-from pyrogram import Client
+from Script import script 
 
 id_pattern = re.compile(r'^.\d+$')
 def is_enabled(value, default):
@@ -20,7 +12,6 @@ def is_enabled(value, default):
         return default
 
 # Bot information
-PORT = environ.get("PORT", "8000")
 SESSION = environ.get('SESSION', 'Media_search')
 API_ID = int(environ.get('API_ID', ''))
 API_HASH = environ.get('API_HASH', '')
@@ -54,12 +45,6 @@ NO_RESULTS_MSG = bool(environ.get("NO_RESULTS_MSG", False))
 DATABASE_URI = environ.get('DATABASE_URI', "")
 DATABASE_NAME = environ.get('DATABASE_NAME', "PIRO")
 COLLECTION_NAME = environ.get('COLLECTION_NAME', 'FILES')
-
-#Auto approve 
-#In private group or channel must enable request admin approval 
-CHAT_ID = [int(ritheshpiro17) for ritheshpiro17 in environ.get("CHAT_ID", "0").split()]
-TEXT = environ.get("APPROVED_WELCOME_TEXT", "𝖧𝖾𝗅𝗅𝗈 {mention}\n𝖶𝖾𝗅𝖼𝗈𝗆𝖾 𝖳𝗈 {title}\n\n𝖸𝗈𝗎𝗋 𝖱𝖾𝗊𝗎𝖾𝗌𝗍 𝖧𝖺𝗌 𝖡𝖾𝖾𝗇 𝖠𝗉𝗉𝗋𝗈𝗏𝖾𝖽...!!!")
-APPROVED = environ.get("APPROVED_WELCOME", "on").lower()
 
 # Others
 DELETE_CHANNELS = [int(dch) if id_pattern.search(dch) else dch for dch in environ.get('DELETE_CHANNELS', '0').split()]
