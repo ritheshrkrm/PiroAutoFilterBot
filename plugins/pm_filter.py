@@ -582,17 +582,11 @@ async def cb_handler(client: Client, query: CallbackQuery):
         await query.answer()
 
     elif query.data.startswith("send_all"):
-        ident, pre, key = query.data.split("#")
-        user = query.message.reply_to_message.from_user.id
-        if int(user) != 0 and query.from_user.id != int(user):
-            return await query.answer(f"Hello {query.from_user.first_name},\nDon't Click Other Results!", show_alert=True)
+        _, req, key, pre = query.data.split("#")
+        if int(req) not in [query.from_user.id, 0]:
+            return await query.answer(script.ALRT_TXT.format(query.from_user.first_name), show_alert=True)
         
-        files = temp.FILES.get(key)
-        if not files:
-            await query.answer(f"Hello {query.from_user.first_name},\nSend New Request Again!", show_alert=True)
-            return
-        
-        await query.answer(url=f"https://t.me/{temp.U_NAME}?start=all_{query.message.chat.id}_{pre}_{key}")
+        await query.answer(url=f"https://t.me/{temp.U_NAME}?start=all_{key}_{pre}")
         
 
     elif query.data.startswith("killfilesdq"):
