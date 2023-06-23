@@ -41,6 +41,7 @@ class temp(object):
     B_NAME = None
     SETTINGS = {}
     FILES_IDS = {}
+    SPELL_CHECK = {}
 
 async def is_subscribed(bot, query):
     try:
