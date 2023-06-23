@@ -2,7 +2,7 @@ import os
 import asyncio
 from pyrogram import Client, filters
 from pyrogram.types import Message, User, ChatJoinRequest
-from info import TEXT, APPROVED 
+from info import CHAT_ID, TEXT, APPROVED 
 
 
 @ritheshpiro17.on_chat_join_request((filters.group | filters.channel) & filters.chat(CHAT_ID) if CHAT_ID else (filters.group | filters.channel))
