@@ -36,7 +36,7 @@ async def ping(_, message):
     time_taken_s = (end_t - start_t) * 1000
     await rm.edit(f"𝖯𝗂𝗇𝗀!\n{time_taken_s:.3f} ms")
 
-@Client.on_message(filters.private & filters.command("status") & filters.user(ADMINS))          
+@Client.on_message(filters.command("status"))          
 async def stats(bot, update):
     currentTime = time.strftime("%Hh%Mm%Ss", time.gmtime(time.time() - BOT_START_TIME))
     total, used, free = shutil.disk_usage(".")
