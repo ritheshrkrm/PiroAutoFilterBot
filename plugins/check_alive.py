@@ -36,7 +36,7 @@ async def ping(_, message):
     time_taken_s = (end_t - start_t) * 1000
     await rm.edit(f"𝖯𝗂𝗇𝗀!\n{time_taken_s:.3f} ms")
 
-@Client.on_message(filters.private & filters.command("status") & filters.user(ADMINS))          
+@Client.on_message(filters.command("status"))          
 async def stats(bot, update):
     currentTime = time.strftime("%Hh%Mm%Ss", time.gmtime(time.time() - BOT_START_TIME))
     total, used, free = shutil.disk_usage(".")
@@ -47,7 +47,7 @@ async def stats(bot, update):
     ram_usage = psutil.virtual_memory().percent
     disk_usage = psutil.disk_usage('/').percent
 
-    ms_g = f"""<b>𝖡𝗈𝗍 𝖲𝗍𝖺𝗍𝗎𝗌</b>
+    ms_g = f"""<b>⚙️ 𝖡𝗈𝗍 𝖲𝗍𝖺𝗍𝗎𝗌</b>
 
 𝖴𝗉𝗍𝗂𝗆𝖾: <code>{currentTime}</code>
 𝖢𝖯𝖴 𝖴𝗌𝖺𝗀𝖾: <code>{cpu_usage}%</code>
