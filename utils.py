@@ -29,7 +29,7 @@ SMART_OPEN = '“'
 SMART_CLOSE = '”'
 START_CHAR = ('\'', '"', SMART_OPEN)
 
-# temp db for banned 
+# # temp db for banned 
 class temp(object):
     BANNED_USERS = []
     BANNED_CHATS = []
@@ -37,10 +37,12 @@ class temp(object):
     CURRENT=int(os.environ.get("SKIP", 2))
     CANCEL = False
     MELCOW = {}
+    FILES = {}
     U_NAME = None
     B_NAME = None
     SETTINGS = {}
     FILES_IDS = {}
+    SPELL_CHECK = {}
 
 async def is_subscribed(bot, query):
     try:
