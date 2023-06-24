@@ -11,7 +11,7 @@ async def verupikkals(bot, message):
     users = await db.get_all_users()
     b_msg = message.reply_to_message
     sts = await message.reply_text(
-        text='Broadcasting your messages...'
+        text='🔊 Broadcasting your messages...'
     )
     start_time = time.time()
     total_users = await db.total_users_count()
@@ -44,7 +44,7 @@ async def broadcast_group(bot, message):
     groups = await db.get_all_chats()
     b_msg = message.reply_to_message
     sts = await message.reply_text(
-        text='Broadcasting your messages To Groups...'
+        text='🔊 Broadcasting your messages To Groups...'
     )
     start_time = time.time()
     total_groups = await db.total_chat_count()
