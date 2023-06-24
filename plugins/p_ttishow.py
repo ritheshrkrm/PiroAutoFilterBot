@@ -69,10 +69,6 @@ async def save_group(bot, message):
             await asyncio.sleep(600)
             await (temp.MELCOW['welcome']).delete()
                 
-               
-
-
-
 @Client.on_message(filters.command('leave') & filters.user(ADMINS))
 async def leave_a_chat(bot, message):
     if len(message.command) == 1:
@@ -136,7 +132,6 @@ async def disable_chat(bot, message):
     except Exception as e:
         await message.reply(f"Error - {e}")
 
-
 @Client.on_message(filters.command('enable') & filters.user(ADMINS))
 async def re_enable_chat(bot, message):
     if len(message.command) == 1:
@@ -154,7 +149,6 @@ async def re_enable_chat(bot, message):
     await db.re_enable_chat(int(chat_))
     temp.BANNED_CHATS.remove(int(chat_))
     await message.reply("Chat Successfully re-enabled")
-
 
 @Client.on_message(filters.command('stats') & filters.incoming)
 async def get_ststs(bot, message):
@@ -248,8 +242,6 @@ async def unban_a_user(bot, message):
         await db.remove_ban(k.id)
         temp.BANNED_USERS.remove(k.id)
         await message.reply(f"Successfully unbanned {k.mention}")
-
-
     
 @Client.on_message(filters.command('users') & filters.user(ADMINS))
 async def list_users(bot, message):

@@ -10,3 +10,4 @@ git+https://github.com/ritheshrkrm/cinemagoer
 datetime
 pytz
 aiohttp
+psutil==5.9.4
