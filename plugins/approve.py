@@ -7,8 +7,8 @@ from utils import temp
 import random
 
 
-@Client.on_chat_join_request()
-async def accept_request(client, r):
+@Client.on_chat_join_request((filters.group | filters.channel))
+async def accept_request(client, r, message: ChatJoinRequest):
     chat=message.chat 
     user=message.from_user 
 
