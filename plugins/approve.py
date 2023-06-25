@@ -11,8 +11,8 @@ async def accept_request(client, r):
 
     buttons = [
         [
-            InlineKeyboardButton("❤️‍🔥 𝖡𝖫𝖠𝖲𝖳𝖤𝖱 𝖧𝖴𝖡 ❤️‍🔥", url="https://https://t.me/blaster_hub"),
-            InlineKeyboardButton("⚡𝖴𝗉𝖽𝖺𝗍𝖾𝗌 ⚡", url="https://t.me/piroxbots")
+            InlineKeyboardButton("❤️‍🔥 𝖡𝖫𝖠𝖲𝖳𝖤𝖱 𝖧𝖴𝖡 ❤️‍🔥", url=f"https://https://t.me/blaster_hub"),
+            InlineKeyboardButton("⚡𝖴𝗉𝖽𝖺𝗍𝖾𝗌 ⚡", url=f"https://t.me/piroxbots")
         ]]
     
     await client.send_photo(
