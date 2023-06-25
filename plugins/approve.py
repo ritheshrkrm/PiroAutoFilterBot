@@ -1,4 +1,4 @@
-from pyrogram import Client, enums
+from pyrogram import Client, filters, enums
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 from Script import script
 from info import REQ_PICS
