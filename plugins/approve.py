@@ -1,5 +1,4 @@
-from pyrogram import Client, enums, filters
-from pyrogram.types import Message, User, ChatJoinRequest
+from pyrogram import Client, enums
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 from Script import script
 from info import REQ_PICS
@@ -7,10 +6,8 @@ from utils import temp
 import random
 
 
-@Client.on_chat_join_request((filters.group | filters.channel))
-async def accept_request(client, r, message: ChatJoinRequest):
-    chat=message.chat 
-    user=message.from_user 
+@Client.on_chat_join_request()
+async def accept_request(client, r):
 
     buttons = [
         [
@@ -21,7 +18,7 @@ async def accept_request(client, r, message: ChatJoinRequest):
     await client.send_photo(
         r.from_user.id,
         random.choice(REQ_PICS),
-        script.REQ_TXT.format(r.from_user.mention, chat.title),
+        script.REQ_TXT.format(r.from_user.mention, temp.U_NAME, temp.B_NAME),
         enums.ParseMode.HTML,
         reply_markup=InlineKeyboardMarkup(buttons))
 
