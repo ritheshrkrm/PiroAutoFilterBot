@@ -38,11 +38,11 @@ async def save_group(bot, message):
             return
         buttons = [[
             InlineKeyboardButton('🧩 𝖲𝖴𝖯𝖯𝖮𝖱𝖳 🧩', url=f"https://t.me/{SUPPORT_CHAT}"),
-            InlineKeyboardButton('⚡𝖴𝗉𝖽𝖺𝗍𝖾𝗌 ⚡', url="https://t.me/piroxbots")
+            InlineKeyboardButton('⚡𝖴𝗉𝖽𝖺𝗍𝖾𝗌 ⚡', url=f"https://t.me/piroxbots")
         ]]
         reply_markup=InlineKeyboardMarkup(buttons)
         await message.reply_text(
-            text=f"<b>Thankyou For Adding Me In {message.chat.title} ❣️\n\nIf you have any questions & doubts about using me contact Support.</b>",
+            text=f"<b>Thankyou For Adding Me In {message.chat.title} ❣️\n\nIf you have any questions & doubts about using me contact 𝖲𝖴𝖯𝖯𝖮𝖱𝖳 GROUP.</b>",
             reply_markup=reply_markup)
     else:
         settings = await get_settings(message.chat.id)
@@ -59,16 +59,20 @@ async def save_group(bot, message):
                                                  reply_markup=InlineKeyboardMarkup(
         [[
             InlineKeyboardButton('🧩 𝖲𝖴𝖯𝖯𝖮𝖱𝖳 🧩', url=f"https://t.me/{SUPPORT_CHAT}"),
-            InlineKeyboardButton('⚡𝖴𝗉𝖽𝖺𝗍𝖾𝗌 ⚡', url="https://t.me/piroxbots")
+            InlineKeyboardButton('⚡𝖴𝗉𝖽𝖺𝗍𝖾𝗌 ⚡', url=f"https://t.me/piroxbots")
         ]]
                                                  ),
                                                  parse_mode=enums.ParseMode.HTML
                 )
                 
         if settings["auto_delete"]:
-            await asyncio.sleep(600)
+            await asyncio.sleep(300)
             await (temp.MELCOW['welcome']).delete()
                 
+               
+
+
+
 @Client.on_message(filters.command('leave') & filters.user(ADMINS))
 async def leave_a_chat(bot, message):
     if len(message.command) == 1:
@@ -81,7 +85,7 @@ async def leave_a_chat(bot, message):
     try:
         buttons = [[
             InlineKeyboardButton('🧩 𝖲𝖴𝖯𝖯𝖮𝖱𝖳 🧩', url=f"https://t.me/{SUPPORT_CHAT}"),
-            InlineKeyboardButton('⚡𝖴𝗉𝖽𝖺𝗍𝖾𝗌 ⚡', url="https://t.me/piroxbots")
+            InlineKeyboardButton('⚡𝖴𝗉𝖽𝖺𝗍𝖾𝗌 ⚡', url=f"https://t.me/piroxbots")
         ]]
         reply_markup=InlineKeyboardMarkup(buttons)
         await bot.send_message(
@@ -121,7 +125,7 @@ async def disable_chat(bot, message):
     try:
         buttons = [[
             InlineKeyboardButton('🧩 𝖲𝖴𝖯𝖯𝖮𝖱𝖳 🧩', url=f"https://t.me/{SUPPORT_CHAT}"),
-            InlineKeyboardButton('⚡𝖴𝗉𝖽𝖺𝗍𝖾𝗌 ⚡', url="https://t.me/piroxbots")
+            InlineKeyboardButton('⚡𝖴𝗉𝖽𝖺𝗍𝖾𝗌 ⚡', url=f"https://t.me/piroxbots")
         ]]
         reply_markup=InlineKeyboardMarkup(buttons)
         await bot.send_message(
@@ -131,6 +135,7 @@ async def disable_chat(bot, message):
         await bot.leave_chat(chat_)
     except Exception as e:
         await message.reply(f"Error - {e}")
+
 
 @Client.on_message(filters.command('enable') & filters.user(ADMINS))
 async def re_enable_chat(bot, message):
@@ -149,6 +154,7 @@ async def re_enable_chat(bot, message):
     await db.re_enable_chat(int(chat_))
     temp.BANNED_CHATS.remove(int(chat_))
     await message.reply("Chat Successfully re-enabled")
+
 
 @Client.on_message(filters.command('stats') & filters.incoming)
 async def get_ststs(bot, message):
@@ -242,6 +248,8 @@ async def unban_a_user(bot, message):
         await db.remove_ban(k.id)
         temp.BANNED_USERS.remove(k.id)
         await message.reply(f"Successfully unbanned {k.mention}")
+
+
     
 @Client.on_message(filters.command('users') & filters.user(ADMINS))
 async def list_users(bot, message):
