@@ -17,7 +17,7 @@ async def accept_request(client, r):
     
     await client.send_photo(
         r.from_user.id,
-        random.choice(PICS),
+        random.choice(REQ_PICS),
         script.REQ_TXT.format(r.from_user.mention, chat.title),
         enums.ParseMode.HTML,
         reply_markup=InlineKeyboardMarkup(buttons))
